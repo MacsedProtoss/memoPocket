@@ -19,6 +19,7 @@
 		4B57D862235228C4002DD038 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B57D860235228C4002DD038 /* LaunchScreen.storyboard */; };
 		4B57D86D235228C4002DD038 /* memoPocketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B57D86C235228C4002DD038 /* memoPocketTests.swift */; };
 		4B57D878235228C4002DD038 /* memoPocketUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B57D877235228C4002DD038 /* memoPocketUITests.swift */; };
+		4B6FAAF623545D1F00F2B92B /* CustomTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FAAF523545D1F00F2B92B /* CustomTabbarController.swift */; };
 		4B9BE498235355AA00C077C4 /* CustomTabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9BE497235355AA00C077C4 /* CustomTabbarView.swift */; };
 		4BB29400235235A4009A2BDE /* MemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB293FF235235A4009A2BDE /* MemoViewController.swift */; };
 		4BB29402235235B4009A2BDE /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB29401235235B4009A2BDE /* MemoCell.swift */; };
@@ -69,6 +70,7 @@
 		4B57D873235228C4002DD038 /* memoPocketUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = memoPocketUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B57D877235228C4002DD038 /* memoPocketUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memoPocketUITests.swift; sourceTree = "<group>"; };
 		4B57D879235228C4002DD038 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4B6FAAF523545D1F00F2B92B /* CustomTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabbarController.swift; sourceTree = "<group>"; };
 		4B9BE497235355AA00C077C4 /* CustomTabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabbarView.swift; sourceTree = "<group>"; };
 		4BB293FF235235A4009A2BDE /* MemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoViewController.swift; sourceTree = "<group>"; };
 		4BB29401235235B4009A2BDE /* MemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				4B9BE497235355AA00C077C4 /* CustomTabbarView.swift */,
+				4B6FAAF523545D1F00F2B92B /* CustomTabbarController.swift */,
 			);
 			path = CustomTabbar;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				4B9BE498235355AA00C077C4 /* CustomTabbarView.swift in Sources */,
 				4BB29400235235A4009A2BDE /* MemoViewController.swift in Sources */,
 				4BB2940B235236AC009A2BDE /* CalendarView.swift in Sources */,
+				4B6FAAF623545D1F00F2B92B /* CustomTabbarController.swift in Sources */,
 				4BB29411235237BA009A2BDE /* DetailView.swift in Sources */,
 				4BB2940E235236EC009A2BDE /* DateCell.swift in Sources */,
 				4BB29414235237F0009A2BDE /* NewViewController.swift in Sources */,

@@ -17,13 +17,14 @@ class CustomTabbarView : UIView {
     
     var numOfSection : Int = 0
     
-    private let sizeBict : Dictionary<String,CGSize> = ["memoBtn":CGSize(width: 24, height: 36),"remindBtn":CGSize(width: 23, height: 42),"infoBtn":CGSize(width: 23, height: 38)]
+    var sizeDict : Dictionary<String,CGSize> = ["memoBtn":CGSize(width: 24, height: 36),"remindBtn":CGSize(width: 23, height: 42),"infoBtn":CGSize(width: 23, height: 38)]
     
-    private let btnList = ["memoBtn","remindBtn","infoBtn"]
+    var btnList = ["memoBtn","remindBtn","infoBtn"]
     
     var seletedIndex = 0
     
-    private var sections : [UIButton] = []
+    var sections : [UIButton] = []
+    
     private var backgroundView = UIView()
     
     override init(frame: CGRect) {
@@ -31,10 +32,13 @@ class CustomTabbarView : UIView {
          
     }
     
-    convenience init (num : Int){
+    convenience init (tabNum : Int,btnList : [String],btnSize:Dictionary<String,CGSize>,selectedIndex:Int){
         let rect = CGRect(x: 0, y: 0, width: screensize.width, height: 85)
         self.init(frame: rect)
-        self.numOfSection = num
+        self.numOfSection = tabNum
+        self.sizeDict = btnSize
+        self.btnList = btnList
+        self.seletedIndex = selectedIndex
         backgroundView = getBackground()
         for index in 1...numOfSection{
             let btn = getButton(imageName: btnList[index - 1], index: index)
@@ -59,8 +63,8 @@ class CustomTabbarView : UIView {
         
         self.addSubview(view)
         view.snp.makeConstraints{(make) in
-            make.leading.equalToSuperview().offset(11)
-            make.trailing.equalToSuperview().offset(-11)
+            make.leading.equalToSuperview().offset(22)
+            make.trailing.equalToSuperview().offset(-22)
             make.centerY.equalToSuperview()
             make.height.equalTo(66)
             
@@ -71,9 +75,11 @@ class CustomTabbarView : UIView {
     
     private func getButton(imageName:String,index:Int) -> UIButton {
         let btn = UIButton()
+        btn.tag = index
         btn.bounds.size = CGSize(width: screensize.width/CGFloat(numOfSection), height: 85)
-        btn.setImage(UIImage(named: imageName)?.reSetSize(Size: sizeBict[imageName]!).withRenderingMode(.alwaysOriginal), for: .normal)
-        btn.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: (sizeBict[imageName]!.height - sizeBict[btnList[0]]!.height)/2, right: 0)
+        let setImageName = index==seletedIndex ? btnList[index - 1]+"Selected" : btnList[index - 1]
+        btn.setImage(UIImage(named: setImageName)?.reSetSize(Size: sizeDict[imageName]!).withRenderingMode(.alwaysOriginal), for: .normal)
+        btn.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: (sizeDict[imageName]!.height - sizeDict[btnList[0]]!.height)/2, right: 0)
         self.addSubview(btn)
         btn.snp.makeConstraints{(make) in
             make.top.bottom.equalToSuperview()
@@ -82,5 +88,35 @@ class CustomTabbarView : UIView {
         }
         return btn
     }
+    
+    func dissmiss(){
+        let animation = CABasicAnimation(keyPath: #keyPath(CALayer.position))
+        animation.autoreverses = false
+        animation.fromValue = self.layer.position
+        animation.fillMode = .forwards
+        animation.isRemovedOnCompletion = false
+        animation.toValue = CGPoint(x: self.layer.position.x, y: self.layer.position.y + 120)
+        animation.duration = 0.3
+        animation.timingFunction = CAMediaTimingFunction(name: .easeOut)
+        self.isUserInteractionEnabled = false
+        self.layer.add(animation, forKey: "basic")
+        
+    }
+    
+    
+    func show(){
+        let animation = CABasicAnimation(keyPath: #keyPath(CALayer.position))
+        animation.autoreverses = false
+        animation.fillMode = .forwards
+        animation.isRemovedOnCompletion = false
+        animation.fromValue = CGPoint(x: self.layer.position.x, y: self.layer.position.y + 120)
+        animation.toValue = self.layer.position
+        animation.duration = 0.3
+        animation.timingFunction = CAMediaTimingFunction(name: .easeOut)
+        self.isUserInteractionEnabled = true
+        self.layer.add(animation, forKey: "basic")
+        
+    }
+    
     
 }

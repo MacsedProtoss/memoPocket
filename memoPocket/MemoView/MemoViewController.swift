@@ -8,10 +8,21 @@
 
 import Foundation
 import UIKit
+
+enum scrollDirection {
+    case up
+    case down
+}
+
 class memoViewController:UIViewController,UITableViewDelegate,UITableViewDataSource{
+    
+    var scrollStatus : scrollDirection = .up
+    
     var titles = [["10","12","13"],["16","17","18"]]
     var months = ["9","14"]
     let screensize = UIScreen.main.bounds
+    
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 75/812*screensize.height
     }
@@ -54,6 +65,57 @@ class memoViewController:UIViewController,UITableViewDelegate,UITableViewDataSou
         view.addSubview(images)
         return view
     }
+    
+//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+//        let status = !scrollView.isTracking && !scrollView.isDragging && !scrollView.isDecelerating
+//        if status {
+//            let recognizer = scrollView.panGestureRecognizer
+//            let offsetY = recognizer.translation(in: scrollView).y
+//            if offsetY > 0 && scrollStatus != .up{
+//                print("Decelerating up")
+//                scrollStatus = .up
+//                rootTabbarVC!.tabbarVC.tabbar.show()
+//                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+//                    rootTabbarVC!.showConstraints()
+//                }
+//            }else if offsetY < 0 && scrollStatus != .down{
+//                print("Decelerating down")
+//                scrollStatus = .down
+//                rootTabbarVC!.tabbarVC.tabbar.dissmiss()
+//                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+//                    rootTabbarVC!.dissmissConstraints()
+//                }
+//            }
+//        }
+//    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let status = scrollView.isTracking && !scrollView.isDragging && !scrollView.isDecelerating
+        if status {
+            let recognizer = scrollView.panGestureRecognizer
+            let offsetY = recognizer.translation(in: scrollView).y
+            if offsetY > 0{
+                print("Dragging up")
+                scrollStatus = .up
+                rootTabbarVC!.showConstraints()
+                rootTabbarVC!.tabbarVC.tabbar.show()
+                
+            }else{
+                print("Dragging down")
+                scrollStatus = .down
+                rootTabbarVC!.tabbarVC.tabbar.dissmiss()
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.4) {
+                    rootTabbarVC!.dissmissConstraints()
+                }
+            }
+        }
+    }
+    
+    func scrollDidEnd(direction : scrollDirection){
+        
+    }
+    
+    
     func getColor(hexValue: UInt64) -> UIColor {
     let red = CGFloat(Double((hexValue & 0xFF0000)>>16)/255.0)
     let green = CGFloat(Double((hexValue & 0x00FF00)>>8)/255.0)
@@ -78,12 +140,16 @@ class memoViewController:UIViewController,UITableViewDelegate,UITableViewDataSou
         memoView.isEditing = false
         memoView.register(memoCell.self, forCellReuseIdentifier: "memoCell")
         memoView.sectionHeaderHeight = 43/812*screensize.height
+        
+        
+        
         let back = UIImageView(image:UIImage(named: "图层 2")?.reSetSize(Size: CGSize(width: screensize.width, height: 170/812*screensize.height)))
         back.frame = CGRect(x: 0, y: 641/812*screensize.height, width: screensize.width, height: 170/812*screensize.height)
         
         self.view.addSubview(memoView)
         self.view.addSubview(back)
         somethingnotHappen()
+        
         
     }
     func somethingnotHappen(){

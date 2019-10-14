@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 
+var rootTabbarVC : tabbarVC? = nil
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -21,6 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         window = UIWindow(windowScene: scene as! UIWindowScene)
         let tabbarviewcontroller = tabbarVC()
+        rootTabbarVC = tabbarviewcontroller
         window?.rootViewController = tabbarviewcontroller
         window?.makeKeyAndVisible()
         
