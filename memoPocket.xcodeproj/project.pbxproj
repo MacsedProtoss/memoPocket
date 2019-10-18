@@ -37,6 +37,7 @@
 		4BC5339A235887FB00CD6D54 /* MPMemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC53399235887FB00CD6D54 /* MPMemoView.swift */; };
 		4BC5339C23588C0E00CD6D54 /* MPRemindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC5339B23588C0E00CD6D54 /* MPRemindView.swift */; };
 		4BC5339E2358A4FB00CD6D54 /* MPRemindVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC5339D2358A4FB00CD6D54 /* MPRemindVC.swift */; };
+		4BFFB76B2359CC3D00092290 /* MPCustomSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFFB76A2359CC3D00092290 /* MPCustomSwitchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		4BC53399235887FB00CD6D54 /* MPMemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPMemoView.swift; sourceTree = "<group>"; };
 		4BC5339B23588C0E00CD6D54 /* MPRemindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPRemindView.swift; sourceTree = "<group>"; };
 		4BC5339D2358A4FB00CD6D54 /* MPRemindVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPRemindVC.swift; sourceTree = "<group>"; };
+		4BFFB76A2359CC3D00092290 /* MPCustomSwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCustomSwitchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,9 +285,18 @@
 		4BFFB7682359840500092290 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				4BFFB7692359CC1800092290 /* CustomSwitch */,
 				4B9BE4962353558E00C077C4 /* CustomTabbar */,
 			);
 			path = Foundation;
+			sourceTree = "<group>";
+		};
+		4BFFB7692359CC1800092290 /* CustomSwitch */ = {
+			isa = PBXGroup;
+			children = (
+				4BFFB76A2359CC3D00092290 /* MPCustomSwitchView.swift */,
+			);
+			path = CustomSwitch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -436,6 +447,7 @@
 				4B211CB923523173002DF827 /* Extension.swift in Sources */,
 				4BC5339A235887FB00CD6D54 /* MPMemoView.swift in Sources */,
 				4B9BE498235355AA00C077C4 /* MPCustomTabbarView.swift in Sources */,
+				4BFFB76B2359CC3D00092290 /* MPCustomSwitchView.swift in Sources */,
 				4BB29400235235A4009A2BDE /* MPMemoViewController.swift in Sources */,
 				4BB2940B235236AC009A2BDE /* MPCalendarView.swift in Sources */,
 				4B6FAAF623545D1F00F2B92B /* MPCustomTabbarController.swift in Sources */,
