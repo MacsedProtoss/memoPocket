@@ -29,7 +29,7 @@ class remindCell:UITableViewCell{
         imageofcell = UIImageView(frame: CGRect(x: screensize.width*5/375, y: 0, width: screensize.width*365/375, height: screensize.height * 102/812))
        
         self.addSubview(imageofcell!)
-        self.backgroundColor = getColor(hexValue: 0xEDEFF4)
+        self.backgroundColor = UIColor.clear
     }
     
 }

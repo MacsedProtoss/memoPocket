@@ -29,10 +29,12 @@ class RemindView : UIView {
         timeLabel = getTimeLabel()
         dateLabel = getDateLabel()
         calendarBtn = getCalendarBtn()
+        bottomView = getBottomView()
         mainTable = getMainTable()
         addBtn = getAddBtn()
-        bottomView = getBottomView()
-                
+        
+           
+        
         timeTimer = Timer(timeInterval: 1, repeats: true, block: {_ in
             let date = Date()
             let formatter = DateFormatter()
@@ -40,7 +42,8 @@ class RemindView : UIView {
             self.timeLabel.text = formatter.string(from: date)
             print("timer alive")
        })
-        timeTimer?.fire()
+        
+        RunLoop.current.add(timeTimer!, forMode: .common)
         
     }
     
@@ -49,6 +52,9 @@ class RemindView : UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
+    
     
     func getCalendarBtn() -> UIButton {
         let btn = UIButton(type: .system)
@@ -74,7 +80,7 @@ class RemindView : UIView {
             make.bottom.equalToSuperview().offset(-170)
         }
         btn.layer.shadowColor = UIColor(red: 0.78, green: 0.81, blue: 0.88, alpha: 1).cgColor
-        btn.layer.shadowOffset = CGSize(width: 0, height: 4.5)
+        btn.layer.shadowOffset = CGSize(width: 1.5, height: 2.0)
         btn.layer.shadowOpacity = 1
         btn.layer.shadowRadius = 3
         return btn
@@ -83,7 +89,7 @@ class RemindView : UIView {
     
     func getMainTable() -> UITableView {
         let table = UITableView()
-        table.backgroundColor = getColor(hexValue: 0xEDEFF4)
+        table.backgroundColor = UIColor.clear
         table.separatorStyle = .none
         table.allowsSelection = false
         self.addSubview(table)
@@ -154,5 +160,7 @@ class RemindView : UIView {
         return view
         
     }
+    
+    
     
 }

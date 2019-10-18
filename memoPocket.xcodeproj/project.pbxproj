@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		4B211CAE23522BF3002DF827 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4B211CAD23522BF3002DF827 /* SnapKit */; };
 		4B211CB123522F28002DF827 /* JTAppleCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 4B211CB023522F28002DF827 /* JTAppleCalendar */; };
-		4B211CB723523135002DF827 /* MainTabbarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B211CB623523135002DF827 /* MainTabbarVC.swift */; };
+		4B211CB723523135002DF827 /* MPMainTabbarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B211CB623523135002DF827 /* MPMainTabbarVC.swift */; };
 		4B211CB923523173002DF827 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B211CB823523173002DF827 /* Extension.swift */; };
 		4B57D853235228C0002DD038 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B57D852235228C0002DD038 /* AppDelegate.swift */; };
 		4B57D855235228C0002DD038 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B57D854235228C0002DD038 /* SceneDelegate.swift */; };
@@ -19,24 +19,24 @@
 		4B57D862235228C4002DD038 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B57D860235228C4002DD038 /* LaunchScreen.storyboard */; };
 		4B57D86D235228C4002DD038 /* memoPocketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B57D86C235228C4002DD038 /* memoPocketTests.swift */; };
 		4B57D878235228C4002DD038 /* memoPocketUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B57D877235228C4002DD038 /* memoPocketUITests.swift */; };
-		4B6FAAF623545D1F00F2B92B /* CustomTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FAAF523545D1F00F2B92B /* CustomTabbarController.swift */; };
-		4B9BE498235355AA00C077C4 /* CustomTabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9BE497235355AA00C077C4 /* CustomTabbarView.swift */; };
-		4BB29400235235A4009A2BDE /* MemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB293FF235235A4009A2BDE /* MemoViewController.swift */; };
-		4BB29402235235B4009A2BDE /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB29401235235B4009A2BDE /* MemoCell.swift */; };
-		4BB2940723523656009A2BDE /* RemindViewControllerBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB2940623523656009A2BDE /* RemindViewControllerBackup.swift */; };
-		4BB2940923523663009A2BDE /* RemindCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB2940823523663009A2BDE /* RemindCell.swift */; };
-		4BB2940B235236AC009A2BDE /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB2940A235236AC009A2BDE /* CalendarView.swift */; };
-		4BB2940E235236EC009A2BDE /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB2940D235236EC009A2BDE /* DateCell.swift */; };
-		4BB29411235237BA009A2BDE /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB29410235237BA009A2BDE /* DetailView.swift */; };
-		4BB29414235237F0009A2BDE /* NewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB29413235237F0009A2BDE /* NewViewController.swift */; };
-		4BB294162352380F009A2BDE /* TimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB294152352380F009A2BDE /* TimeCell.swift */; };
-		4BB294182352381F009A2BDE /* RoundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB294172352381F009A2BDE /* RoundCell.swift */; };
-		4BB2941A23523826009A2BDE /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB2941923523826009A2BDE /* ButtonCell.swift */; };
-		4BB2941D23523870009A2BDE /* SegamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB2941C23523870009A2BDE /* SegamentViewController.swift */; };
-		4BB2941F23523888009A2BDE /* SegamentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB2941E23523888009A2BDE /* SegamentCell.swift */; };
-		4BC5339A235887FB00CD6D54 /* MemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC53399235887FB00CD6D54 /* MemoView.swift */; };
-		4BC5339C23588C0E00CD6D54 /* RemindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC5339B23588C0E00CD6D54 /* RemindView.swift */; };
-		4BC5339E2358A4FB00CD6D54 /* RemindVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC5339D2358A4FB00CD6D54 /* RemindVC.swift */; };
+		4B6FAAF623545D1F00F2B92B /* MPCustomTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FAAF523545D1F00F2B92B /* MPCustomTabbarController.swift */; };
+		4B9BE498235355AA00C077C4 /* MPCustomTabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9BE497235355AA00C077C4 /* MPCustomTabbarView.swift */; };
+		4BB29400235235A4009A2BDE /* MPMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB293FF235235A4009A2BDE /* MPMemoViewController.swift */; };
+		4BB29402235235B4009A2BDE /* MPMemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB29401235235B4009A2BDE /* MPMemoCell.swift */; };
+		4BB2940723523656009A2BDE /* MPRemindViewControllerBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB2940623523656009A2BDE /* MPRemindViewControllerBackup.swift */; };
+		4BB2940923523663009A2BDE /* MPRemindCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB2940823523663009A2BDE /* MPRemindCell.swift */; };
+		4BB2940B235236AC009A2BDE /* MPCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB2940A235236AC009A2BDE /* MPCalendarView.swift */; };
+		4BB2940E235236EC009A2BDE /* MPDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB2940D235236EC009A2BDE /* MPDateCell.swift */; };
+		4BB29411235237BA009A2BDE /* MPDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB29410235237BA009A2BDE /* MPDetailView.swift */; };
+		4BB29414235237F0009A2BDE /* MPNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB29413235237F0009A2BDE /* MPNewViewController.swift */; };
+		4BB294162352380F009A2BDE /* MPTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB294152352380F009A2BDE /* MPTimeCell.swift */; };
+		4BB294182352381F009A2BDE /* MPRoundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB294172352381F009A2BDE /* MPRoundCell.swift */; };
+		4BB2941A23523826009A2BDE /* MPButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB2941923523826009A2BDE /* MPButtonCell.swift */; };
+		4BB2941D23523870009A2BDE /* MPSegamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB2941C23523870009A2BDE /* MPSegamentViewController.swift */; };
+		4BB2941F23523888009A2BDE /* MPSegamentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB2941E23523888009A2BDE /* MPSegamentCell.swift */; };
+		4BC5339A235887FB00CD6D54 /* MPMemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC53399235887FB00CD6D54 /* MPMemoView.swift */; };
+		4BC5339C23588C0E00CD6D54 /* MPRemindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC5339B23588C0E00CD6D54 /* MPRemindView.swift */; };
+		4BC5339E2358A4FB00CD6D54 /* MPRemindVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC5339D2358A4FB00CD6D54 /* MPRemindVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4B211CB623523135002DF827 /* MainTabbarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarVC.swift; sourceTree = "<group>"; };
+		4B211CB623523135002DF827 /* MPMainTabbarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPMainTabbarVC.swift; sourceTree = "<group>"; };
 		4B211CB823523173002DF827 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		4B57D84F235228C0002DD038 /* memoPocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = memoPocket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B57D852235228C0002DD038 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -73,24 +73,24 @@
 		4B57D873235228C4002DD038 /* memoPocketUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = memoPocketUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B57D877235228C4002DD038 /* memoPocketUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memoPocketUITests.swift; sourceTree = "<group>"; };
 		4B57D879235228C4002DD038 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4B6FAAF523545D1F00F2B92B /* CustomTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabbarController.swift; sourceTree = "<group>"; };
-		4B9BE497235355AA00C077C4 /* CustomTabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabbarView.swift; sourceTree = "<group>"; };
-		4BB293FF235235A4009A2BDE /* MemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoViewController.swift; sourceTree = "<group>"; };
-		4BB29401235235B4009A2BDE /* MemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; };
-		4BB2940623523656009A2BDE /* RemindViewControllerBackup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindViewControllerBackup.swift; sourceTree = "<group>"; };
-		4BB2940823523663009A2BDE /* RemindCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindCell.swift; sourceTree = "<group>"; };
-		4BB2940A235236AC009A2BDE /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
-		4BB2940D235236EC009A2BDE /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
-		4BB29410235237BA009A2BDE /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
-		4BB29413235237F0009A2BDE /* NewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewViewController.swift; sourceTree = "<group>"; };
-		4BB294152352380F009A2BDE /* TimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCell.swift; sourceTree = "<group>"; };
-		4BB294172352381F009A2BDE /* RoundCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCell.swift; sourceTree = "<group>"; };
-		4BB2941923523826009A2BDE /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
-		4BB2941C23523870009A2BDE /* SegamentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegamentViewController.swift; sourceTree = "<group>"; };
-		4BB2941E23523888009A2BDE /* SegamentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegamentCell.swift; sourceTree = "<group>"; };
-		4BC53399235887FB00CD6D54 /* MemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoView.swift; sourceTree = "<group>"; };
-		4BC5339B23588C0E00CD6D54 /* RemindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindView.swift; sourceTree = "<group>"; };
-		4BC5339D2358A4FB00CD6D54 /* RemindVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindVC.swift; sourceTree = "<group>"; };
+		4B6FAAF523545D1F00F2B92B /* MPCustomTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCustomTabbarController.swift; sourceTree = "<group>"; };
+		4B9BE497235355AA00C077C4 /* MPCustomTabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCustomTabbarView.swift; sourceTree = "<group>"; };
+		4BB293FF235235A4009A2BDE /* MPMemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPMemoViewController.swift; sourceTree = "<group>"; };
+		4BB29401235235B4009A2BDE /* MPMemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPMemoCell.swift; sourceTree = "<group>"; };
+		4BB2940623523656009A2BDE /* MPRemindViewControllerBackup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPRemindViewControllerBackup.swift; sourceTree = "<group>"; };
+		4BB2940823523663009A2BDE /* MPRemindCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPRemindCell.swift; sourceTree = "<group>"; };
+		4BB2940A235236AC009A2BDE /* MPCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCalendarView.swift; sourceTree = "<group>"; };
+		4BB2940D235236EC009A2BDE /* MPDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDateCell.swift; sourceTree = "<group>"; };
+		4BB29410235237BA009A2BDE /* MPDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPDetailView.swift; sourceTree = "<group>"; };
+		4BB29413235237F0009A2BDE /* MPNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPNewViewController.swift; sourceTree = "<group>"; };
+		4BB294152352380F009A2BDE /* MPTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPTimeCell.swift; sourceTree = "<group>"; };
+		4BB294172352381F009A2BDE /* MPRoundCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPRoundCell.swift; sourceTree = "<group>"; };
+		4BB2941923523826009A2BDE /* MPButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPButtonCell.swift; sourceTree = "<group>"; };
+		4BB2941C23523870009A2BDE /* MPSegamentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPSegamentViewController.swift; sourceTree = "<group>"; };
+		4BB2941E23523888009A2BDE /* MPSegamentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPSegamentCell.swift; sourceTree = "<group>"; };
+		4BC53399235887FB00CD6D54 /* MPMemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPMemoView.swift; sourceTree = "<group>"; };
+		4BC5339B23588C0E00CD6D54 /* MPRemindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPRemindView.swift; sourceTree = "<group>"; };
+		4BC5339D2358A4FB00CD6D54 /* MPRemindVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPRemindVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,7 +134,7 @@
 		4B211CB323523071002DF827 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				4B211CB623523135002DF827 /* MainTabbarVC.swift */,
+				4B211CB623523135002DF827 /* MPMainTabbarVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -176,7 +176,7 @@
 		4B57D851235228C0002DD038 /* memoPocket */ = {
 			isa = PBXGroup;
 			children = (
-				4B9BE4962353558E00C077C4 /* CustomTabbar */,
+				4BFFB7682359840500092290 /* Foundation */,
 				4BB2941B2352385E009A2BDE /* SegamentView */,
 				4BB29412235237DA009A2BDE /* NewView */,
 				4BB2940F235237AC009A2BDE /* DetailView */,
@@ -216,8 +216,8 @@
 		4B9BE4962353558E00C077C4 /* CustomTabbar */ = {
 			isa = PBXGroup;
 			children = (
-				4B9BE497235355AA00C077C4 /* CustomTabbarView.swift */,
-				4B6FAAF523545D1F00F2B92B /* CustomTabbarController.swift */,
+				4B9BE497235355AA00C077C4 /* MPCustomTabbarView.swift */,
+				4B6FAAF523545D1F00F2B92B /* MPCustomTabbarController.swift */,
 			);
 			path = CustomTabbar;
 			sourceTree = "<group>";
@@ -225,9 +225,9 @@
 		4BB293FE23523575009A2BDE /* MemoView */ = {
 			isa = PBXGroup;
 			children = (
-				4BB293FF235235A4009A2BDE /* MemoViewController.swift */,
-				4BC53399235887FB00CD6D54 /* MemoView.swift */,
-				4BB29401235235B4009A2BDE /* MemoCell.swift */,
+				4BB293FF235235A4009A2BDE /* MPMemoViewController.swift */,
+				4BC53399235887FB00CD6D54 /* MPMemoView.swift */,
+				4BB29401235235B4009A2BDE /* MPMemoCell.swift */,
 			);
 			path = MemoView;
 			sourceTree = "<group>";
@@ -235,10 +235,10 @@
 		4BB2940523523640009A2BDE /* RemindView */ = {
 			isa = PBXGroup;
 			children = (
-				4BB2940623523656009A2BDE /* RemindViewControllerBackup.swift */,
-				4BC5339D2358A4FB00CD6D54 /* RemindVC.swift */,
-				4BC5339B23588C0E00CD6D54 /* RemindView.swift */,
-				4BB2940823523663009A2BDE /* RemindCell.swift */,
+				4BB2940623523656009A2BDE /* MPRemindViewControllerBackup.swift */,
+				4BC5339D2358A4FB00CD6D54 /* MPRemindVC.swift */,
+				4BC5339B23588C0E00CD6D54 /* MPRemindView.swift */,
+				4BB2940823523663009A2BDE /* MPRemindCell.swift */,
 			);
 			path = RemindView;
 			sourceTree = "<group>";
@@ -246,8 +246,8 @@
 		4BB2940C235236C5009A2BDE /* CalendarView */ = {
 			isa = PBXGroup;
 			children = (
-				4BB2940A235236AC009A2BDE /* CalendarView.swift */,
-				4BB2940D235236EC009A2BDE /* DateCell.swift */,
+				4BB2940A235236AC009A2BDE /* MPCalendarView.swift */,
+				4BB2940D235236EC009A2BDE /* MPDateCell.swift */,
 			);
 			path = CalendarView;
 			sourceTree = "<group>";
@@ -255,7 +255,7 @@
 		4BB2940F235237AC009A2BDE /* DetailView */ = {
 			isa = PBXGroup;
 			children = (
-				4BB29410235237BA009A2BDE /* DetailView.swift */,
+				4BB29410235237BA009A2BDE /* MPDetailView.swift */,
 			);
 			path = DetailView;
 			sourceTree = "<group>";
@@ -263,10 +263,10 @@
 		4BB29412235237DA009A2BDE /* NewView */ = {
 			isa = PBXGroup;
 			children = (
-				4BB29413235237F0009A2BDE /* NewViewController.swift */,
-				4BB294152352380F009A2BDE /* TimeCell.swift */,
-				4BB294172352381F009A2BDE /* RoundCell.swift */,
-				4BB2941923523826009A2BDE /* ButtonCell.swift */,
+				4BB29413235237F0009A2BDE /* MPNewViewController.swift */,
+				4BB294152352380F009A2BDE /* MPTimeCell.swift */,
+				4BB294172352381F009A2BDE /* MPRoundCell.swift */,
+				4BB2941923523826009A2BDE /* MPButtonCell.swift */,
 			);
 			path = NewView;
 			sourceTree = "<group>";
@@ -274,10 +274,18 @@
 		4BB2941B2352385E009A2BDE /* SegamentView */ = {
 			isa = PBXGroup;
 			children = (
-				4BB2941C23523870009A2BDE /* SegamentViewController.swift */,
-				4BB2941E23523888009A2BDE /* SegamentCell.swift */,
+				4BB2941C23523870009A2BDE /* MPSegamentViewController.swift */,
+				4BB2941E23523888009A2BDE /* MPSegamentCell.swift */,
 			);
 			path = SegamentView;
+			sourceTree = "<group>";
+		};
+		4BFFB7682359840500092290 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				4B9BE4962353558E00C077C4 /* CustomTabbar */,
+			);
+			path = Foundation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -419,29 +427,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4BB2940923523663009A2BDE /* RemindCell.swift in Sources */,
-				4B211CB723523135002DF827 /* MainTabbarVC.swift in Sources */,
-				4BB294182352381F009A2BDE /* RoundCell.swift in Sources */,
-				4BB294162352380F009A2BDE /* TimeCell.swift in Sources */,
-				4BB2941F23523888009A2BDE /* SegamentCell.swift in Sources */,
+				4BB2940923523663009A2BDE /* MPRemindCell.swift in Sources */,
+				4B211CB723523135002DF827 /* MPMainTabbarVC.swift in Sources */,
+				4BB294182352381F009A2BDE /* MPRoundCell.swift in Sources */,
+				4BB294162352380F009A2BDE /* MPTimeCell.swift in Sources */,
+				4BB2941F23523888009A2BDE /* MPSegamentCell.swift in Sources */,
 				4B57D853235228C0002DD038 /* AppDelegate.swift in Sources */,
 				4B211CB923523173002DF827 /* Extension.swift in Sources */,
-				4BC5339A235887FB00CD6D54 /* MemoView.swift in Sources */,
-				4B9BE498235355AA00C077C4 /* CustomTabbarView.swift in Sources */,
-				4BB29400235235A4009A2BDE /* MemoViewController.swift in Sources */,
-				4BB2940B235236AC009A2BDE /* CalendarView.swift in Sources */,
-				4B6FAAF623545D1F00F2B92B /* CustomTabbarController.swift in Sources */,
-				4BC5339E2358A4FB00CD6D54 /* RemindVC.swift in Sources */,
-				4BB29411235237BA009A2BDE /* DetailView.swift in Sources */,
-				4BC5339C23588C0E00CD6D54 /* RemindView.swift in Sources */,
-				4BB2940E235236EC009A2BDE /* DateCell.swift in Sources */,
-				4BB29414235237F0009A2BDE /* NewViewController.swift in Sources */,
-				4BB2941D23523870009A2BDE /* SegamentViewController.swift in Sources */,
+				4BC5339A235887FB00CD6D54 /* MPMemoView.swift in Sources */,
+				4B9BE498235355AA00C077C4 /* MPCustomTabbarView.swift in Sources */,
+				4BB29400235235A4009A2BDE /* MPMemoViewController.swift in Sources */,
+				4BB2940B235236AC009A2BDE /* MPCalendarView.swift in Sources */,
+				4B6FAAF623545D1F00F2B92B /* MPCustomTabbarController.swift in Sources */,
+				4BC5339E2358A4FB00CD6D54 /* MPRemindVC.swift in Sources */,
+				4BB29411235237BA009A2BDE /* MPDetailView.swift in Sources */,
+				4BC5339C23588C0E00CD6D54 /* MPRemindView.swift in Sources */,
+				4BB2940E235236EC009A2BDE /* MPDateCell.swift in Sources */,
+				4BB29414235237F0009A2BDE /* MPNewViewController.swift in Sources */,
+				4BB2941D23523870009A2BDE /* MPSegamentViewController.swift in Sources */,
 				4B57D855235228C0002DD038 /* SceneDelegate.swift in Sources */,
-				4BB2941A23523826009A2BDE /* ButtonCell.swift in Sources */,
+				4BB2941A23523826009A2BDE /* MPButtonCell.swift in Sources */,
 				4B57D85D235228C0002DD038 /* memoPocket.xcdatamodeld in Sources */,
-				4BB2940723523656009A2BDE /* RemindViewControllerBackup.swift in Sources */,
-				4BB29402235235B4009A2BDE /* MemoCell.swift in Sources */,
+				4BB2940723523656009A2BDE /* MPRemindViewControllerBackup.swift in Sources */,
+				4BB29402235235B4009A2BDE /* MPMemoCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
