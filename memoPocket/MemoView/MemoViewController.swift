@@ -67,28 +67,23 @@ class memoViewController:UIViewController,UITableViewDelegate,UITableViewDataSou
         return view
     }
     
-//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-//        let status = !scrollView.isTracking && !scrollView.isDragging && !scrollView.isDecelerating
-//        if status {
-//            let recognizer = scrollView.panGestureRecognizer
-//            let offsetY = recognizer.translation(in: scrollView).y
-//            if offsetY > 0 && scrollStatus != .up{
-//                print("Decelerating up")
-//                scrollStatus = .up
-//                rootTabbarVC!.tabbarVC.tabbar.show()
-//                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-//                    rootTabbarVC!.showConstraints()
-//                }
-//            }else if offsetY < 0 && scrollStatus != .down{
-//                print("Decelerating down")
-//                scrollStatus = .down
-//                rootTabbarVC!.tabbarVC.tabbar.dissmiss()
-//                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-//                    rootTabbarVC!.dissmissConstraints()
-//                }
-//            }
-//        }
-//    }
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        print("offset is \(scrollView.contentOffset)")
+        if (scrollView.contentOffset == CGPoint(x: 0.0, y: 0.0)){
+            while scrollStatus == .processing {
+                
+            }
+            if scrollStatus == .down {
+                scrollStatus = .processing
+                rootTabbarVC!.showConstraints()
+                rootTabbarVC!.tabbarVC.tabbar.show()
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.4) {
+                    self.scrollStatus = .up
+                    print("after drag back up done")
+                }
+            }
+        }
+    }
     
 //    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
 //        let status = scrollView.isTracking && !scrollView.isDragging && !scrollView.isDecelerating
@@ -140,9 +135,9 @@ class memoViewController:UIViewController,UITableViewDelegate,UITableViewDataSou
                 print("Dragging down done")
             }
         }
-    }
-    
-    func scrollDidEnd(direction : scrollDirection){
+        
+        
+//        print("offset is \(scrollView.contentOffset)")
         
     }
     

@@ -37,7 +37,7 @@ class tabbarVC : UITabBarController{
         view.backgroundColor = UIColor.red
         let memoVC = UINavigationController(rootViewController: memoViewController())
         let infoVC = UINavigationController()
-        let remindVC = UINavigationController(rootViewController: remindViewController())
+        let remindVC = UINavigationController(rootViewController: RemindVC())
         tabbarVC = CustomTabbarVC(tabNum: 3, btnList: btnList, btnSize: sizeDict,selectedIndex:2)
         
         for index in 1...tabbarVC.tabbar.numOfSection{

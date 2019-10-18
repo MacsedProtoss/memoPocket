@@ -23,7 +23,7 @@
 		4B9BE498235355AA00C077C4 /* CustomTabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9BE497235355AA00C077C4 /* CustomTabbarView.swift */; };
 		4BB29400235235A4009A2BDE /* MemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB293FF235235A4009A2BDE /* MemoViewController.swift */; };
 		4BB29402235235B4009A2BDE /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB29401235235B4009A2BDE /* MemoCell.swift */; };
-		4BB2940723523656009A2BDE /* RemindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB2940623523656009A2BDE /* RemindViewController.swift */; };
+		4BB2940723523656009A2BDE /* RemindViewControllerBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB2940623523656009A2BDE /* RemindViewControllerBackup.swift */; };
 		4BB2940923523663009A2BDE /* RemindCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB2940823523663009A2BDE /* RemindCell.swift */; };
 		4BB2940B235236AC009A2BDE /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB2940A235236AC009A2BDE /* CalendarView.swift */; };
 		4BB2940E235236EC009A2BDE /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB2940D235236EC009A2BDE /* DateCell.swift */; };
@@ -34,6 +34,9 @@
 		4BB2941A23523826009A2BDE /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB2941923523826009A2BDE /* ButtonCell.swift */; };
 		4BB2941D23523870009A2BDE /* SegamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB2941C23523870009A2BDE /* SegamentViewController.swift */; };
 		4BB2941F23523888009A2BDE /* SegamentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB2941E23523888009A2BDE /* SegamentCell.swift */; };
+		4BC5339A235887FB00CD6D54 /* MemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC53399235887FB00CD6D54 /* MemoView.swift */; };
+		4BC5339C23588C0E00CD6D54 /* RemindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC5339B23588C0E00CD6D54 /* RemindView.swift */; };
+		4BC5339E2358A4FB00CD6D54 /* RemindVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC5339D2358A4FB00CD6D54 /* RemindVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,7 +77,7 @@
 		4B9BE497235355AA00C077C4 /* CustomTabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabbarView.swift; sourceTree = "<group>"; };
 		4BB293FF235235A4009A2BDE /* MemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoViewController.swift; sourceTree = "<group>"; };
 		4BB29401235235B4009A2BDE /* MemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; };
-		4BB2940623523656009A2BDE /* RemindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindViewController.swift; sourceTree = "<group>"; };
+		4BB2940623523656009A2BDE /* RemindViewControllerBackup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindViewControllerBackup.swift; sourceTree = "<group>"; };
 		4BB2940823523663009A2BDE /* RemindCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindCell.swift; sourceTree = "<group>"; };
 		4BB2940A235236AC009A2BDE /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		4BB2940D235236EC009A2BDE /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
@@ -85,6 +88,9 @@
 		4BB2941923523826009A2BDE /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		4BB2941C23523870009A2BDE /* SegamentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegamentViewController.swift; sourceTree = "<group>"; };
 		4BB2941E23523888009A2BDE /* SegamentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegamentCell.swift; sourceTree = "<group>"; };
+		4BC53399235887FB00CD6D54 /* MemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoView.swift; sourceTree = "<group>"; };
+		4BC5339B23588C0E00CD6D54 /* RemindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindView.swift; sourceTree = "<group>"; };
+		4BC5339D2358A4FB00CD6D54 /* RemindVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				4BB293FF235235A4009A2BDE /* MemoViewController.swift */,
+				4BC53399235887FB00CD6D54 /* MemoView.swift */,
 				4BB29401235235B4009A2BDE /* MemoCell.swift */,
 			);
 			path = MemoView;
@@ -228,7 +235,9 @@
 		4BB2940523523640009A2BDE /* RemindView */ = {
 			isa = PBXGroup;
 			children = (
-				4BB2940623523656009A2BDE /* RemindViewController.swift */,
+				4BB2940623523656009A2BDE /* RemindViewControllerBackup.swift */,
+				4BC5339D2358A4FB00CD6D54 /* RemindVC.swift */,
+				4BC5339B23588C0E00CD6D54 /* RemindView.swift */,
 				4BB2940823523663009A2BDE /* RemindCell.swift */,
 			);
 			path = RemindView;
@@ -417,18 +426,21 @@
 				4BB2941F23523888009A2BDE /* SegamentCell.swift in Sources */,
 				4B57D853235228C0002DD038 /* AppDelegate.swift in Sources */,
 				4B211CB923523173002DF827 /* Extension.swift in Sources */,
+				4BC5339A235887FB00CD6D54 /* MemoView.swift in Sources */,
 				4B9BE498235355AA00C077C4 /* CustomTabbarView.swift in Sources */,
 				4BB29400235235A4009A2BDE /* MemoViewController.swift in Sources */,
 				4BB2940B235236AC009A2BDE /* CalendarView.swift in Sources */,
 				4B6FAAF623545D1F00F2B92B /* CustomTabbarController.swift in Sources */,
+				4BC5339E2358A4FB00CD6D54 /* RemindVC.swift in Sources */,
 				4BB29411235237BA009A2BDE /* DetailView.swift in Sources */,
+				4BC5339C23588C0E00CD6D54 /* RemindView.swift in Sources */,
 				4BB2940E235236EC009A2BDE /* DateCell.swift in Sources */,
 				4BB29414235237F0009A2BDE /* NewViewController.swift in Sources */,
 				4BB2941D23523870009A2BDE /* SegamentViewController.swift in Sources */,
 				4B57D855235228C0002DD038 /* SceneDelegate.swift in Sources */,
 				4BB2941A23523826009A2BDE /* ButtonCell.swift in Sources */,
 				4B57D85D235228C0002DD038 /* memoPocket.xcdatamodeld in Sources */,
-				4BB2940723523656009A2BDE /* RemindViewController.swift in Sources */,
+				4BB2940723523656009A2BDE /* RemindViewControllerBackup.swift in Sources */,
 				4BB29402235235B4009A2BDE /* MemoCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

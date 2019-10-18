@@ -21,3 +21,10 @@ extension UIImage{
 }
 
 
+func getColor(hexValue: UInt64) -> UIColor {
+    let red = CGFloat(Double((hexValue & 0xFF0000)>>16)/255.0)
+    let green = CGFloat(Double((hexValue & 0x00FF00)>>8)/255.0)
+    let blue = CGFloat(Double(hexValue & 0x0000FF)/255.0)
+    let color = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
+    return color
+}
