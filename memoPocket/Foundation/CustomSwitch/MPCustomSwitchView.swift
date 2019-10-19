@@ -156,11 +156,11 @@ class CustomSwitcherView : UIView {
         scaleAnimation.fromValue = 1
         scaleAnimation.toValue = 1.125
         scaleAnimation.timingFunction = CAMediaTimingFunction(name: .easeOut)
-        scaleAnimation.duration = 0.3
+        scaleAnimation.duration = 0.1
         
         sections[index].layer.add(scaleAnimation, forKey: "basic")
         
-        UIView.transition(with: sections[index].titleLabel!, duration: 0.3, options: .transitionCrossDissolve, animations: {
+        UIView.transition(with: sections[index].titleLabel!, duration: 0.2, options: .transitionCrossDissolve, animations: {
             self.sections[index].titleLabel!.textColor = getColor(hexValue:0x49506C)
         },
         completion: nil)
@@ -179,11 +179,11 @@ class CustomSwitcherView : UIView {
         scaleAnimation.fromValue = 1
         scaleAnimation.toValue = 16/18
         scaleAnimation.timingFunction = CAMediaTimingFunction(name: .easeOut)
-        scaleAnimation.duration = 0.3
+        scaleAnimation.duration = 0.1
         
         sections[index].layer.add(scaleAnimation, forKey: "basic")
         
-        UIView.transition(with: sections[index].titleLabel!, duration: 0.3, options: .transitionCrossDissolve, animations: {
+        UIView.transition(with: sections[index].titleLabel!, duration: 0.2, options: .transitionCrossDissolve, animations: {
             self.sections[index].titleLabel!.textColor = getColor(hexValue:0x6B7186)
         },
         completion: nil)

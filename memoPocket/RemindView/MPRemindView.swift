@@ -13,27 +13,39 @@ class RemindView : UIView {
     private var timeLabel : UILabel = UILabel()
     private var dateLabel : UILabel = UILabel()
     private var bottomView : UIView = UIView()
+    private var contentView : UIView = UIView()
     
     var calendarBtn : UIButton = UIButton()
-    var mainTable : UITableView = UITableView()
+    
+    var tables : [UITableView] = []
+    
+    var mainScroll : UIScrollView = UIScrollView()
     
     var addBtn : UIButton = UIButton()
     private var timeTimer : Timer? = nil
+    var switcher : CustomSwitcherView = CustomSwitcherView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         self.backgroundColor = getColor(hexValue: 0xF0F1F5)
         
-        
         timeLabel = getTimeLabel()
         dateLabel = getDateLabel()
         calendarBtn = getCalendarBtn()
+        switcher = getSwither()
         bottomView = getBottomView()
-        mainTable = getMainTable()
+        
+        mainScroll = getScroll()
+        
+        for index in 0..<2 {
+            let table = getContentTable(at: index)
+            tables.append(table)
+        }
+        
         addBtn = getAddBtn()
         
-           
+        
         
         timeTimer = Timer(timeInterval: 1, repeats: true, block: {_ in
             let date = Date()
@@ -53,10 +65,43 @@ class RemindView : UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func getScroll() -> UIScrollView {
+        let scroll = UIScrollView()
+        scroll.isDirectionalLockEnabled = true
+        scroll.backgroundColor = UIColor.clear
+        scroll.isPagingEnabled = true
+        scroll.showsHorizontalScrollIndicator = false
+        scroll.showsVerticalScrollIndicator = false
+        scroll.contentSize = CGSize(width: screensize.width * CGFloat(2), height: screensize.height - CGFloat(274))
+        self.addSubview(scroll)
+        scroll.snp.makeConstraints{(make) in
+            make.leading.trailing.bottom.equalToSuperview()
+            make.top.equalToSuperview().offset(274)
+        }
+        
+        scroll.addSubview(contentView)
+        contentView.snp.makeConstraints{(make) in
+            make.edges.equalToSuperview()
+            make.width.height.equalToSuperview()
+        }
+        
+        
+        return scroll
+    }
+    
+    private func getSwither() -> CustomSwitcherView {
+        let view = CustomSwitcherView(num: 2, title: ["待完成","已完成"], offset: 50, maxLenPerSection: 57)
+        self.addSubview(view)
+        view.snp.makeConstraints{(make) in
+            make.leading.trailing.equalToSuperview()
+            make.top.equalToSuperview().offset(224)
+            make.height.equalTo(30)
+        }
+        return view
+    }
     
     
-    
-    func getCalendarBtn() -> UIButton {
+    private func getCalendarBtn() -> UIButton {
         let btn = UIButton(type: .system)
         btn.setImage(UIImage.init(named: "changeDateBtn")?.reSetSize(Size: CGSize(width: 80, height: 23)).withRenderingMode(.alwaysOriginal), for: .normal)
         self.addSubview(btn)
@@ -70,7 +115,7 @@ class RemindView : UIView {
     }
     
     
-    func getAddBtn() -> UIButton {
+    private func getAddBtn() -> UIButton {
         let btn = UIButton(type: .system)
         btn.setImage(UIImage.init(named: "addBtn")?.reSetSize(Size: CGSize(width: 60, height: 60)).withRenderingMode(.alwaysOriginal), for: .normal)
         self.addSubview(btn)
@@ -87,21 +132,24 @@ class RemindView : UIView {
     }
     
     
-    func getMainTable() -> UITableView {
+    
+    private func getContentTable(at index : Int) -> UITableView {
         let table = UITableView()
         table.backgroundColor = UIColor.clear
         table.separatorStyle = .none
         table.allowsSelection = false
-        self.addSubview(table)
+        mainScroll.addSubview(table)
         table.snp.makeConstraints{(make) in
-            make.leading.trailing.equalToSuperview()
-            make.top.equalToSuperview().offset(274)
+            make.leading.equalToSuperview().offset(screensize.width * CGFloat(index))
+            make.top.equalToSuperview()
             make.bottom.equalToSuperview()
+            make.width.equalTo(screensize.width)
         }
+        table.tag = index
         return table
     }
     
-    func getTimeLabel() -> UILabel {
+    private func getTimeLabel() -> UILabel {
         let label = UILabel()
         label.numberOfLines = 0
         label.font = UIFont(name: "PingFangSC-Semibold", size: 52)
@@ -120,7 +168,7 @@ class RemindView : UIView {
         return label
     }
     
-    func getDateLabel() -> UILabel {
+    private func getDateLabel() -> UILabel {
         let label = UILabel()
         label.numberOfLines = 0
         label.font = UIFont(name: "PingFangSC-Medium", size: 16)
@@ -139,7 +187,7 @@ class RemindView : UIView {
         return label
     }
     
-    func getBottomView () -> UIView {
+    private func getBottomView () -> UIView {
         let view = UIView()
         let topColor = UIColor(red: 0.66, green: 0.68, blue: 0.87, alpha: 0.0)
         let midColor = UIColor(red: 0.56, green: 0.62, blue: 0.92, alpha: 0.04)
@@ -161,6 +209,20 @@ class RemindView : UIView {
         
     }
     
-    
+    func swithContent(from: Int ,to:Int){
+        
+        print("content switch start from \(from) to \(to)")
+        
+        mainScroll.isUserInteractionEnabled = false
+        UIView.transition(with: mainScroll, duration: 0.3, options: .transitionCrossDissolve, animations: {
+            self.mainScroll.contentOffset = CGPoint(x: screensize.width*CGFloat(to), y: 0)
+        },completion:nil)
+        
+        mainScroll.isUserInteractionEnabled = true
+        
+        mainScroll.contentOffset = CGPoint(x: screensize.width*CGFloat(to), y: 0)
+        
+        print("content switch finished")
+    }
     
 }

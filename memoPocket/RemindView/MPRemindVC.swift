@@ -32,9 +32,18 @@ class RemindVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
             make.leading.trailing.top.equalToSuperview()
             make.bottom.equalToSuperview().offset(88)
         }
-        mainView.mainTable.delegate = self
-        mainView.mainTable.dataSource = self
-        mainView.mainTable.register(remindCell.classForCoder(), forCellReuseIdentifier: "cell")
+        
+        for index in 0..<2 {
+            mainView.tables[index].delegate = self
+            mainView.tables[index].dataSource = self
+            mainView.tables[index].register(remindCell.classForCoder(), forCellReuseIdentifier: "cell")
+        }
+        
+        
+        for section in mainView.switcher.sections {
+            section.addTarget(self, action: #selector(handleSection(_:)), for: .touchUpInside)
+        }
+        
         return mainView
     }
     
@@ -53,6 +62,14 @@ class RemindVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         let cell = remindCell(frame: CGRect(x: 0, y: 0, width: width, height: height))
         
         return cell
+    }
+    
+    @objc func handleSection(_ sender:UIButton){
+        let toIndex = sender.tag
+        mainView!.switcher.moveStatus(from: mainView!.switcher.selectedIndex, to: toIndex)
+        mainView!.swithContent(from: mainView!.switcher.selectedIndex, to: toIndex)
+        mainView!.switcher.selectedIndex = toIndex
+        
     }
     
     
