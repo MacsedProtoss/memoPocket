@@ -77,7 +77,7 @@ class memoViewController:UIViewController,UITableViewDelegate,UITableViewDataSou
                 scrollStatus = .processing
                 rootTabbarVC!.showConstraints()
                 rootTabbarVC!.tabbarVC.tabbar.show()
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.4) {
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3) {
                     self.scrollStatus = .up
                     print("after drag back up done")
                 }
@@ -121,7 +121,7 @@ class memoViewController:UIViewController,UITableViewDelegate,UITableViewDataSou
             scrollStatus = .processing
             rootTabbarVC!.showConstraints()
             rootTabbarVC!.tabbarVC.tabbar.show()
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.4) {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3) {
                 self.scrollStatus = .up
                 print("Dragging up done")
             }
@@ -129,7 +129,7 @@ class memoViewController:UIViewController,UITableViewDelegate,UITableViewDataSou
             print("Dragging down process")
             scrollStatus = .processing
             rootTabbarVC!.tabbarVC.tabbar.dissmiss()
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.4) {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3) {
                 rootTabbarVC!.dissmissConstraints()
                 self.scrollStatus = .down
                 print("Dragging down done")

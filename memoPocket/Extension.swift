@@ -28,3 +28,8 @@ func getColor(hexValue: UInt64) -> UIColor {
     let color = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
     return color
 }
+
+enum layerColor {
+    case red
+    case blue
+}

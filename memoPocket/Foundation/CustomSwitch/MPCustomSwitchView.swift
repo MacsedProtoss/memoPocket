@@ -106,6 +106,7 @@ class CustomSwitcherView : UIView {
     private func getSatusBar() -> UIView {
         let view = UIView()
         view.backgroundColor = getColor(hexValue: 0x8FA1FF)
+        view.layer.cornerRadius = 2
         mainScroll.addSubview(view)
         
         view.snp.makeConstraints{(make) in
@@ -130,7 +131,7 @@ class CustomSwitcherView : UIView {
         
         animation.fromValue = CGPoint(x: fromX, y: statusBar.layer.position.y)
         animation.toValue = CGPoint(x: toX, y: statusBar.layer.position.y)
-        animation.duration = 0.3
+        animation.duration = 0.2
         animation.timingFunction = CAMediaTimingFunction(name: .easeOut)
         self.isUserInteractionEnabled = false
         statusBar.layer.add(animation, forKey: "basic")
@@ -138,7 +139,7 @@ class CustomSwitcherView : UIView {
         btnDeSelected(at: from)
         btnSelected(at: to)
         
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.4) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3) {
             self.isUserInteractionEnabled = true
             print("status Transition Finished")
         }
@@ -149,47 +150,60 @@ class CustomSwitcherView : UIView {
         
         print("btn Selected Called")
         
-        let scaleAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.contentsScale))
-        scaleAnimation.autoreverses = false
-        scaleAnimation.fillMode = .forwards
-        scaleAnimation.isRemovedOnCompletion = false
-        scaleAnimation.fromValue = 1
-        scaleAnimation.toValue = 1.125
-        scaleAnimation.timingFunction = CAMediaTimingFunction(name: .easeOut)
-        scaleAnimation.duration = 0.1
+//        let scaleAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.contentsScale))
+//        scaleAnimation.autoreverses = false
+//        scaleAnimation.fillMode = .forwards
+//        scaleAnimation.isRemovedOnCompletion = false
+//        scaleAnimation.fromValue = 1
+//        scaleAnimation.toValue = 1.125
+//        scaleAnimation.timingFunction = CAMediaTimingFunction(name: .easeOut)
+//        scaleAnimation.duration = 0.1
+//
+//        sections[index].layer.add(scaleAnimation, forKey: "basic")
         
-        sections[index].layer.add(scaleAnimation, forKey: "basic")
-        
-        UIView.transition(with: sections[index].titleLabel!, duration: 0.2, options: .transitionCrossDissolve, animations: {
-            self.sections[index].titleLabel!.textColor = getColor(hexValue:0x49506C)
-        },
-        completion: nil)
-        
-        sections[index].setTitleColor(getColor(hexValue:0x49506C), for: .normal)
-        sections[index].titleLabel!.font = UIFont(name: "PingFangSC-Semibold", size: 18)
+//        UIView.transition(with: sections[index].titleLabel!, duration: 0.2, options: [.curveEaseOut ,.transitionCrossDissolve], animations: {
+//            self.sections[index].titleLabel!.textColor = getColor(hexValue:0x49506C)
+//            self.sections[index].titleLabel!.font = UIFont(name: "PingFangSC-Semibold", size: 18)
+//        },
+//        completion: {finished in
+//            if finished{
+//
+//
+//            }
+//        })
+//
+        self.sections[index].titleLabel!.font = UIFont(name: "PingFangSC-Semibold", size: 18)
+        self.sections[index].setTitleColor(getColor(hexValue:0x49506C), for: .normal)
         
         
     }
     
     private func btnDeSelected(at index:Int){
-        let scaleAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.contentsScale))
-        scaleAnimation.autoreverses = false
-        scaleAnimation.fillMode = .forwards
-        scaleAnimation.isRemovedOnCompletion = false
-        scaleAnimation.fromValue = 1
-        scaleAnimation.toValue = 16/18
-        scaleAnimation.timingFunction = CAMediaTimingFunction(name: .easeOut)
-        scaleAnimation.duration = 0.1
+//        let scaleAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.contentsScale))
+//        scaleAnimation.autoreverses = false
+//        scaleAnimation.fillMode = .forwards
+//        scaleAnimation.isRemovedOnCompletion = false
+//        scaleAnimation.fromValue = 1
+//        scaleAnimation.toValue = 16/18
+//        scaleAnimation.timingFunction = CAMediaTimingFunction(name: .easeOut)
+//        scaleAnimation.duration = 0.1
+//
+//        sections[index].layer.add(scaleAnimation, forKey: "basic")
         
-        sections[index].layer.add(scaleAnimation, forKey: "basic")
+//        UIView.transition(with: sections[index].titleLabel!, duration: 0.2, options: [.curveEaseOut ,.transitionCrossDissolve], animations: {
+//            self.sections[index].titleLabel!.textColor = getColor(hexValue:0x6B7186)
+//            self.sections[index].titleLabel!.font = UIFont(name: "PingFangSC-Medium", size: 16)
+//        },
+//        completion: {finished in
+//            if finished {
+//
+//
+//            }
+//        })
         
-        UIView.transition(with: sections[index].titleLabel!, duration: 0.2, options: .transitionCrossDissolve, animations: {
-            self.sections[index].titleLabel!.textColor = getColor(hexValue:0x6B7186)
-        },
-        completion: nil)
+        self.sections[index].titleLabel!.font = UIFont(name: "PingFangSC-Medium", size: 16)
+        self.sections[index].setTitleColor(getColor(hexValue:0x6B7186), for: .normal)
         
-        sections[index].setTitleColor(getColor(hexValue:0x6B7186), for: .normal)
-        sections[index].titleLabel!.font = UIFont(name: "PingFangSC-Medium", size: 16)
         
     }
     

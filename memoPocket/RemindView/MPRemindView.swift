@@ -225,4 +225,32 @@ class RemindView : UIView {
         print("content switch finished")
     }
     
+    func addBtnUP(){
+        let animation = CABasicAnimation(keyPath: #keyPath(CALayer.position))
+        animation.autoreverses = false
+        animation.fromValue = self.layer.position
+        animation.fillMode = .forwards
+        animation.isRemovedOnCompletion = false
+        animation.toValue = CGPoint(x: self.layer.position.x, y: self.layer.position.y + 113)
+        animation.duration = 0.3
+        animation.timingFunction = CAMediaTimingFunction(name: .easeOut)
+        addBtn.isUserInteractionEnabled = false
+        addBtn.layer.add(animation, forKey: "basic")
+    }
+    
+    func addBtnDown(){
+        let animation = CABasicAnimation(keyPath: #keyPath(CALayer.position))
+        animation.autoreverses = false
+        animation.fromValue = self.layer.position
+        animation.fillMode = .forwards
+        animation.isRemovedOnCompletion = false
+        animation.toValue = CGPoint(x: self.layer.position.x, y: self.layer.position.y - 113)
+        animation.duration = 0.3
+        animation.timingFunction = CAMediaTimingFunction(name: .easeOut)
+        addBtn.isUserInteractionEnabled = false
+        addBtn.layer.add(animation, forKey: "basic")
+    }
+    
+    
+    
 }
