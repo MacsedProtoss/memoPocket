@@ -9,11 +9,12 @@
 import UIKit
 import SnapKit
 
-class RemindView : UIView {
+class RemindView : UIView,UIGestureRecognizerDelegate {
     private var timeLabel : UILabel = UILabel()
     private var dateLabel : UILabel = UILabel()
     private var bottomView : UIView = UIView()
     private var contentView : UIView = UIView()
+    private let panRecognizer = UIPanGestureRecognizer()
     
     var calendarBtn : UIButton = UIButton()
     
@@ -21,7 +22,7 @@ class RemindView : UIView {
     
     var mainScroll : UIScrollView = UIScrollView()
     
-    var addBtn : UIButton = UIButton()
+    var addBtn : CustomFloatingBtn? = nil
     private var timeTimer : Timer? = nil
     var switcher : CustomSwitcherView = CustomSwitcherView()
     
@@ -52,7 +53,7 @@ class RemindView : UIView {
             let formatter = DateFormatter()
             formatter.dateFormat = "HH:mm"
             self.timeLabel.text = formatter.string(from: date)
-            print("timer alive")
+//            print("timer alive")
        })
         
         RunLoop.current.add(timeTimer!, forMode: .common)
@@ -115,19 +116,19 @@ class RemindView : UIView {
     }
     
     
-    private func getAddBtn() -> UIButton {
-        let btn = UIButton(type: .system)
-        btn.setImage(UIImage.init(named: "addBtn")?.reSetSize(Size: CGSize(width: 60, height: 60)).withRenderingMode(.alwaysOriginal), for: .normal)
+    private func getAddBtn() -> CustomFloatingBtn {
+        let btn = CustomFloatingBtn()
+        panRecognizer.addTarget(self, action: #selector(move(_:)))
+        btn.addGestureRecognizer(panRecognizer)
+        panRecognizer.delegate = self
+//        btn.btn!.addTarget(self, action: #selector(BtnPressed(_:)), for: .touchUpInside)
         self.addSubview(btn)
         btn.snp.makeConstraints{(make) in
             make.trailing.equalToSuperview().offset(-16)
             make.height.width.equalTo(60)
             make.bottom.equalToSuperview().offset(-170)
         }
-        btn.layer.shadowColor = UIColor(red: 0.78, green: 0.81, blue: 0.88, alpha: 1).cgColor
-        btn.layer.shadowOffset = CGSize(width: 1.5, height: 2.0)
-        btn.layer.shadowOpacity = 1
-        btn.layer.shadowRadius = 3
+        
         return btn
     }
     
@@ -214,7 +215,7 @@ class RemindView : UIView {
         print("content switch start from \(from) to \(to)")
         
         mainScroll.isUserInteractionEnabled = false
-        UIView.transition(with: mainScroll, duration: 0.3, options: .transitionCrossDissolve, animations: {
+        UIView.transition(with: mainScroll, duration: 0.2, options: .curveEaseInOut, animations: {
             self.mainScroll.contentOffset = CGPoint(x: screensize.width*CGFloat(to), y: 0)
         },completion:nil)
         
@@ -225,30 +226,48 @@ class RemindView : UIView {
         print("content switch finished")
     }
     
-    func addBtnUP(){
-        let animation = CABasicAnimation(keyPath: #keyPath(CALayer.position))
-        animation.autoreverses = false
-        animation.fromValue = self.layer.position
-        animation.fillMode = .forwards
-        animation.isRemovedOnCompletion = false
-        animation.toValue = CGPoint(x: self.layer.position.x, y: self.layer.position.y + 113)
-        animation.duration = 0.3
-        animation.timingFunction = CAMediaTimingFunction(name: .easeOut)
-        addBtn.isUserInteractionEnabled = false
-        addBtn.layer.add(animation, forKey: "basic")
-    }
-    
-    func addBtnDown(){
-        let animation = CABasicAnimation(keyPath: #keyPath(CALayer.position))
-        animation.autoreverses = false
-        animation.fromValue = self.layer.position
-        animation.fillMode = .forwards
-        animation.isRemovedOnCompletion = false
-        animation.toValue = CGPoint(x: self.layer.position.x, y: self.layer.position.y - 113)
-        animation.duration = 0.3
-        animation.timingFunction = CAMediaTimingFunction(name: .easeOut)
-        addBtn.isUserInteractionEnabled = false
-        addBtn.layer.add(animation, forKey: "basic")
+    @objc func move(_ sender : UIPanGestureRecognizer){
+        let translation = sender.translation(in: addBtn!)
+        
+        let movingPosition = CGPoint(x: sender.view!.center.x + translation.x, y: sender.view!.center.y + translation.y)
+        
+        if movingPosition.x > 30 + 16 && movingPosition.x < screensize.width - 30 - 16 && movingPosition.y > 274+30 && movingPosition.y < screensize.height - 30-113 {
+            
+            sender.view!.center = movingPosition
+        }
+        
+        if sender.state == .ended{
+            print("pan gesture ended")
+            
+            let animation = CABasicAnimation(keyPath: #keyPath(CALayer.position))
+            animation.autoreverses = false
+            animation.fromValue = sender.view!.center
+            animation.fillMode = .forwards
+            animation.isRemovedOnCompletion = false
+            
+            animation.duration = 0.3
+            animation.timingFunction = CAMediaTimingFunction(name: .easeOut)
+            addBtn!.isUserInteractionEnabled = false
+            
+            
+            if movingPosition.x > screensize.width/2{
+                animation.toValue = CGPoint(x: screensize.width-30-16, y: sender.view!.center.y)
+            }else{
+                animation.toValue = CGPoint(x: 30 + 16, y: sender.view!.center.y)
+            }
+            
+            addBtn!.layer.add(animation, forKey: "basic")
+            
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3) {
+                self.addBtn!.isUserInteractionEnabled = true
+                sender.view!.center = animation.toValue as! CGPoint
+                print("floadting Btn animation ended")
+                self.addBtn!.layer.removeAllAnimations()
+            }
+            
+        }
+        
+        sender.setTranslation(CGPoint.zero, in: addBtn)
     }
     
     

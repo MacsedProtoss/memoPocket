@@ -22,7 +22,7 @@ class tabbarVC : UITabBarController{
     var tabbarVC = CustomTabbarVC()
     
     override func viewDidLayoutSubviews() {
- 
+        tabBar.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
     }
     
     func getColor(hexValue: UInt64) -> UIColor {
@@ -48,10 +48,14 @@ class tabbarVC : UITabBarController{
         let VCs = [memoVC,remindVC,infoVC]
         self.viewControllers = VCs
         tabBar.isHidden = true
+        
         tabBar.isTranslucent = false
         
         self.addChild(tabbarVC)
         view.addSubview(tabbarVC.view)
+        print("tabbrVC contentview \(self.view)")
+        print("remindView \(remindVC.view)")
+        print("screenSize \(screensize)")
         
         tabbarVC.view.snp.makeConstraints{(make) in
             make.leading.trailing.equalToSuperview()

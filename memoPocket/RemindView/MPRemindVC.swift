@@ -31,7 +31,7 @@ class RemindVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         view.addSubview(mainView)
         mainView.snp.makeConstraints{(make) in
             make.leading.trailing.top.equalToSuperview()
-            make.bottom.equalToSuperview().offset(88)
+            make.bottom.equalToSuperview()
         }
         
         for index in 0..<2 {
