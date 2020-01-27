@@ -9,9 +9,6 @@
 import UIKit
 import SnapKit
 
-let screensize = UIScreen.main.bounds
-
-
 class CustomTabbarView : UIView {
     
     

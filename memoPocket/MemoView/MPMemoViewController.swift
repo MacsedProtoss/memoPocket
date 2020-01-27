@@ -9,20 +9,10 @@
 import Foundation
 import UIKit
 
-enum scrollDirection {
-    case up
-    case down
-    case processing
-}
-
-class memoViewController:UIViewController,UITableViewDelegate,UITableViewDataSource{
-    
-    var scrollStatus : scrollDirection = .up
+class memoViewController : MainDynamicTabVC,UITableViewDataSource{
     
     var titles = [["10","12","13"],["16","17","18"]]
     var months = ["9","14"]
-    let screensize = UIScreen.main.bounds
-    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 75/812*screensize.height
@@ -67,88 +57,6 @@ class memoViewController:UIViewController,UITableViewDelegate,UITableViewDataSou
         return view
     }
     
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        print("offset is \(scrollView.contentOffset)")
-        if (scrollView.contentOffset == CGPoint(x: 0.0, y: 0.0)){
-            while scrollStatus == .processing {
-                
-            }
-            if scrollStatus == .down {
-                scrollStatus = .processing
-                rootTabbarVC!.showConstraints()
-                rootTabbarVC!.tabbarVC.tabbar.show()
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3) {
-                    self.scrollStatus = .up
-                    print("after drag back up done")
-                }
-            }
-        }
-    }
-    
-//    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-//        let status = scrollView.isTracking && !scrollView.isDragging && !scrollView.isDecelerating
-//        if status {
-//            let recognizer = scrollView.panGestureRecognizer
-//            let offsetY = recognizer.translation(in: scrollView).y
-//            if offsetY > 0 && scrollStatus == .down{
-//                print("Dragging up process")
-//                scrollStatus = .processing
-//                rootTabbarVC!.showConstraints()
-//                rootTabbarVC!.tabbarVC.tabbar.show()
-//                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.4) {
-//                    self.scrollStatus = .up
-//                    print("Dragging up done")
-//                }
-//            }else if offsetY < 0 && scrollStatus == .up{
-//                print("Dragging down process")
-//                scrollStatus = .processing
-//                rootTabbarVC!.tabbarVC.tabbar.dissmiss()
-//                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.4) {
-//                    rootTabbarVC!.dissmissConstraints()
-//                    self.scrollStatus = .down
-//                    print("Dragging down done")
-//                }
-//            }
-//        }
-//    }
-    
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let recognizer = scrollView.panGestureRecognizer
-        let offsetY = recognizer.translation(in: scrollView).y
-        if offsetY > 0 && scrollStatus == .down{
-            print("Dragging up process")
-            scrollStatus = .processing
-            rootTabbarVC!.showConstraints()
-            rootTabbarVC!.tabbarVC.tabbar.show()
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3) {
-                self.scrollStatus = .up
-                print("Dragging up done")
-            }
-        }else if offsetY < 0 && scrollStatus == .up{
-            print("Dragging down process")
-            scrollStatus = .processing
-            rootTabbarVC!.tabbarVC.tabbar.dissmiss()
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3) {
-                rootTabbarVC!.dissmissConstraints()
-                self.scrollStatus = .down
-                print("Dragging down done")
-            }
-        }
-        
-        
-//        print("offset is \(scrollView.contentOffset)")
-        
-    }
-    
-    
-    func getColor(hexValue: UInt64) -> UIColor {
-    let red = CGFloat(Double((hexValue & 0xFF0000)>>16)/255.0)
-    let green = CGFloat(Double((hexValue & 0x00FF00)>>8)/255.0)
-    let blue = CGFloat(Double(hexValue & 0x0000FF)/255.0)
-    let color = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
-    return color
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

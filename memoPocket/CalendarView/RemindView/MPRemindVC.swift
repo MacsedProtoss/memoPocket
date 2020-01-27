@@ -10,10 +10,9 @@ import Foundation
 import UIKit
 import SnapKit
 import JTAppleCalendar
-class RemindVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class RemindVC: MainDynamicTabVC,UITableViewDataSource {
     
     var mainView : RemindView? = nil
-    var scrollStatus : scrollDirection = .up
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,50 +85,5 @@ class RemindVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let recognizer = scrollView.panGestureRecognizer
-        let offsetY = recognizer.translation(in: scrollView).y
-        if offsetY > 0 && scrollStatus == .down{
-            print("Dragging up process")
-            scrollStatus = .processing
-            rootTabbarVC!.showConstraints()
-            rootTabbarVC!.tabbarVC.tabbar.show()
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3) {
-                self.scrollStatus = .up
-                print("Dragging up done")
-            }
-        }else if offsetY < 0 && scrollStatus == .up{
-            print("Dragging down process")
-            scrollStatus = .processing
-            rootTabbarVC!.tabbarVC.tabbar.dissmiss()
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3) {
-                rootTabbarVC!.dissmissConstraints()
-                self.scrollStatus = .down
-                print("Dragging down done")
-            }
-        }
-            
-            
-    //        print("offset is \(scrollView.contentOffset)")
-            
-    }
-    
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        print("offset is \(scrollView.contentOffset)")
-        if (scrollView.contentOffset == CGPoint(x: 0.0, y: 0.0)){
-            while scrollStatus == .processing {
-                
-            }
-            if scrollStatus == .down {
-                scrollStatus = .processing
-                rootTabbarVC!.showConstraints()
-                rootTabbarVC!.tabbarVC.tabbar.show()
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3) {
-                    self.scrollStatus = .up
-                    print("after drag back up done")
-                }
-            }
-        }
-    }
     
 }

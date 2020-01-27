@@ -11,6 +11,9 @@
 		4B211CB123522F28002DF827 /* JTAppleCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 4B211CB023522F28002DF827 /* JTAppleCalendar */; };
 		4B211CB723523135002DF827 /* MPMainTabbarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B211CB623523135002DF827 /* MPMainTabbarVC.swift */; };
 		4B211CB923523173002DF827 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B211CB823523173002DF827 /* Extension.swift */; };
+		4B3CD8B623DEBD3000A8D298 /* UI Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3CD8B523DEBD3000A8D298 /* UI Util.swift */; };
+		4B3CD8B923DECA0900A8D298 /* ScrollStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3CD8B823DECA0900A8D298 /* ScrollStatus.swift */; };
+		4B3CD8BB23DECB2C00A8D298 /* MainDynamicTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3CD8BA23DECB2C00A8D298 /* MainDynamicTabVC.swift */; };
 		4B57D853235228C0002DD038 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B57D852235228C0002DD038 /* AppDelegate.swift */; };
 		4B57D855235228C0002DD038 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B57D854235228C0002DD038 /* SceneDelegate.swift */; };
 		4B57D85A235228C0002DD038 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B57D858235228C0002DD038 /* Main.storyboard */; };
@@ -61,6 +64,9 @@
 /* Begin PBXFileReference section */
 		4B211CB623523135002DF827 /* MPMainTabbarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPMainTabbarVC.swift; sourceTree = "<group>"; };
 		4B211CB823523173002DF827 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		4B3CD8B523DEBD3000A8D298 /* UI Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UI Util.swift"; sourceTree = "<group>"; };
+		4B3CD8B823DECA0900A8D298 /* ScrollStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollStatus.swift; sourceTree = "<group>"; };
+		4B3CD8BA23DECB2C00A8D298 /* MainDynamicTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDynamicTabVC.swift; sourceTree = "<group>"; };
 		4B57D84F235228C0002DD038 /* memoPocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = memoPocket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B57D852235228C0002DD038 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B57D854235228C0002DD038 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +163,30 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		4B3CD8B323DEB5B900A8D298 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		4B3CD8B423DEBD2000A8D298 /* Common Tools */ = {
+			isa = PBXGroup;
+			children = (
+				4B3CD8B523DEBD3000A8D298 /* UI Util.swift */,
+			);
+			path = "Common Tools";
+			sourceTree = "<group>";
+		};
+		4B3CD8B723DEC9BF00A8D298 /* MainDynamicTabVC */ = {
+			isa = PBXGroup;
+			children = (
+				4B3CD8B823DECA0900A8D298 /* ScrollStatus.swift */,
+				4B3CD8BA23DECB2C00A8D298 /* MainDynamicTabVC.swift */,
+			);
+			path = MainDynamicTabVC;
+			sourceTree = "<group>";
+		};
 		4B57D846235228C0002DD038 = {
 			isa = PBXGroup;
 			children = (
@@ -180,12 +210,13 @@
 		4B57D851235228C0002DD038 /* memoPocket */ = {
 			isa = PBXGroup;
 			children = (
+				4B3CD8B423DEBD2000A8D298 /* Common Tools */,
+				4B3CD8B323DEB5B900A8D298 /* Extension */,
 				4BFFB7682359840500092290 /* Foundation */,
 				4BB2941B2352385E009A2BDE /* SegamentView */,
 				4BB29412235237DA009A2BDE /* NewView */,
 				4BB2940F235237AC009A2BDE /* DetailView */,
 				4BB2940C235236C5009A2BDE /* CalendarView */,
-				4BB2940523523640009A2BDE /* RemindView */,
 				4BB293FE23523575009A2BDE /* MemoView */,
 				4B211CB5235230FA002DF827 /* Models */,
 				4B211CB4235230EA002DF827 /* Views */,
@@ -258,6 +289,7 @@
 		4BB2940C235236C5009A2BDE /* CalendarView */ = {
 			isa = PBXGroup;
 			children = (
+				4BB2940523523640009A2BDE /* RemindView */,
 				4BB2940A235236AC009A2BDE /* MPCalendarView.swift */,
 				4BB2940D235236EC009A2BDE /* MPDateCell.swift */,
 			);
@@ -295,6 +327,7 @@
 		4BFFB7682359840500092290 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				4B3CD8B723DEC9BF00A8D298 /* MainDynamicTabVC */,
 				4B79BE3B235DE20C0008F6D2 /* CustomFloatingBtn */,
 				4BFFB7692359CC1800092290 /* CustomSwitch */,
 				4B9BE4962353558E00C077C4 /* CustomTabbar */,
@@ -452,12 +485,14 @@
 				4BB2940923523663009A2BDE /* MPRemindCell.swift in Sources */,
 				4B211CB723523135002DF827 /* MPMainTabbarVC.swift in Sources */,
 				4BB294182352381F009A2BDE /* MPRoundCell.swift in Sources */,
+				4B3CD8BB23DECB2C00A8D298 /* MainDynamicTabVC.swift in Sources */,
 				4BB294162352380F009A2BDE /* MPTimeCell.swift in Sources */,
 				4BB2941F23523888009A2BDE /* MPSegamentCell.swift in Sources */,
 				4B57D853235228C0002DD038 /* AppDelegate.swift in Sources */,
 				4B211CB923523173002DF827 /* Extension.swift in Sources */,
 				4BC5339A235887FB00CD6D54 /* MPMemoView.swift in Sources */,
 				4B9BE498235355AA00C077C4 /* MPCustomTabbarView.swift in Sources */,
+				4B3CD8B923DECA0900A8D298 /* ScrollStatus.swift in Sources */,
 				4BFFB76B2359CC3D00092290 /* MPCustomSwitchView.swift in Sources */,
 				4BB29400235235A4009A2BDE /* MPMemoViewController.swift in Sources */,
 				4B79BE3D235DE2270008F6D2 /* CustomFloatingBtnView.swift in Sources */,
@@ -471,6 +506,7 @@
 				4BB2941D23523870009A2BDE /* MPSegamentViewController.swift in Sources */,
 				4B57D855235228C0002DD038 /* SceneDelegate.swift in Sources */,
 				4BB2941A23523826009A2BDE /* MPButtonCell.swift in Sources */,
+				4B3CD8B623DEBD3000A8D298 /* UI Util.swift in Sources */,
 				4B57D85D235228C0002DD038 /* memoPocket.xcdatamodeld in Sources */,
 				4BB2940723523656009A2BDE /* MPRemindViewControllerBackup.swift in Sources */,
 				4BB29402235235B4009A2BDE /* MPMemoCell.swift in Sources */,
