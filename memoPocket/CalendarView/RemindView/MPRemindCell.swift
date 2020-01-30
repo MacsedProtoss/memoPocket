@@ -57,8 +57,8 @@ class RemindCell:UITableViewCell{
         view.snp.makeConstraints{(make) in
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
-            make.width.equalTo(345)
-            make.height.equalTo(80)
+            make.width.equalTo(380)
+            make.height.equalTo(88)
         }
         return view
     }
