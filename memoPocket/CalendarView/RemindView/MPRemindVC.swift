@@ -58,7 +58,7 @@ class RemindVC: MainDynamicTabVC,UITableViewDataSource {
 //        print("count is \(count)")
 //        print("indexPath is \(indexPath.row)")
         if indexPath.row == count-1{
-            return (124)
+            return (164)
         }
         return CGFloat(102)
     }
@@ -68,7 +68,7 @@ class RemindVC: MainDynamicTabVC,UITableViewDataSource {
         let count = tableView.numberOfRows(inSection: 0)
         if indexPath.row == count-1{
             cell.content!.snp.updateConstraints{(make) in
-                make.centerY.equalToSuperview().offset(-11)
+                make.centerY.equalToSuperview().offset(-31)
             }
         }
         return cell
