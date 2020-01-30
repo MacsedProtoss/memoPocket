@@ -65,7 +65,8 @@ class RemindCell:UITableViewCell{
     
     private func getStick() -> UIView {
         let view = UIView()
-        view.layer.cornerRadius = 6
+        
+        view.setHalfCorneredRect(withBounds: CGRect(x: 0, y: 0, width: 6, height: 45), radius: 6)
         view.backgroundColor = getColor(hexValue: 0x8FA1FF)
         
         content!.addSubview(view)
@@ -75,6 +76,7 @@ class RemindCell:UITableViewCell{
             make.width.equalTo(6)
             make.height.equalTo(45)
         }
+        
         return view
     }
     

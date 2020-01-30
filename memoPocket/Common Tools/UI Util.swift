@@ -17,6 +17,35 @@ extension UIImage{
         UIGraphicsEndImageContext();
         return reSizeImage!
     }
+    
+}
+
+
+extension UIView{
+    
+    func setCorner(byRoundingCorners corners: UIRectCorner,withBounds bounds:CGRect, radius: CGFloat) {
+        let maskPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let maskLayer = CAShapeLayer()
+        maskLayer.frame = bounds
+        maskLayer.path = maskPath.cgPath
+        self.layer.mask = maskLayer
+    }
+    
+    func setHalfCorneredRect(withBounds bounds:CGRect, radius: CGFloat){
+        let maskPath = UIBezierPath()
+        maskPath.move(to: CGPoint(x: bounds.width, y: 0))
+        maskPath.addArc(withCenter: CGPoint(x: bounds.width, y: radius), radius: radius, startAngle: CGFloat(3/2*Double.pi), endAngle: CGFloat(Double.pi), clockwise: false)
+        maskPath.addLine(to: CGPoint(x: 0, y: bounds.height - radius))
+        maskPath.addArc(withCenter: CGPoint(x: bounds.width, y: bounds.height - radius), radius: radius, startAngle: CGFloat(Double.pi), endAngle: CGFloat(1/2*Double.pi), clockwise: false)
+        maskPath.addLine(to: CGPoint(x: bounds.width, y: 0))
+        maskPath.close()
+        let maskLayer = CAShapeLayer()
+        maskLayer.frame = bounds
+        maskLayer.path = maskPath.cgPath
+        self.layer.mask = maskLayer
+        
+    }
+    
 }
 
 
