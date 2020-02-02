@@ -73,13 +73,10 @@ class MainDynamicTabVC : UIViewController,UITableViewDelegate{
         
     }
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
-        self.view.backgroundColor = getColor(hexValue: 0xEDEFF4)
+        self.view.backgroundColor = getColor(hexValue: 0xEDEFF4, alpha: 1.0)
         
     }
     

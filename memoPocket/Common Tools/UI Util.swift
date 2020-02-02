@@ -48,13 +48,45 @@ extension UIView{
     
 }
 
+extension Float{
+    var reSized : CGFloat {
+        return CGFloat(self/414*Float(screensize.width))
+    }
+}
 
-func getColor(hexValue: UInt64) -> UIColor {
+extension Int{
+    var reSized : CGFloat {
+        return CGFloat(Float(self)/414.0*Float(screensize.width))
+    }
+}
+
+extension Date{
+    var toString : String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy年MM月dd日"
+        return formatter.string(from: self)
+    }
+}
+
+func getColor(hexValue: UInt64,alpha : CGFloat?) -> UIColor {
     let red = CGFloat(Double((hexValue & 0xFF0000)>>16)/255.0)
     let green = CGFloat(Double((hexValue & 0x00FF00)>>8)/255.0)
     let blue = CGFloat(Double(hexValue & 0x0000FF)/255.0)
-    let color = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
+    let color = UIColor(red: red, green: green, blue: blue, alpha: alpha ?? 1.0)
     return color
 }
 
 let screensize = UIScreen.main.bounds
+
+extension UIApplication{
+    var screenShot : UIImage?{
+        UIGraphicsBeginImageContextWithOptions(UIScreen.main.bounds.size, false, 0)
+        guard let context = UIGraphicsGetCurrentContext() else { return nil }
+        for window in windows {
+            window.layer.render(in: context)
+        }
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
+}

@@ -11,6 +11,7 @@ import UIKit
 import Foundation
 import UIKit
 class tabbarVC : UITabBarController{
+    
     let screensize = UIScreen.main.bounds
     
     var item: UIView? = nil
@@ -25,13 +26,6 @@ class tabbarVC : UITabBarController{
         tabBar.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
     }
     
-    func getColor(hexValue: UInt64) -> UIColor {
-        let red = CGFloat(Double((hexValue & 0xFF0000)>>16)/255.0)
-        let green = CGFloat(Double((hexValue & 0x00FF00)>>8)/255.0)
-        let blue = CGFloat(Double(hexValue & 0x0000FF)/255.0)
-        let color = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
-        return color
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.red
@@ -46,6 +40,7 @@ class tabbarVC : UITabBarController{
         }
         
         let VCs = [memoVC,remindVC,infoVC]
+        
         self.viewControllers = VCs
         tabBar.isHidden = true
         
@@ -53,9 +48,6 @@ class tabbarVC : UITabBarController{
         
         self.addChild(tabbarVC)
         view.addSubview(tabbarVC.view)
-        print("tabbrVC contentview \(self.view)")
-        print("remindView \(remindVC.view)")
-        print("screenSize \(screensize)")
         
         tabbarVC.view.snp.makeConstraints{(make) in
             make.leading.trailing.equalToSuperview()

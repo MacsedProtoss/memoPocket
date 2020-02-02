@@ -22,7 +22,7 @@ class CustomTabbarView : UIView {
     
     var sections : [UIButton] = []
     
-    private var backgroundView = UIView()
+    var backgroundView = UIView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)

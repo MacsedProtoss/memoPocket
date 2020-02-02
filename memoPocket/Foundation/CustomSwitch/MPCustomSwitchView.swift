@@ -62,10 +62,10 @@ class CustomSwitcherView : UIView {
         btn.titleLabel?.textAlignment = .center
         
         if (index == selectedIndex){
-            btn.setTitleColor(getColor(hexValue:0x49506C), for: .normal)
+            btn.setTitleColor(getColor(hexValue:0x49506C, alpha: 1.0), for: .normal)
             btn.titleLabel?.font = UIFont(name: "PingFangSC-Semibold", size: 18)
         }else{
-            btn.setTitleColor(getColor(hexValue:0x6B7186), for: .normal)
+            btn.setTitleColor(getColor(hexValue:0x6B7186, alpha: 1.0), for: .normal)
             btn.titleLabel?.font = UIFont(name: "PingFangSC-Medium", size: 16)
         }
         
@@ -105,7 +105,7 @@ class CustomSwitcherView : UIView {
     
     private func getSatusBar() -> UIView {
         let view = UIView()
-        view.backgroundColor = getColor(hexValue: 0x8FA1FF)
+        view.backgroundColor = getColor(hexValue: 0x8FA1FF, alpha: 1.0)
         view.layer.cornerRadius = 2
         mainScroll.addSubview(view)
         
@@ -173,7 +173,7 @@ class CustomSwitcherView : UIView {
 //        })
 //
         self.sections[index].titleLabel!.font = UIFont(name: "PingFangSC-Semibold", size: 18)
-        self.sections[index].setTitleColor(getColor(hexValue:0x49506C), for: .normal)
+        self.sections[index].setTitleColor(getColor(hexValue:0x49506C, alpha: 1.0), for: .normal)
         
         
     }
@@ -202,7 +202,7 @@ class CustomSwitcherView : UIView {
 //        })
         
         self.sections[index].titleLabel!.font = UIFont(name: "PingFangSC-Medium", size: 16)
-        self.sections[index].setTitleColor(getColor(hexValue:0x6B7186), for: .normal)
+        self.sections[index].setTitleColor(getColor(hexValue:0x6B7186, alpha: 1.0), for: .normal)
         
         
     }

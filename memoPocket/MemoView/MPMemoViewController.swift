@@ -50,7 +50,7 @@ class memoViewController : MainDynamicTabVC,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 55/375*screensize.width, height: 43/812*screensize.height))
-        view.backgroundColor = getColor(hexValue: 0xEDEFF4)
+        view.backgroundColor = getColor(hexValue: 0xEDEFF4, alpha: 1.0)
         let images =  UIImageView(image: UIImage(named: months[section])?.reSetSize(Size: CGSize(width: 55/375*screensize.width, height: 17/812*screensize.height)))
         images.frame = CGRect(x: 23/375*screensize.width, y: 0, width: images.frame.width, height: images.frame.height)
         view.addSubview(images)
@@ -62,9 +62,9 @@ class memoViewController : MainDynamicTabVC,UITableViewDataSource{
         super.viewDidLoad()
         
         self.navigationController?.navigationBar.isHidden = true
-        self.view.backgroundColor = getColor(hexValue: 0xEDEFF4)
+        self.view.backgroundColor = getColor(hexValue: 0xEDEFF4, alpha: 1.0)
         let memoView = UITableView(frame: CGRect(x: 0, y: 180/812*screensize.height, width: screensize.width, height: screensize.height),style: .grouped)
-        memoView.backgroundColor = getColor(hexValue: 0xEDEFF4)
+        memoView.backgroundColor = getColor(hexValue: 0xEDEFF4, alpha: 1.0)
         memoView.delegate = self
         memoView.dataSource = self
         memoView.allowsMultipleSelection = false

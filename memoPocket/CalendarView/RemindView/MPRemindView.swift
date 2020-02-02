@@ -10,26 +10,26 @@ import UIKit
 import SnapKit
 
 class RemindView : UIView,UIGestureRecognizerDelegate {
-    private var timeLabel : UILabel = UILabel()
-    private var dateLabel : UILabel = UILabel()
-    private var bottomView : UIView = UIView()
-    private var contentView : UIView = UIView()
+    private var timeLabel : UILabel!
+    private var dateLabel : UILabel!
+    private var bottomView : UIView!
+    private var contentView = UIView()
     private let panRecognizer = UIPanGestureRecognizer()
     
-    var calendarBtn : UIButton = UIButton()
+    var calendarBtn : UIButton!
     
     var tables : [UITableView] = []
     
-    var mainScroll : UIScrollView = UIScrollView()
+    var mainScroll : UIScrollView!
     
-    var addBtn : CustomFloatingBtn? = nil
-    private var timeTimer : Timer? = nil
-    var switcher : CustomSwitcherView = CustomSwitcherView()
+    var addBtn : CustomFloatingBtn!
+    private var timeTimer : Timer!
+    var switcher : CustomSwitcherView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = getColor(hexValue: 0xF0F1F5)
+        self.backgroundColor = getColor(hexValue: 0xF0F1F5, alpha: 1.0)
         
         timeLabel = getTimeLabel()
         dateLabel = getDateLabel()
@@ -154,7 +154,7 @@ class RemindView : UIView,UIGestureRecognizerDelegate {
         let label = UILabel()
         label.numberOfLines = 0
         label.font = UIFont(name: "PingFangSC-Semibold", size: 52)
-        label.textColor = getColor(hexValue: 0x49506C)
+        label.textColor = getColor(hexValue: 0x49506C, alpha: 1.0)
         self.addSubview(label)
         label.snp.makeConstraints{(make) in
             make.leading.equalToSuperview().offset(32)
@@ -173,7 +173,7 @@ class RemindView : UIView,UIGestureRecognizerDelegate {
         let label = UILabel()
         label.numberOfLines = 0
         label.font = UIFont(name: "PingFangSC-Medium", size: 16)
-        label.textColor = getColor(hexValue: 0x686E83)
+        label.textColor = getColor(hexValue: 0x686E83, alpha: 1.0)
         self.addSubview(label)
         label.snp.makeConstraints{(make) in
             make.leading.equalToSuperview().offset(34)

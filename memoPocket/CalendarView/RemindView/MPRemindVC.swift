@@ -9,10 +9,11 @@
 import Foundation
 import UIKit
 import SnapKit
-import JTAppleCalendar
+
 class RemindVC: MainDynamicTabVC,UITableViewDataSource {
     
-    var mainView : RemindView? = nil
+    var mainView : RemindView!
+    var calendarVC : MPCustomCalendarVC?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,8 @@ class RemindVC: MainDynamicTabVC,UITableViewDataSource {
         navigationBar.isTranslucent = true
         
         mainView = getMainView()
+        
+        
     }
     
     func getMainView() -> RemindView {
@@ -43,6 +46,8 @@ class RemindVC: MainDynamicTabVC,UITableViewDataSource {
         for section in mainView.switcher.sections {
             section.addTarget(self, action: #selector(handleSection(_:)), for: .touchUpInside)
         }
+        
+        mainView.calendarBtn.addTarget(self, action: #selector(handleChangeDate), for: .touchUpInside)
         
         return mainView
     }
@@ -74,9 +79,6 @@ class RemindVC: MainDynamicTabVC,UITableViewDataSource {
         return cell
     }
     
-    
-   
-    
     @objc func handleSection(_ sender:UIButton){
         let toIndex = sender.tag
         mainView!.switcher.moveStatus(from: mainView!.switcher.selectedIndex, to: toIndex)
@@ -85,5 +87,12 @@ class RemindVC: MainDynamicTabVC,UITableViewDataSource {
         
     }
     
+    @objc func handleChangeDate(){
+        calendarVC = MPCustomCalendarVC(type: .single,backGroundImage: UIApplication.shared.screenShot)
+        
+        calendarVC!.modalPresentationStyle = .fullScreen
+        self.present(calendarVC!, animated: false)
+        
+    }
     
 }

@@ -48,7 +48,7 @@ class RemindCell:UITableViewCell{
     private func getContentView() -> UIView {
         let view = UIView()
         view.backgroundColor = UIColor.white
-        view.layer.shadowColor = getColor(hexValue: 0xC9D5F1).cgColor
+        view.layer.shadowColor = getColor(hexValue: 0xC9D5F1, alpha: 1.0).cgColor
         view.layer.shadowOffset = CGSize(width: 0, height: 4.01)
         view.layer.shadowOpacity = 1
         view.layer.shadowRadius = 6
@@ -67,7 +67,7 @@ class RemindCell:UITableViewCell{
         let view = UIView()
         
         view.setHalfCorneredRect(withBounds: CGRect(x: 0, y: 0, width: 6, height: 45), radius: 6)
-        view.backgroundColor = getColor(hexValue: 0x8FA1FF)
+        view.backgroundColor = getColor(hexValue: 0x8FA1FF, alpha: 1.0)
         
         content!.addSubview(view)
         view.snp.makeConstraints{(make) in
@@ -82,7 +82,7 @@ class RemindCell:UITableViewCell{
     
     private func getTitle(title : String) -> UILabel {
         let label = UILabel()
-        label.textColor = getColor(hexValue: 0x49506C)
+        label.textColor = getColor(hexValue: 0x49506C, alpha: 1.0)
         label.font = UIFont.init(name: "PingFangSC-Medium", size: 18)
         label.text = title
         
@@ -103,8 +103,8 @@ class RemindCell:UITableViewCell{
         
         switch color {
         case .red:
-            let topColor = getColor(hexValue: 0xF4BBBE)
-            let bottomColor = getColor(hexValue: 0xF5C0A5)
+            let topColor = getColor(hexValue: 0xF4BBBE, alpha: 1.0)
+            let bottomColor = getColor(hexValue: 0xF5C0A5, alpha: 1.0)
             let gradientColors = [topColor.cgColor, bottomColor.cgColor]
             let gradientLocations:[NSNumber] = [0.0,1.0]
             let gradientLayer = CAGradientLayer()
@@ -140,7 +140,7 @@ class RemindCell:UITableViewCell{
     
     private func getFromLabel(from : String) -> UILabel {
         let label = UILabel()
-        label.textColor = getColor(hexValue: 0xFFFFFF)
+        label.textColor = getColor(hexValue: 0xFFFFFF, alpha: 1.0)
         label.font = UIFont.init(name: "PingFangSC-Medium", size: 12)
         label.text = "来自：" + from
         
@@ -156,7 +156,7 @@ class RemindCell:UITableViewCell{
     
     private func getTimeLabel(time : String) -> UILabel {
         let label = UILabel()
-        label.textColor = getColor(hexValue: 0x686E83)
+        label.textColor = getColor(hexValue: 0x686E83, alpha: 1.0)
         label.font = UIFont.init(name: "PingFangSC-Medium", size: 12)
         label.text = time
         

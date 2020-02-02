@@ -11,7 +11,7 @@ import SnapKit
 
 class CustomFloatingBtn : UIView {
     
-    var btn : UIButton? = nil
+    var btn : UIButton!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,7 +25,7 @@ class CustomFloatingBtn : UIView {
     
     private func getAddBtn() -> UIButton {
         let btn = UIButton(type: .system)
-        btn.setImage(UIImage.init(named: "addBtn")?.reSetSize(Size: CGSize(width: 60, height: 60)).withRenderingMode(.alwaysOriginal), for: .normal)
+        btn.setImage(UIImage.init(named: "AddBtn")?.reSetSize(Size: CGSize(width: 60, height: 60)).withRenderingMode(.alwaysOriginal), for: .normal)
         self.addSubview(btn)
         btn.snp.makeConstraints{(make) in
             make.leading.trailing.top.bottom.equalToSuperview()
