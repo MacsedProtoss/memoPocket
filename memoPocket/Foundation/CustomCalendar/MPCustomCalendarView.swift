@@ -22,40 +22,23 @@ class MPCustomCalendarView: UIView {
             topLabel.text = titleDate?.toString
         }
     }
+    var confirmBtn : UIButton!
+    var mainScroll : UIScrollView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        getBasicView()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(backgroundImage : UIImage?){
-        self.init()
-        getBasicView(backgroundImage: backgroundImage)
-    }
-    
-    func getBasicView(backgroundImage : UIImage?){
-        getBackGround(backgroundImage : backgroundImage)
+    func getBasicView(){
+        self.backgroundColor = .clear
         getMainView()
+        getBottom()
         getHead()
-    }
-    
-    func getBackGround(backgroundImage : UIImage?){
-        
-        let imageView = UIImageView(image: backgroundImage)
-        self.addSubview(imageView)
-        imageView.snp.makeConstraints { (make) in
-            make.leading.trailing.top.bottom.equalToSuperview()
-        }
-        
-        let mask = UIView()
-        mask.backgroundColor = getColor(hexValue: 0x404F6A, alpha: 0.28)
-        self.addSubview(mask)
-        mask.snp.makeConstraints { (make) in
-            make.leading.trailing.top.bottom.equalToSuperview()
-        }
     }
     
     func getMainView(){
@@ -87,7 +70,7 @@ class MPCustomCalendarView: UIView {
         }
         
         backBtn = UIButton(type: .system)
-        backBtn.setImage(UIImage.init(named: "backBtn")?.reSetSize(Size: CGSize(width: 9.reSized, height: 14.reSized)), for: .normal)
+        backBtn.setImage(UIImage.init(named: "backBtn")?.reSetSize(Size: CGSize(width: 9.reSized, height: 14.reSized)).withRenderingMode(.alwaysOriginal), for: .normal)
         
         headLayer.addSubview(backBtn)
         backBtn.snp.makeConstraints { (make) in
@@ -98,7 +81,7 @@ class MPCustomCalendarView: UIView {
         }
         
         topLabel = UILabel()
-        topLabel.font = UIFont(name: "Avenir Heavy", size: 22.reSized)
+        topLabel.font = UIFont(name: "PingFangSC-Semibold", size: 22.reSized)
         topLabel.textColor = getColor(hexValue: 0x696F83, alpha: 1.0)
         topLabel.textAlignment = .center
         topLabel.text = Date().toString
@@ -129,6 +112,34 @@ class MPCustomCalendarView: UIView {
         
     }
     
+    func getBottom(){
+        
+        bottomLayer = UIView()
+        bottomLayer.backgroundColor = UIColor.white
+        mainView.addSubview(bottomLayer)
+        bottomLayer.snp.makeConstraints{ (make) in
+            make.leading.bottom.trailing.equalToSuperview()
+            make.top.equalToSuperview().offset(91.reSized)
+        }
+        
+        confirmBtn = UIButton(type: .system)
+        confirmBtn.layer.cornerRadius = (49/2).reSized
+        confirmBtn.backgroundColor = getColor(hexValue: 0x92A0F8, alpha: 1.0)
+        confirmBtn.setTitle("确 认", for: .normal)
+        confirmBtn.titleLabel?.textAlignment = .center
+        confirmBtn.titleLabel?.font = UIFont.init(name: "PingFangSC-Semibold", size: 20.reSized)
+        confirmBtn.setTitleColor(.white, for: .normal)
+        
+        bottomLayer.addSubview(confirmBtn)
+        confirmBtn.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-12.reSized)
+            make.width.equalTo(287.reSized)
+            make.height.equalTo(49.reSized)
+        }
+        
+        
+    }
     
     
 }

@@ -13,21 +13,22 @@ class MPCustomCalendarVC : UIViewController{
     
     private var type : CalendarType = .single
     private var mainView : MPCustomCalendarView!
-    private var backGroundImage : UIImage?
+    var delegate : MPCustomCalendarDelegate?
     
-    convenience init(type : CalendarType,backGroundImage : UIImage?){
+    convenience init(type : CalendarType){
         self.init()
         self.type = type
-        self.backGroundImage = backGroundImage
     }
     
     override func viewDidLoad() {
         getView()
         mainView.backBtn.addTarget(self, action: #selector(backBtnPressed), for: .touchUpInside)
+        mainView.confirmBtn.addTarget(self, action: #selector(confirmPressed), for: .touchUpInside)
     }
     
     func getView(){
-        mainView = MPCustomCalendarView(backgroundImage: backGroundImage)
+        view.backgroundColor = .clear
+        mainView = MPCustomCalendarView()
         view.addSubview(mainView)
         mainView.snp.makeConstraints { (make) in
             make.leading.trailing.top.bottom.equalToSuperview()
@@ -35,6 +36,11 @@ class MPCustomCalendarVC : UIViewController{
     }
     
     @objc func backBtnPressed(){
-        self.dismiss(animated: false, completion: nil)
+        delegate?.calendarViewDismiss()
+    }
+    
+    @objc func confirmPressed(){
+        delegate?.changeDateTo(date: Date()) // TODO
+        delegate?.calendarViewDismiss()
     }
 }

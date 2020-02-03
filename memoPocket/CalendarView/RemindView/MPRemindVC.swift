@@ -10,10 +10,29 @@ import Foundation
 import UIKit
 import SnapKit
 
-class RemindVC: MainDynamicTabVC,UITableViewDataSource {
+class RemindVC: MainDynamicTabVC,UITableViewDataSource,MPCustomCalendarDelegate {
+    
+    func calendarViewDismiss() {
+        maskView.removeFromSuperview()
+        calendarVC?.view.removeFromSuperview()
+    }
+    
+    func changeDateTo(date: Date) {
+        //
+    }
+    
+    func changeDatesTo(dates: [Date]) {
+        //
+    }
+    
     
     var mainView : RemindView!
     var calendarVC : MPCustomCalendarVC?
+    private let maskView : UIView = {
+        let mask = UIView()
+        mask.backgroundColor = getColor(hexValue: 0x404F6A, alpha: 0.28)
+        return mask
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,10 +107,19 @@ class RemindVC: MainDynamicTabVC,UITableViewDataSource {
     }
     
     @objc func handleChangeDate(){
-        calendarVC = MPCustomCalendarVC(type: .single,backGroundImage: UIApplication.shared.screenShot)
         
-        calendarVC!.modalPresentationStyle = .fullScreen
-        self.present(calendarVC!, animated: false)
+        calendarVC = MPCustomCalendarVC(type: .single)
+        calendarVC?.delegate = self
+        
+        keyWindow?.addSubview(maskView)
+        maskView.snp.makeConstraints { (make) in
+            make.leading.trailing.top.bottom.equalToSuperview()
+        }
+        
+        keyWindow?.addSubview(calendarVC!.view)
+        calendarVC!.view.snp.makeConstraints { (make) in
+            make.leading.trailing.top.bottom.equalToSuperview()
+        }
         
     }
     
