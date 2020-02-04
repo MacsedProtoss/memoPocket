@@ -9,7 +9,16 @@
 import UIKit
 import SnapKit
 
-class MPCustomCalendarCell : UITableViewCell{
+class MPCustomCalendarCell : UITableViewCell,UICollectionViewDelegate,UICollectionViewDataSource{
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        <#code#>
+    }
+    
     
     var year : Int!
     var month : Int!
