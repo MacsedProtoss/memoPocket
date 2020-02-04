@@ -9,17 +9,8 @@
 import UIKit
 import SnapKit
 
-class MPCustomCalendarCell : UITableViewCell,UICollectionViewDelegate,UICollectionViewDataSource{
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        <#code#>
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
-    }
-    
-    
+class MPCustomCalendarCell : UITableViewCell,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
+
     var year : Int!
     var month : Int!
     
@@ -28,7 +19,6 @@ class MPCustomCalendarCell : UITableViewCell,UICollectionViewDelegate,UICollecti
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        getView()
     }
     
     required init?(coder: NSCoder) {
@@ -39,6 +29,7 @@ class MPCustomCalendarCell : UITableViewCell,UICollectionViewDelegate,UICollecti
         self.init()
         self.year = year
         self.month = month
+        getView()
     }
     
     private func getView(){
@@ -52,24 +43,62 @@ class MPCustomCalendarCell : UITableViewCell,UICollectionViewDelegate,UICollecti
         titleLabel.snp.makeConstraints { (make) in
             make.leading.equalToSuperview().offset(22.reSized)
             make.height.equalTo(31.reSized)
-            make.width.equalTo(47.reSized)
             make.trailing.equalToSuperview()
+            make.top.equalToSuperview()
         }
         
         if month == 1{
-            titleLabel.text = "\(String(describing: year))年\(String(describing: month))月"
+            titleLabel.text = "\(year!)年\(month!)月"
         }else{
-            titleLabel.text = "\(String(describing: month))月"
+            titleLabel.text = "\(month!)月"
         }
         
         let flowLayout = UICollectionViewFlowLayout()
-        calendar = UICollectionView()
-        calendar.collectionViewLayout = flowLayout
+        flowLayout.scrollDirection = .vertical
+        flowLayout.minimumLineSpacing = 16.reSized
+        flowLayout.minimumInteritemSpacing = 0
+        calendar = UICollectionView(frame: CGRect.zero, collectionViewLayout: flowLayout)
+        calendar.register(MPCustomCalendarDayCell.self, forCellWithReuseIdentifier: "day cell")
+        calendar.backgroundColor = .white
+        calendar.dataSource = self
+        calendar.isDirectionalLockEnabled = true
+        calendar.showsVerticalScrollIndicator = false
+        calendar.showsHorizontalScrollIndicator = false
+        calendar.isScrollEnabled = false
         
         self.addSubview(calendar)
         calendar.snp.makeConstraints { (make) in
             make.leading.trailing.bottom.equalToSuperview()
-            make.top.equalTo(54.reSized)
+            make.top.equalToSuperview().offset(54.reSized)
+        }
+        
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return CalendarUtil.shared.getCellCount(ofYear: year, ofMonth: month)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        if indexPath.row + 2 > CalendarUtil.shared.getFirstDayOfMonth(ofYear: year, ofMonth: month){
+            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "day cell", for: indexPath) as! MPCustomCalendarDayCell
+            
+            cell.day = indexPath.row + 1 - CalendarUtil.shared.getFirstDayOfMonth(ofYear: year, ofMonth: month) + 1
+            
+            cell.getView()
+            
+            if CalendarUtil.shared.isToday(ofYear: year, ofMonth: month, ofDay: indexPath.row + 1 - CalendarUtil.shared.getFirstDayOfMonth(ofYear: year, ofMonth: month) + 1){
+                cell.singleChoose = true
+            }
+            
+            return cell
+            
+        }else{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "day cell", for: indexPath) as! MPCustomCalendarDayCell
+            
+            return cell
         }
         
     }

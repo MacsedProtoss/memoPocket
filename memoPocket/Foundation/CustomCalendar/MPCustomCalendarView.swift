@@ -23,7 +23,7 @@ class MPCustomCalendarView: UIView {
         }
     }
     var confirmBtn : UIButton!
-    var mainScroll : UIScrollView!
+    var calendar : MPTableWithoutExtraLine!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -136,6 +136,17 @@ class MPCustomCalendarView: UIView {
             make.bottom.equalToSuperview().offset(-12.reSized)
             make.width.equalTo(287.reSized)
             make.height.equalTo(49.reSized)
+        }
+        
+        calendar = MPTableWithoutExtraLine()
+        calendar.showsHorizontalScrollIndicator = false
+        calendar.showsVerticalScrollIndicator = false
+        calendar.separatorStyle = .none
+        bottomLayer.addSubview(calendar)
+        calendar.snp.makeConstraints { (make) in
+            make.leading.trailing.equalToSuperview()
+            make.top.equalToSuperview()
+            make.bottom.equalTo(confirmBtn.snp.top).offset(-26.reSized)
         }
         
         
