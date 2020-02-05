@@ -60,7 +60,21 @@ class CalendarUtil {
         
         let currentDate = formatter.string(from: today)
         
-        return (currentDate == "\(year)-\(month)-\(day)")
+        var todayString = "\(year)-"
+        
+        if month < 10{
+            todayString = todayString + "0" + "\(month)-"
+        }else{
+            todayString = todayString + "\(month)-"
+        }
+        
+        if day < 10{
+            todayString = todayString + "0" + "\(day)"
+        }else{
+            todayString = todayString + "\(day)"
+        }
+        
+        return (currentDate == todayString)
         
     }
     
