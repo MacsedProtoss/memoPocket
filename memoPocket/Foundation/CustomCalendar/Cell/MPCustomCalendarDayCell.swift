@@ -29,12 +29,14 @@ class MPCustomCalendarDayCell : UICollectionViewCell{
             self.setCorner(byRoundingCorners: [], withBounds: CGRect(x: 0, y: 0, width: (380.0/7).reSized, height: 40.reSized), radius: 20.reSized)
         }else{
             self.backgroundColor = getColor(hexValue: 0x92A0F8, alpha: 1.0)
-            if isHead{
+            if isHead && !isTail{
                 self.setCorner(byRoundingCorners: [.topLeft,.bottomLeft], withBounds: CGRect(x: 0, y: 0, width: (380.0/7).reSized, height: 40.reSized), radius: 20.reSized)
-            }else if isTail{
+            }else if isTail && !isHead {
                 self.setCorner(byRoundingCorners: [.topRight,.bottomRight], withBounds: CGRect(x: 0, y: 0, width: (380.0/7).reSized, height: 40.reSized), radius: 20.reSized)
-            }else{
+            }else if !isHead && !isTail{
                 self.setCorner(byRoundingCorners: [], withBounds: CGRect(x: 0, y: 0, width: (380.0/7).reSized, height: 40.reSized), radius: 20.reSized)
+            }else{
+                self.setCorner(byRoundingCorners: [.topLeft,.topRight,.bottomLeft,.bottomRight], withBounds: CGRect(x: 0, y: 0, width: 40.reSized, height: 40.reSized), radius: 20.reSized)
             }
         }
     }

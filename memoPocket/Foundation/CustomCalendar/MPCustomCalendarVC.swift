@@ -16,6 +16,7 @@ class MPCustomCalendarVC : UIViewController,UITableViewDelegate,UITableViewDataS
     var delegate : MPCustomCalendarDelegate?
     private var singleChooseDate : Date = Date()
     private var mutilChooseDate : Dictionary<Date,Date> = [:]
+    private var prevSelect : Date? = nil
     
     convenience init(type : CalendarType){
         self.init()
@@ -108,7 +109,67 @@ class MPCustomCalendarVC : UIViewController,UITableViewDelegate,UITableViewDataS
             singleChooseDate = CalendarUtil.shared.getDateByYMD(byYear: cell.year, byMonth: cell.month, byDay: cell.day)
             
             mainView.titleDate = singleChooseDate
+        }else{
+            
+            let date = CalendarUtil.shared.getDateByYMD(byYear: cell.year, byMonth: cell.month, byDay: cell.day)
+            
+            var intervalStart : Date? = nil
+            var intervalEnd : Date? = nil
+            
+            for (start,end) in mutilChooseDate{
+                let interval = CalendarUtil.shared.getDatesFromInterval(startDate: start, endDate: end)
+                if interval.contains(date){
+                    intervalStart = start
+                    intervalEnd = end
+                    break
+                }
+            }
+            
+            if prevSelect == nil{
+
+                if intervalStart == nil{
+                    
+                    //MARK: TODO 是否是某个的前一个或者后一个
+                    
+                    
+                }else{
+                    
+                    
+                    
+                    
+                    
+                }
+                
+            }else{
+                
+                if intervalStart == nil{
+                    if prevSelect!.compare(date) == .orderedAscending{
+                        mutilChooseDate[prevSelect!] = date
+                        drawNewMutil(startAt: prevSelect!, endAt: date)
+                    }else{
+                        mutilChooseDate[date] = prevSelect!
+                        drawNewMutil(startAt: date, endAt: prevSelect!)
+                    }
+                    prevSelect = nil
+                }else{
+                    if prevSelect!.compare(intervalStart!) == .orderedAscending{
+                        mutilChooseDate[prevSelect!] = intervalEnd!
+                        mutilChooseDate.removeValue(forKey: intervalStart!)
+                        drawNewMutil(startAt: prevSelect!, endAt: intervalEnd!)
+                    }else{
+                        mutilChooseDate[intervalStart!] = prevSelect!
+                        drawNewMutil(startAt: intervalStart!, endAt: prevSelect!)
+                    }
+                    prevSelect = nil
+                }
+                
+            }
+            
         }
+    }
+    
+    private func drawNewMutil(startAt start: Date,endAt end : Date){
+        
     }
     
 }
