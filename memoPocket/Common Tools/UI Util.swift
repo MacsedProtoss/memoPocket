@@ -61,10 +61,18 @@ extension Int{
 }
 
 extension Date{
-    var toString : String{
+    var CNtoString : String{
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy年MM月dd日"
         return formatter.string(from: self)
+    }
+}
+
+extension String{
+    var CNtoDate : Date{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy年MM月dd日"
+        return formatter.date(from: self) ?? Date()
     }
 }
 

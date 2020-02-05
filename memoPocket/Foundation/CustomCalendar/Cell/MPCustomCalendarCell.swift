@@ -86,6 +86,8 @@ class MPCustomCalendarCell : UITableViewCell,UICollectionViewDataSource,UICollec
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "day cell", for: indexPath) as! MPCustomCalendarDayCell
             
             cell.day = indexPath.row + 1 - CalendarUtil.shared.getFirstDayOfMonth(ofYear: year, ofMonth: month) + 1
+            cell.year = year
+            cell.month = month
             
             cell.getView()
             
@@ -97,7 +99,7 @@ class MPCustomCalendarCell : UITableViewCell,UICollectionViewDataSource,UICollec
             
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "day cell", for: indexPath) as! MPCustomCalendarDayCell
-            
+            cell.isUserInteractionEnabled = false
             return cell
         }
         

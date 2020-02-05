@@ -12,6 +12,8 @@ import SnapKit
 class MPCustomCalendarDayCell : UICollectionViewCell{
     
     var day : Int = 0
+    var month : Int = 0
+    var year : Int = 0
     private var label : UILabel!
     private var chooseLayer : UIView!
     

@@ -19,7 +19,7 @@ class MPCustomCalendarView: UIView {
     private var topLabel : UILabel!
     var titleDate : Date?{
         didSet{
-            topLabel.text = titleDate?.toString
+            topLabel.text = titleDate?.CNtoString
         }
     }
     var confirmBtn : UIButton!
@@ -84,7 +84,7 @@ class MPCustomCalendarView: UIView {
         topLabel.font = UIFont(name: "PingFangSC-Semibold", size: 22.reSized)
         topLabel.textColor = getColor(hexValue: 0x696F83, alpha: 1.0)
         topLabel.textAlignment = .center
-        topLabel.text = Date().toString
+        topLabel.text = Date().CNtoString
         headLayer.addSubview(topLabel)
         
         topLabel.snp.makeConstraints { (make) in

@@ -92,4 +92,98 @@ class CalendarUtil {
         return Int(f.string(from: date))!
     }
     
+    func getDayCellIndex(date : Date) -> Int{
+        
+        let f = DateFormatter()
+        f.dateFormat = "yyyy"
+        let year = Int(f.string(from: date))!
+        f.dateFormat = "MM"
+        let month = Int(f.string(from: date))!
+        f.dateFormat = "dd"
+        let day = Int(f.string(from: date))!
+        
+        let start = getFirstDayOfMonth(ofYear: year, ofMonth: month)
+        
+        return start + day - 2
+    }
+    
+    func getMonthCellIndex(date selectDate : Date) -> Int{
+        let currentDate = Date()
+        let f = DateFormatter()
+        f.dateFormat = "yyyy"
+        let currentYear = Int(f.string(from: currentDate))!
+        let selectYear = Int(f.string(from: selectDate))!
+        var output = 12 * (selectYear - currentYear + 1)
+        
+        f.dateFormat = "MM"
+        let currentMonth = Int(f.string(from: currentDate))!
+        let selectMonth = Int(f.string(from: selectDate))!
+        
+        output += (selectMonth - currentMonth)
+        
+        return output
+    }
+    
+    func getDateByYMD(byYear year: Int,byMonth month : Int,byDay day : Int) -> Date{
+        
+        var todayString = "\(year)-"
+        
+        if month < 10{
+            todayString = todayString + "0" + "\(month)-"
+        }else{
+            todayString = todayString + "\(month)-"
+        }
+        
+        if day < 10{
+            todayString = todayString + "0" + "\(day)"
+        }else{
+            todayString = todayString + "\(day)"
+        }
+        
+        return formatter.date(from: todayString)!
+        
+    }
+    
+    func getDatesFromInterval(startDate start: Date,endDate end : Date) -> [Date]{
+        
+        let f = DateFormatter()
+        f.dateFormat = "yyyy"
+        let startYear = Int(f.string(from: start))!
+        f.dateFormat = "MM"
+        let startMonth = Int(f.string(from: start))!
+        f.dateFormat = "dd"
+        let startDay = Int(f.string(from: start))!
+
+        f.dateFormat = "yyyy"
+        let endYear = Int(f.string(from: end))!
+        f.dateFormat = "MM"
+        let endMonth = Int(f.string(from: end))!
+        f.dateFormat = "dd"
+        let endDay = Int(f.string(from: end))!
+
+        var tempYear = startYear
+        var tempMonth = startMonth
+        var tempDay = startDay
+        
+        var output : [Date] = []
+        
+        while tempYear != endYear && tempMonth != endMonth && tempDay != endDay {
+            
+            let today = getDateByYMD(byYear: tempYear, byMonth: tempMonth, byDay: tempDay)
+            output.append(today)
+            
+            let next = today.addingTimeInterval(24*60*60)
+            
+            f.dateFormat = "yyyy"
+            tempYear = Int(f.string(from: next))!
+            f.dateFormat = "MM"
+            tempMonth = Int(f.string(from: next))!
+            f.dateFormat = "dd"
+            tempDay = Int(f.string(from: next))!
+            
+        }
+        
+        return output
+    }
+    
 }

@@ -14,6 +14,8 @@ class MPCustomCalendarVC : UIViewController,UITableViewDelegate,UITableViewDataS
     private var type : CalendarType = .single
     private var mainView : MPCustomCalendarView!
     var delegate : MPCustomCalendarDelegate?
+    private var singleChooseDate : Date = Date()
+    private var mutilChooseDate : Dictionary<Date,Date> = [:]
     
     convenience init(type : CalendarType){
         self.init()
@@ -46,7 +48,18 @@ class MPCustomCalendarVC : UIViewController,UITableViewDelegate,UITableViewDataS
     }
     
     @objc func confirmPressed(){
-        delegate?.changeDateTo(date: Date()) // TODO
+        if type == .single{
+            delegate?.changeDateTo(date: singleChooseDate)
+        }else if type == .comble{
+            var output : [Date] = []
+            for (start,end) in mutilChooseDate{
+                for date in CalendarUtil.shared.getDatesFromInterval(startDate: start, endDate: end){
+                    output.append(date)
+                }
+            }
+            delegate?.changeDatesTo(dates: output)
+        }
+        
         delegate?.calendarViewDismiss()
     }
     
@@ -81,6 +94,21 @@ class MPCustomCalendarVC : UIViewController,UITableViewDelegate,UITableViewDataS
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width:(380.0/7).reSized, height: 40.reSized)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! MPCustomCalendarDayCell
+        if type == .single{
+            let originCell = mainView.calendar.cellForRow(at: IndexPath(row: CalendarUtil.shared.getMonthCellIndex(date: singleChooseDate), section: 0)) as! MPCustomCalendarCell
+            let dayCell = originCell.calendar.cellForItem(at: IndexPath(row: CalendarUtil.shared.getDayCellIndex(date: singleChooseDate), section: 0)) as! MPCustomCalendarDayCell
+            dayCell.singleChoose = false
+            
+            cell.singleChoose = true
+            
+            singleChooseDate = CalendarUtil.shared.getDateByYMD(byYear: cell.year, byMonth: cell.month, byDay: cell.day)
+            
+            mainView.titleDate = singleChooseDate
+        }
     }
     
 }
