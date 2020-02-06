@@ -129,15 +129,45 @@ class MPCustomCalendarVC : UIViewController,UITableViewDelegate,UITableViewDataS
 
                 if intervalStart == nil{
                     
-                    //MARK: TODO 是否是某个的前一个或者后一个
+                    var ahead : Date? = nil
+                    var behind : Date? = nil
                     
+                    for (start,end) in mutilChooseDate{
+                        
+                        if CalendarUtil.shared.isAhead(from: start, date: date){
+                            ahead = start
+                            break
+                        }
+                            
+                        if CalendarUtil.shared.isBehind(from: end, date: date){
+                            behind = end
+                            break
+                        }
+                        
+                    }
+                    
+                    if ahead != nil{
+                        prevSelect = nil
+                        mutilChooseDate.removeValue(forKey: intervalStart!)
+                        mutilChooseDate[date] = intervalEnd!
+                        drawNewMutil(startAt: date, endAt: intervalEnd!)
+                    }else if behind != nil{
+                        prevSelect = nil
+                        mutilChooseDate[intervalStart!] = date
+                        drawNewMutil(startAt: intervalStart!, endAt: date)
+                    }else{
+                        prevSelect = date
+                        cell.handleMutilChooseUI(forStatus: true, isHead: true, isTail: true)
+                    }
                     
                 }else{
                     
+                    mutilChooseDate[intervalStart!] = date.addingTimeInterval(-24*60*60)
                     
+                    mutilChooseDate[date.addingTimeInterval(24*60*60)] = intervalEnd!
                     
-                    
-                    
+                    drawNewMutil(startAt: intervalStart!, endAt: mutilChooseDate[intervalStart!]!)
+                    drawNewMutil(startAt: date.addingTimeInterval(24*60*60), endAt: intervalEnd!)
                 }
                 
             }else{

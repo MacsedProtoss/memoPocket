@@ -186,4 +186,47 @@ class CalendarUtil {
         return output
     }
     
+    
+    func isAhead(from start:Date , date : Date) -> Bool{
+        
+        let f = DateFormatter()
+        let ahead = start.addingTimeInterval(-24*60*60)
+        f.dateFormat = "yyyy"
+        let aheadYear = Int(f.string(from: ahead))!
+        f.dateFormat = "MM"
+        let aheadMonth = Int(f.string(from: ahead))!
+        f.dateFormat = "dd"
+        let aheadDay = Int(f.string(from: ahead))!
+        
+        f.dateFormat = "yyyy"
+        let nowYear = Int(f.string(from: date))!
+        f.dateFormat = "MM"
+        let nowMonth = Int(f.string(from: date))!
+        f.dateFormat = "dd"
+        let nowDay = Int(f.string(from: date))!
+        
+        return (nowYear==aheadYear && nowMonth==aheadMonth && nowDay==aheadDay)
+        
+    }
+    
+    func isBehind(from end : Date , date : Date) -> Bool{
+        let f = DateFormatter()
+        let behind = end.addingTimeInterval(24*60*60)
+        f.dateFormat = "yyyy"
+        let behindYear = Int(f.string(from: behind))!
+        f.dateFormat = "MM"
+        let behindMonth = Int(f.string(from: behind))!
+        f.dateFormat = "dd"
+        let behindDay = Int(f.string(from: behind))!
+        
+        f.dateFormat = "yyyy"
+        let nowYear = Int(f.string(from: date))!
+        f.dateFormat = "MM"
+        let nowMonth = Int(f.string(from: date))!
+        f.dateFormat = "dd"
+        let nowDay = Int(f.string(from: date))!
+        
+        return (nowYear==behindYear && nowMonth==behindMonth && nowDay==behindDay)
+    }
+    
 }
