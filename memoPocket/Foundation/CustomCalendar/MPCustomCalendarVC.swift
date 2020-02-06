@@ -9,14 +9,22 @@
 import UIKit
 import SnapKit
 
-class MPCustomCalendarVC : UIViewController,UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
+class MPCustomCalendarVC : UIViewController,UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UIScrollViewDelegate{
     
     private var type : CalendarType = .single
     private var mainView : MPCustomCalendarView!
     var delegate : MPCustomCalendarDelegate?
     private var singleChooseDate : Date = Date()
-    private var mutilChooseDate : Dictionary<Date,Date> = [:]
+    private var mutilChooseDate : Dictionary<Date,Date> = [:]{
+        didSet{
+            print("===============")
+            for (key,value) in mutilChooseDate{
+                print("start \(key)  end \(value)")
+            }
+        }
+    }
     private var prevSelect : Date? = nil
+    private var prevRows : [Int] = []
     
     convenience init(type : CalendarType){
         self.init()
@@ -72,7 +80,7 @@ class MPCustomCalendarVC : UIViewController,UITableViewDelegate,UITableViewDataS
         
         let month = (CalendarUtil.shared.getStartMonth() + indexPath.row)%12==0 ? 12 : (CalendarUtil.shared.getStartMonth() + indexPath.row)%12
         
-        let cell = MPCustomCalendarCell(year: CalendarUtil.shared.getStartYear() + indexPath.row/12, month: month)
+        let cell = MPCustomCalendarCell(year: CalendarUtil.shared.getStartYear() + (indexPath.row+1)/12, month: month)
         cell.calendar.delegate = self
         return cell
     }
@@ -80,7 +88,7 @@ class MPCustomCalendarVC : UIViewController,UITableViewDelegate,UITableViewDataS
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         let month = (CalendarUtil.shared.getStartMonth() + indexPath.row)%12==0 ? 12 : (CalendarUtil.shared.getStartMonth() + indexPath.row)%12
-        let year = CalendarUtil.shared.getStartYear() + indexPath.row/12
+        let year = CalendarUtil.shared.getStartYear() + (indexPath.row+1)/12
         
         return getMonthHeight(year: year, month: month)
         
@@ -171,16 +179,16 @@ class MPCustomCalendarVC : UIViewController,UITableViewDelegate,UITableViewDataS
                     
                 }else{
                     
-                    if date == intervalStart!{
+                    if date == intervalStart! && intervalStart! != intervalEnd!{
                         mutilChooseDate.removeValue(forKey: intervalStart!)
                         mutilChooseDate[intervalStart!.addingTimeInterval(24*60*60)] = intervalEnd!
                         drawNewMutil(startAt: intervalStart!.addingTimeInterval(24*60*60), endAt: intervalEnd!)
                         cell.handleMutilChooseUI(forStatus: false, isHead: false, isTail: false)
-                    }else if date == intervalEnd!{
+                    }else if date == intervalEnd! && intervalStart! != intervalEnd!{
                         mutilChooseDate[intervalStart!] = intervalEnd!.addingTimeInterval(-24*60*60)
                         drawNewMutil(startAt: intervalStart!, endAt: mutilChooseDate[intervalStart!]!)
                         cell.handleMutilChooseUI(forStatus: false, isHead: false, isTail: false)
-                    }else{
+                    }else if date != intervalStart && date != intervalEnd{
                         mutilChooseDate[intervalStart!] = date.addingTimeInterval(-24*60*60)
                         
                         mutilChooseDate[date.addingTimeInterval(24*60*60)] = intervalEnd!
@@ -189,6 +197,9 @@ class MPCustomCalendarVC : UIViewController,UITableViewDelegate,UITableViewDataS
                         drawNewMutil(startAt: date.addingTimeInterval(24*60*60), endAt: intervalEnd!)
                         cell.handleMutilChooseUI(forStatus: false, isHead: false, isTail: false)
                         
+                    }else if date == intervalStart! && date == intervalEnd!{
+                        cell.handleMutilChooseUI(forStatus: false, isHead: false, isTail: false)
+                        mutilChooseDate.removeValue(forKey: date)
                     }
                     
                     prevSelect = nil
@@ -292,6 +303,8 @@ class MPCustomCalendarVC : UIViewController,UITableViewDelegate,UITableViewDataS
     
     private func drawNewMutil(startAt start: Date,endAt end : Date){
         
+        print("==draw== start \(start)  end \(end)")
+        
         let dates = CalendarUtil.shared.getDatesFromInterval(startDate: start, endDate: end)
         
         for index in 0..<dates.count{
@@ -312,6 +325,53 @@ class MPCustomCalendarVC : UIViewController,UITableViewDelegate,UITableViewDataS
         }
         
         
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView == mainView.calendar && type == .comble{
+            
+            var rows : [Int] = []
+            
+            if let indexpathes = mainView.calendar.indexPathsForVisibleRows{
+                for indexpath in indexpathes{
+                    rows.append(indexpath.row)
+                }
+            }
+            
+            if rows == prevRows{
+                return
+            }
+            
+            prevRows = rows
+            
+            print("called draw")
+            
+            for (start,end) in mutilChooseDate{
+                
+                let newInterval = CalendarUtil.shared.getIntervalWithBorders(from: start, to: end, withBorders: rows)
+                
+                if newInterval.count != 0{
+                    let interval = newInterval[0]
+                    
+                    drawNewMutil(startAt: interval.0, endAt: interval.1)
+                    
+                    let startMonthCell = mainView.calendar.cellForRow(at: IndexPath(row: CalendarUtil.shared.getMonthCellIndex(date: interval.0), section: 0)) as! MPCustomCalendarCell
+                    let startDayCell = startMonthCell.calendar.cellForItem(at: IndexPath(row: CalendarUtil.shared.getDayCellIndex(date: interval.0), section: 0)) as! MPCustomCalendarDayCell
+                    
+                    let endMonthCell = mainView.calendar.cellForRow(at: IndexPath(row: CalendarUtil.shared.getMonthCellIndex(date: interval.1), section: 0)) as! MPCustomCalendarCell
+                    let endDayCell = endMonthCell.calendar.cellForItem(at: IndexPath(row: CalendarUtil.shared.getDayCellIndex(date: interval.1), section: 0)) as! MPCustomCalendarDayCell
+                    
+                    if interval.0 != start{
+                        startDayCell.handleMutilChooseUI(forStatus: true, isHead: false, isTail: false)
+                    }
+                    
+                    if interval.1 != end{
+                        endDayCell.handleMutilChooseUI(forStatus: true, isHead: false, isTail: false)
+                    }
+                }
+                
+            }
+        }
     }
     
 }

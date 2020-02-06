@@ -231,4 +231,60 @@ class CalendarUtil {
         return (nowYear==behindYear && nowMonth==behindMonth && nowDay==behindDay)
     }
     
+    func getIntervalWithBorders(from start:Date,to end:Date,withBorders borders: [Int]) -> [(Date,Date)]{
+        
+        let leftBorder = convertRowToInterval(row: borders[0]).0
+        let rightBorder = convertRowToInterval(row: borders[borders.count-1]).1
+        
+        
+        if start.compare(leftBorder) == .orderedAscending{
+            if end.compare(leftBorder) == .orderedAscending{
+                return []
+            }else if end.compare(leftBorder) == .orderedSame{
+                return [(leftBorder,leftBorder)]
+            }else if end.compare(leftBorder) == .orderedDescending{
+                if end.compare(rightBorder) == . orderedDescending{
+                    return [(leftBorder,rightBorder)]
+                }else{
+                    return [(leftBorder,end)]
+                }
+            }
+        }else if start.compare(leftBorder) == .orderedDescending{
+            
+            if start.compare(rightBorder) == .orderedDescending{
+                return []
+            }else if start.compare(rightBorder) == .orderedSame{
+                return [(rightBorder,rightBorder)]
+            }else{
+                if end.compare(rightBorder) == .orderedDescending{
+                    return [(start,rightBorder)]
+                }else{
+                    return [(start,end)]
+                }
+            }
+            
+        }else{
+            if end.compare(rightBorder) == .orderedDescending{
+                return [(leftBorder,rightBorder)]
+            }else{
+                return [(leftBorder,end)]
+            }
+        }
+        
+        
+        return[]
+    }
+    
+    private func convertRowToInterval(row :Int) -> (Date,Date){
+        
+        let month = (getStartMonth() + row)%12==0 ? 12 : (getStartMonth() + row)%12
+        let year = getStartYear() + (row+1)/12
+        
+        let startDay = getDateByYMD(byYear: year, byMonth: month, byDay: 1)
+        let endDay = getDateByYMD(byYear: year, byMonth: month, byDay: getCellCount(ofYear: year, ofMonth: month) - getFirstDayOfMonth(ofYear: year, ofMonth: month) + 1)
+        
+        return (startDay,endDay)
+        
+    }
+    
 }
