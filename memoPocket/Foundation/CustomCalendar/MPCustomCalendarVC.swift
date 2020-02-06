@@ -168,6 +168,7 @@ class MPCustomCalendarVC : UIViewController,UITableViewDelegate,UITableViewDataS
                     
                     drawNewMutil(startAt: intervalStart!, endAt: mutilChooseDate[intervalStart!]!)
                     drawNewMutil(startAt: date.addingTimeInterval(24*60*60), endAt: intervalEnd!)
+                    cell.handleMutilChooseUI(forStatus: false, isHead: false, isTail: false)
                 }
                 
             }else{
@@ -199,6 +200,24 @@ class MPCustomCalendarVC : UIViewController,UITableViewDelegate,UITableViewDataS
     }
     
     private func drawNewMutil(startAt start: Date,endAt end : Date){
+        
+        let dates = CalendarUtil.shared.getDatesFromInterval(startDate: start, endDate: end)
+        
+        for index in 0..<dates.count{
+            let date = dates[index]
+            let monthCell = mainView.calendar.cellForRow(at: IndexPath(row: CalendarUtil.shared.getMonthCellIndex(date: date), section: 0)) as! MPCustomCalendarCell
+            let dayCell = monthCell.calendar.cellForItem(at: IndexPath(row: CalendarUtil.shared.getDayCellIndex(date: date), section: 0)) as! MPCustomCalendarDayCell
+            
+            if index == 0{
+                dayCell.handleMutilChooseUI(forStatus: true, isHead: true, isTail: false)
+            }else if index == dates.count-1{
+                dayCell.handleMutilChooseUI(forStatus: true, isHead: false, isTail: true)
+            }else{
+                dayCell.handleMutilChooseUI(forStatus: true, isHead: false, isTail: false)
+            }
+            
+        }
+        
         
     }
     
