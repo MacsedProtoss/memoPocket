@@ -36,7 +36,7 @@ class MPCustomCalendarDayCell : UICollectionViewCell{
             }else if !isHead && !isTail{
                 self.setCorner(byRoundingCorners: [], withBounds: CGRect(x: 0, y: 0, width: (380.0/7).reSized, height: 40.reSized), radius: 20.reSized)
             }else{
-                self.setCorner(byRoundingCorners: [.topLeft,.topRight,.bottomLeft,.bottomRight], withBounds: CGRect(x: 0, y: 0, width: 40.reSized, height: 40.reSized), radius: 20.reSized)
+                self.setCorner(byRoundingCorners: [.topLeft,.topRight,.bottomLeft,.bottomRight], withBounds: CGRect(x: 0, y: 0, width: (380.0/7).reSized, height: 40.reSized), radius: 20.reSized)
             }
         }
     }

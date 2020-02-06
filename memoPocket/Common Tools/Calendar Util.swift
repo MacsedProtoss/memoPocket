@@ -167,7 +167,7 @@ class CalendarUtil {
         
         var output : [Date] = []
         
-        while tempYear != endYear && tempMonth != endMonth && tempDay != endDay {
+        while !(tempYear == endYear && tempMonth == endMonth && tempDay == endDay) {
             
             let today = getDateByYMD(byYear: tempYear, byMonth: tempMonth, byDay: tempDay)
             output.append(today)
@@ -182,6 +182,8 @@ class CalendarUtil {
             tempDay = Int(f.string(from: next))!
             
         }
+        
+        output.append(getDateByYMD(byYear: endYear, byMonth: endMonth, byDay: endDay))
         
         return output
     }

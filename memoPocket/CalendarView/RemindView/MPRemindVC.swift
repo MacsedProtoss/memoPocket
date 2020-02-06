@@ -108,7 +108,7 @@ class RemindVC: MainDynamicTabVC,UITableViewDataSource,MPCustomCalendarDelegate 
     
     @objc func handleChangeDate(){
         
-        calendarVC = MPCustomCalendarVC(type: .single)
+        calendarVC = MPCustomCalendarVC(type: .comble)
         calendarVC?.delegate = self
         
         keyWindow?.addSubview(maskView)

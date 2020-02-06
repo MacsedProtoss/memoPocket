@@ -126,7 +126,7 @@ class MPCustomCalendarVC : UIViewController,UITableViewDelegate,UITableViewDataS
             }
             
             if prevSelect == nil{
-
+                
                 if intervalStart == nil{
                     
                     var ahead : Date? = nil
@@ -136,61 +136,152 @@ class MPCustomCalendarVC : UIViewController,UITableViewDelegate,UITableViewDataS
                         
                         if CalendarUtil.shared.isAhead(from: start, date: date){
                             ahead = start
-                            break
+                            if intervalStart == nil{
+                                intervalStart = start
+                                intervalEnd = end
+                            }
                         }
                             
                         if CalendarUtil.shared.isBehind(from: end, date: date){
                             behind = end
-                            break
+                            intervalStart = start
+                            intervalEnd = end
                         }
                         
                     }
                     
-                    if ahead != nil{
+                    if ahead != nil && behind == nil{
                         prevSelect = nil
                         mutilChooseDate.removeValue(forKey: intervalStart!)
                         mutilChooseDate[date] = intervalEnd!
                         drawNewMutil(startAt: date, endAt: intervalEnd!)
-                    }else if behind != nil{
+                    }else if behind != nil && ahead == nil{
                         prevSelect = nil
                         mutilChooseDate[intervalStart!] = date
                         drawNewMutil(startAt: intervalStart!, endAt: date)
-                    }else{
+                    }else if behind == nil && ahead == nil{
                         prevSelect = date
                         cell.handleMutilChooseUI(forStatus: true, isHead: true, isTail: true)
+                        mutilChooseDate[date] = date
+                    }else{
+                        mutilChooseDate[intervalStart!] = mutilChooseDate[ahead!]
+                        mutilChooseDate.removeValue(forKey: ahead!)
+                        drawNewMutil(startAt: intervalStart!, endAt: mutilChooseDate[intervalStart!]!)
                     }
                     
                 }else{
                     
-                    mutilChooseDate[intervalStart!] = date.addingTimeInterval(-24*60*60)
+                    if date == intervalStart!{
+                        mutilChooseDate.removeValue(forKey: intervalStart!)
+                        mutilChooseDate[intervalStart!.addingTimeInterval(24*60*60)] = intervalEnd!
+                        drawNewMutil(startAt: intervalStart!.addingTimeInterval(24*60*60), endAt: intervalEnd!)
+                        cell.handleMutilChooseUI(forStatus: false, isHead: false, isTail: false)
+                    }else if date == intervalEnd!{
+                        mutilChooseDate[intervalStart!] = intervalEnd!.addingTimeInterval(-24*60*60)
+                        drawNewMutil(startAt: intervalStart!, endAt: mutilChooseDate[intervalStart!]!)
+                        cell.handleMutilChooseUI(forStatus: false, isHead: false, isTail: false)
+                    }else{
+                        mutilChooseDate[intervalStart!] = date.addingTimeInterval(-24*60*60)
+                        
+                        mutilChooseDate[date.addingTimeInterval(24*60*60)] = intervalEnd!
+                        
+                        drawNewMutil(startAt: intervalStart!, endAt: mutilChooseDate[intervalStart!]!)
+                        drawNewMutil(startAt: date.addingTimeInterval(24*60*60), endAt: intervalEnd!)
+                        cell.handleMutilChooseUI(forStatus: false, isHead: false, isTail: false)
+                        
+                    }
                     
-                    mutilChooseDate[date.addingTimeInterval(24*60*60)] = intervalEnd!
+                    prevSelect = nil
                     
-                    drawNewMutil(startAt: intervalStart!, endAt: mutilChooseDate[intervalStart!]!)
-                    drawNewMutil(startAt: date.addingTimeInterval(24*60*60), endAt: intervalEnd!)
-                    cell.handleMutilChooseUI(forStatus: false, isHead: false, isTail: false)
                 }
                 
             }else{
                 
                 if intervalStart == nil{
-                    if prevSelect!.compare(date) == .orderedAscending{
-                        mutilChooseDate[prevSelect!] = date
-                        drawNewMutil(startAt: prevSelect!, endAt: date)
-                    }else{
-                        mutilChooseDate[date] = prevSelect!
-                        drawNewMutil(startAt: date, endAt: prevSelect!)
+                    
+                    var ahead : Date? = nil
+                    var behind : Date? = nil
+                    
+                    for (start,end) in mutilChooseDate{
+                        
+                        if CalendarUtil.shared.isAhead(from: start, date: date){
+                            ahead = start
+                            if intervalStart == nil{
+                                intervalStart = start
+                                intervalEnd = end
+                            }
+                        }
+                            
+                        if CalendarUtil.shared.isBehind(from: end, date: date){
+                            behind = end
+                            intervalStart = start
+                            intervalEnd = end
+                        }
+                        
                     }
+                    
+                    if ahead != nil && behind == nil{
+                        if prevSelect!.compare(date) == .orderedAscending{
+                            mutilChooseDate[prevSelect!] = mutilChooseDate[ahead!]!
+                            mutilChooseDate.removeValue(forKey: ahead!)
+                            drawNewMutil(startAt: prevSelect!, endAt: mutilChooseDate[prevSelect!]!)
+                        }else{
+                            mutilChooseDate.removeValue(forKey: ahead!)
+                            mutilChooseDate.removeValue(forKey: prevSelect!)
+                            mutilChooseDate[date] = prevSelect!
+                            drawNewMutil(startAt: date, endAt: prevSelect!)
+                        }
+                    }else if behind != nil && ahead == nil{
+                        if prevSelect!.compare(date) == .orderedAscending{
+                            mutilChooseDate.removeValue(forKey: intervalStart!)
+                            mutilChooseDate[prevSelect!] = date
+                            drawNewMutil(startAt: prevSelect!, endAt: date)
+                        }else{
+                            mutilChooseDate[intervalStart!] = prevSelect!
+                            mutilChooseDate.removeValue(forKey: prevSelect!)
+                            drawNewMutil(startAt: intervalStart!, endAt: prevSelect!)
+                        }
+                    }else if ahead == nil && behind == nil{
+                        if prevSelect!.compare(date) == .orderedAscending{
+                            mutilChooseDate[prevSelect!] = date
+                            drawNewMutil(startAt: prevSelect!, endAt: date)
+                        }else{
+                            mutilChooseDate[date] = prevSelect!
+                            mutilChooseDate.removeValue(forKey: prevSelect!)
+                            drawNewMutil(startAt: date, endAt: prevSelect!)
+                        }
+                    }else{
+                        if prevSelect!.compare(date) == .orderedAscending{
+                            mutilChooseDate[prevSelect!] = mutilChooseDate[ahead!]!
+                            mutilChooseDate.removeValue(forKey: ahead!)
+                            mutilChooseDate.removeValue(forKey: intervalStart!)
+                            drawNewMutil(startAt: prevSelect!, endAt: mutilChooseDate[prevSelect!]!)
+                        }else{
+                            mutilChooseDate[intervalStart!] = prevSelect!
+                            mutilChooseDate.removeValue(forKey: ahead!)
+                            mutilChooseDate.removeValue(forKey: prevSelect!)
+                            drawNewMutil(startAt: intervalStart!, endAt: prevSelect!)
+                        }
+                    }
+
                     prevSelect = nil
                 }else{
-                    if prevSelect!.compare(intervalStart!) == .orderedAscending{
-                        mutilChooseDate[prevSelect!] = intervalEnd!
-                        mutilChooseDate.removeValue(forKey: intervalStart!)
-                        drawNewMutil(startAt: prevSelect!, endAt: intervalEnd!)
+                    
+                    if date == prevSelect!{
+                        cell.handleMutilChooseUI(forStatus: false, isHead: false, isTail: false)
+                        mutilChooseDate.removeValue(forKey: date)
                     }else{
-                        mutilChooseDate[intervalStart!] = prevSelect!
-                        drawNewMutil(startAt: intervalStart!, endAt: prevSelect!)
+                        if prevSelect!.compare(intervalStart!) == .orderedAscending{
+                            mutilChooseDate[prevSelect!] = intervalEnd!
+                            mutilChooseDate.removeValue(forKey: intervalStart!)
+                            drawNewMutil(startAt: prevSelect!, endAt: intervalEnd!)
+                        }else{
+                            mutilChooseDate[intervalStart!] = prevSelect!
+                            mutilChooseDate.removeValue(forKey: prevSelect!)
+                            drawNewMutil(startAt: intervalStart!, endAt: prevSelect!)
+                        }
                     }
+                    
                     prevSelect = nil
                 }
                 
@@ -208,10 +299,12 @@ class MPCustomCalendarVC : UIViewController,UITableViewDelegate,UITableViewDataS
             let monthCell = mainView.calendar.cellForRow(at: IndexPath(row: CalendarUtil.shared.getMonthCellIndex(date: date), section: 0)) as! MPCustomCalendarCell
             let dayCell = monthCell.calendar.cellForItem(at: IndexPath(row: CalendarUtil.shared.getDayCellIndex(date: date), section: 0)) as! MPCustomCalendarDayCell
             
-            if index == 0{
+            if index == 0 && index != dates.count-1 {
                 dayCell.handleMutilChooseUI(forStatus: true, isHead: true, isTail: false)
-            }else if index == dates.count-1{
+            }else if index == dates.count-1 && index != 0{
                 dayCell.handleMutilChooseUI(forStatus: true, isHead: false, isTail: true)
+            }else if index == 0 && index == dates.count-1{
+                dayCell.handleMutilChooseUI(forStatus: true, isHead: true, isTail: true)
             }else{
                 dayCell.handleMutilChooseUI(forStatus: true, isHead: false, isTail: false)
             }
