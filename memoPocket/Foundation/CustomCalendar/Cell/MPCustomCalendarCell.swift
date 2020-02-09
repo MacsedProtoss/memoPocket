@@ -33,7 +33,7 @@ class MPCustomCalendarCell : UITableViewCell,UICollectionViewDataSource,UICollec
     }
     
     private func getView(){
-        self.backgroundColor = .clear
+        self.backgroundColor = .white
         
         titleLabel = UILabel()
         titleLabel.font = UIFont.init(name: "PingFangSC-Semibold", size: 22.reSized)

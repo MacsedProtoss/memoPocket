@@ -142,6 +142,7 @@ class MPCustomCalendarView: UIView {
         calendar.showsHorizontalScrollIndicator = false
         calendar.showsVerticalScrollIndicator = false
         calendar.separatorStyle = .none
+        calendar.allowsSelection = false
         bottomLayer.addSubview(calendar)
         calendar.snp.makeConstraints { (make) in
             make.leading.trailing.equalToSuperview()
