@@ -31,6 +31,8 @@
 		4B793ABF23E8669000F83F44 /* MPCustomCalendarDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B793ABE23E8669000F83F44 /* MPCustomCalendarDayCell.swift */; };
 		4B79BE3D235DE2270008F6D2 /* CustomFloatingBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B79BE3C235DE2270008F6D2 /* CustomFloatingBtnView.swift */; };
 		4B7F942F23E6F972007EF0FC /* MPCustomCalendarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7F942E23E6F972007EF0FC /* MPCustomCalendarDelegate.swift */; };
+		4B97EFDB240FCC31007523E1 /* MPCustomeInputBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B97EFDA240FCC31007523E1 /* MPCustomeInputBaseCell.swift */; };
+		4B97EFDD240FE331007523E1 /* MPCustomInputPureTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B97EFDC240FE331007523E1 /* MPCustomInputPureTextCell.swift */; };
 		4B9B2AA023E44F9A00007B7C /* common values.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9B2A9F23E44F9A00007B7C /* common values.swift */; };
 		4B9B2AA223E4552B00007B7C /* MPCustomCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9B2AA123E4552B00007B7C /* MPCustomCalendarView.swift */; };
 		4B9BE498235355AA00C077C4 /* MPCustomTabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9BE497235355AA00C077C4 /* MPCustomTabbarView.swift */; };
@@ -104,6 +106,8 @@
 		4B793ABE23E8669000F83F44 /* MPCustomCalendarDayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCustomCalendarDayCell.swift; sourceTree = "<group>"; };
 		4B79BE3C235DE2270008F6D2 /* CustomFloatingBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFloatingBtnView.swift; sourceTree = "<group>"; };
 		4B7F942E23E6F972007EF0FC /* MPCustomCalendarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCustomCalendarDelegate.swift; sourceTree = "<group>"; };
+		4B97EFDA240FCC31007523E1 /* MPCustomeInputBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCustomeInputBaseCell.swift; sourceTree = "<group>"; };
+		4B97EFDC240FE331007523E1 /* MPCustomInputPureTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCustomInputPureTextCell.swift; sourceTree = "<group>"; };
 		4B9B2A9F23E44F9A00007B7C /* common values.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "common values.swift"; sourceTree = "<group>"; };
 		4B9B2AA123E4552B00007B7C /* MPCustomCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCustomCalendarView.swift; sourceTree = "<group>"; };
 		4B9BE497235355AA00C077C4 /* MPCustomTabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCustomTabbarView.swift; sourceTree = "<group>"; };
@@ -313,6 +317,23 @@
 			path = CustomFloatingBtn;
 			sourceTree = "<group>";
 		};
+		4B97EFD8240FCBEF007523E1 /* CustomInputCell */ = {
+			isa = PBXGroup;
+			children = (
+				4B97EFD9240FCBFE007523E1 /* Base */,
+				4B97EFDC240FE331007523E1 /* MPCustomInputPureTextCell.swift */,
+			);
+			path = CustomInputCell;
+			sourceTree = "<group>";
+		};
+		4B97EFD9240FCBFE007523E1 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				4B97EFDA240FCC31007523E1 /* MPCustomeInputBaseCell.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		4B9B2A9E23E44F8100007B7C /* CustomCalendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -398,6 +419,7 @@
 		4BFFB7682359840500092290 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				4B97EFD8240FCBEF007523E1 /* CustomInputCell */,
 				4B9B2A9E23E44F8100007B7C /* CustomCalendar */,
 				4B3CD8B723DEC9BF00A8D298 /* MainDynamicTabVC */,
 				4B79BE3B235DE20C0008F6D2 /* CustomFloatingBtn */,
@@ -555,6 +577,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B97EFDB240FCC31007523E1 /* MPCustomeInputBaseCell.swift in Sources */,
 				4BB2940923523663009A2BDE /* MPRemindCell.swift in Sources */,
 				4B793ABB23E860A400F83F44 /* MPCustomCalendarCell.swift in Sources */,
 				4B211CB723523135002DF827 /* MPMainTabbarVC.swift in Sources */,
@@ -581,6 +604,7 @@
 				4BB2940B235236AC009A2BDE /* MPCalendarView.swift in Sources */,
 				4B6FAAF623545D1F00F2B92B /* MPCustomTabbarController.swift in Sources */,
 				4BC5339E2358A4FB00CD6D54 /* MPRemindVC.swift in Sources */,
+				4B97EFDD240FE331007523E1 /* MPCustomInputPureTextCell.swift in Sources */,
 				4B4B8A94240F52C200508E8B /* Cache.swift in Sources */,
 				4BB29411235237BA009A2BDE /* MPDetailView.swift in Sources */,
 				4BC5339C23588C0E00CD6D54 /* MPRemindView.swift in Sources */,
