@@ -81,28 +81,55 @@ class MPCustomCalendarCell : UITableViewCell,UICollectionViewDataSource,UICollec
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if indexPath.row + 2 > CalendarUtil.shared.getFirstDayOfMonth(ofYear: year, ofMonth: month){
+        if MPCustomCalendarCacheBuilder.CalendarCache.data.count != 0{
+            let index = CalendarUtil.shared.getMonthIndex(ofYear: year, ofMonth: month)
+            let data = MPCustomCalendarCacheBuilder.CalendarCache.data[index]
+            let firstDay = data.firstDay
             
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "day cell", for: indexPath) as! MPCustomCalendarDayCell
-            
-            cell.day = indexPath.row + 1 - CalendarUtil.shared.getFirstDayOfMonth(ofYear: year, ofMonth: month) + 1
-            cell.year = year
-            cell.month = month
-            
-            cell.getView()
-            
-            if CalendarUtil.shared.isToday(ofYear: year, ofMonth: month, ofDay: indexPath.row + 1 - CalendarUtil.shared.getFirstDayOfMonth(ofYear: year, ofMonth: month) + 1){
-                cell.singleChoose = true
+            if indexPath.row + 2 > firstDay{
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "day cell", for: indexPath) as! MPCustomCalendarDayCell
+                cell.day = data.data[indexPath.row + 1 - firstDay].day
+                cell.month = data.month
+                cell.year = data.year
+                
+                cell.getView()
+                
+                if data.data[indexPath.row + 1 - firstDay].isToday{
+                    cell.singleChoose = true
+                }
+                
+                return cell
+            }else{
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "day cell", for: indexPath) as! MPCustomCalendarDayCell
+                cell.isUserInteractionEnabled = false
+                return cell
             }
             
-            return cell
             
         }else{
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "day cell", for: indexPath) as! MPCustomCalendarDayCell
-            cell.isUserInteractionEnabled = false
-            return cell
+            if indexPath.row + 2 > CalendarUtil.shared.getFirstDayOfMonth(ofYear: year, ofMonth: month){
+                
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "day cell", for: indexPath) as! MPCustomCalendarDayCell
+                
+                cell.day = indexPath.row + 1 - CalendarUtil.shared.getFirstDayOfMonth(ofYear: year, ofMonth: month) + 1
+                cell.year = year
+                cell.month = month
+                
+                cell.getView()
+                
+                if CalendarUtil.shared.isToday(ofYear: year, ofMonth: month, ofDay: indexPath.row + 1 - CalendarUtil.shared.getFirstDayOfMonth(ofYear: year, ofMonth: month) + 1){
+                    cell.singleChoose = true
+                }
+                
+                return cell
+                
+            }else{
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "day cell", for: indexPath) as! MPCustomCalendarDayCell
+                cell.isUserInteractionEnabled = false
+                return cell
+            }
         }
-        
+
     }
     
 }

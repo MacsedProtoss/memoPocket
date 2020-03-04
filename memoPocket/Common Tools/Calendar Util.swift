@@ -21,7 +21,7 @@ class CalendarUtil {
     func getMonthDayCount(ofYear year : Int,ofMonth month : Int) -> Int{
         
         var count = daysOfMonth[month - 1]
-        
+    
         if (year%4==0 && year%100 != 0) || year%400 == 0{
             if month == 2{
                 count = 29
@@ -29,6 +29,13 @@ class CalendarUtil {
         }
         
         return count
+    }
+    
+    func getMonthIndex(ofYear year:Int,ofMonth month : Int) -> Int{
+        let startYear = getStartYear()
+        let startMonth = getStartMonth()
+        
+        return (year-startYear)*12 + (month-startMonth)
     }
     
     func getFirstDayOfMonth(ofYear year : Int,ofMonth month : Int) -> Int{
@@ -235,7 +242,8 @@ class CalendarUtil {
         
         let leftBorder = convertRowToInterval(row: borders[0]).0
         let rightBorder = convertRowToInterval(row: borders[borders.count-1]).1
-        
+//        print(leftBorder.CNtoString)
+//        print(rightBorder.CNtoString)
         
         if start.compare(leftBorder) == .orderedAscending{
             if end.compare(leftBorder) == .orderedAscending{
@@ -278,7 +286,7 @@ class CalendarUtil {
     private func convertRowToInterval(row :Int) -> (Date,Date){
         
         let month = (getStartMonth() + row)%12==0 ? 12 : (getStartMonth() + row)%12
-        let year = getStartYear() + (row+1)/12
+        let year = getStartYear() + ((getStartMonth() + row)%12 == 0 ? (getStartMonth() + row - 1)/12 : (getStartMonth() + row)/12)
         
         let startDay = getDateByYMD(byYear: year, byMonth: month, byDay: 1)
         let endDay = getDateByYMD(byYear: year, byMonth: month, byDay: getCellCount(ofYear: year, ofMonth: month) - getFirstDayOfMonth(ofYear: year, ofMonth: month) + 1)

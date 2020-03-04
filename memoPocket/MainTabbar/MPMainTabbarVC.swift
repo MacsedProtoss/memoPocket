@@ -58,6 +58,11 @@ class tabbarVC : UITabBarController{
         self.selectedViewController = remindVC
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        PerformanceObserver(interval: CGFloat(1/60), handler: performanceHandle).start()
+        MPCustomCalendarCacheBuilder.GetCache()
+    }
     
     @objc private func handleTabPress(_ sender : UIButton){
         print("tab pressed at \(sender.tag)")

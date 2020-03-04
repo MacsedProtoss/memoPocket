@@ -11,9 +11,11 @@
 		4B211CB123522F28002DF827 /* JTAppleCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 4B211CB023522F28002DF827 /* JTAppleCalendar */; };
 		4B211CB723523135002DF827 /* MPMainTabbarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B211CB623523135002DF827 /* MPMainTabbarVC.swift */; };
 		4B211CB923523173002DF827 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B211CB823523173002DF827 /* Extension.swift */; };
+		4B30652D240D2714007B3A66 /* BSBacktraceLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B30652C240D2714007B3A66 /* BSBacktraceLogger.m */; };
 		4B3CD8B623DEBD3000A8D298 /* UI Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3CD8B523DEBD3000A8D298 /* UI Util.swift */; };
 		4B3CD8B923DECA0900A8D298 /* ScrollStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3CD8B823DECA0900A8D298 /* ScrollStatus.swift */; };
 		4B3CD8BB23DECB2C00A8D298 /* MainDynamicTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3CD8BA23DECB2C00A8D298 /* MainDynamicTabVC.swift */; };
+		4B4B8A94240F52C200508E8B /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4B8A93240F52C200508E8B /* Cache.swift */; };
 		4B57D853235228C0002DD038 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B57D852235228C0002DD038 /* AppDelegate.swift */; };
 		4B57D855235228C0002DD038 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B57D854235228C0002DD038 /* SceneDelegate.swift */; };
 		4B57D85A235228C0002DD038 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B57D858235228C0002DD038 /* Main.storyboard */; };
@@ -45,6 +47,7 @@
 		4BB2941A23523826009A2BDE /* MPButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB2941923523826009A2BDE /* MPButtonCell.swift */; };
 		4BB2941D23523870009A2BDE /* MPSegamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB2941C23523870009A2BDE /* MPSegamentViewController.swift */; };
 		4BB2941F23523888009A2BDE /* MPSegamentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB2941E23523888009A2BDE /* MPSegamentCell.swift */; };
+		4BBAC4BE240A967500849847 /* PerformanceObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBAC4BD240A967500849847 /* PerformanceObserver.swift */; };
 		4BC5339A235887FB00CD6D54 /* MPMemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC53399235887FB00CD6D54 /* MPMemoView.swift */; };
 		4BC5339C23588C0E00CD6D54 /* MPRemindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC5339B23588C0E00CD6D54 /* MPRemindView.swift */; };
 		4BC5339E2358A4FB00CD6D54 /* MPRemindVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC5339D2358A4FB00CD6D54 /* MPRemindVC.swift */; };
@@ -73,9 +76,13 @@
 /* Begin PBXFileReference section */
 		4B211CB623523135002DF827 /* MPMainTabbarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPMainTabbarVC.swift; sourceTree = "<group>"; };
 		4B211CB823523173002DF827 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		4B30652B240D2713007B3A66 /* memoPocket-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "memoPocket-Bridging-Header.h"; sourceTree = "<group>"; };
+		4B30652C240D2714007B3A66 /* BSBacktraceLogger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BSBacktraceLogger.m; sourceTree = "<group>"; };
+		4B30652E240D27B1007B3A66 /* BSBacktraceLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BSBacktraceLogger.h; sourceTree = "<group>"; };
 		4B3CD8B523DEBD3000A8D298 /* UI Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UI Util.swift"; sourceTree = "<group>"; };
 		4B3CD8B823DECA0900A8D298 /* ScrollStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollStatus.swift; sourceTree = "<group>"; };
 		4B3CD8BA23DECB2C00A8D298 /* MainDynamicTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDynamicTabVC.swift; sourceTree = "<group>"; };
+		4B4B8A93240F52C200508E8B /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		4B57D84F235228C0002DD038 /* memoPocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = memoPocket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B57D852235228C0002DD038 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B57D854235228C0002DD038 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +120,7 @@
 		4BB2941923523826009A2BDE /* MPButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPButtonCell.swift; sourceTree = "<group>"; };
 		4BB2941C23523870009A2BDE /* MPSegamentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPSegamentViewController.swift; sourceTree = "<group>"; };
 		4BB2941E23523888009A2BDE /* MPSegamentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPSegamentCell.swift; sourceTree = "<group>"; };
+		4BBAC4BD240A967500849847 /* PerformanceObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceObserver.swift; sourceTree = "<group>"; };
 		4BC53399235887FB00CD6D54 /* MPMemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPMemoView.swift; sourceTree = "<group>"; };
 		4BC5339B23588C0E00CD6D54 /* MPRemindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPRemindView.swift; sourceTree = "<group>"; };
 		4BC5339D2358A4FB00CD6D54 /* MPRemindVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPRemindVC.swift; sourceTree = "<group>"; };
@@ -182,6 +190,16 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		4B30652A240D26DC007B3A66 /* PerformanceObserver */ = {
+			isa = PBXGroup;
+			children = (
+				4B30652B240D2713007B3A66 /* memoPocket-Bridging-Header.h */,
+				4B30652E240D27B1007B3A66 /* BSBacktraceLogger.h */,
+				4B30652C240D2714007B3A66 /* BSBacktraceLogger.m */,
+			);
+			path = PerformanceObserver;
+			sourceTree = "<group>";
+		};
 		4B3CD8B323DEB5B900A8D298 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,8 +210,10 @@
 		4B3CD8B423DEBD2000A8D298 /* Common Tools */ = {
 			isa = PBXGroup;
 			children = (
+				4B30652A240D26DC007B3A66 /* PerformanceObserver */,
 				4B3CD8B523DEBD3000A8D298 /* UI Util.swift */,
 				4B5FC54023E94574001A5863 /* Calendar Util.swift */,
+				4BBAC4BD240A967500849847 /* PerformanceObserver.swift */,
 			);
 			path = "Common Tools";
 			sourceTree = "<group>";
@@ -302,6 +322,7 @@
 				4BCD9E0923E68C640072F260 /* MPCustomCalendarVC.swift */,
 				4B9B2AA123E4552B00007B7C /* MPCustomCalendarView.swift */,
 				4B7F942E23E6F972007EF0FC /* MPCustomCalendarDelegate.swift */,
+				4B4B8A93240F52C200508E8B /* Cache.swift */,
 			);
 			path = CustomCalendar;
 			sourceTree = "<group>";
@@ -466,6 +487,7 @@
 				TargetAttributes = {
 					4B57D84E235228C0002DD038 = {
 						CreatedOnToolsVersion = 11.0;
+						LastSwiftMigration = 1130;
 					};
 					4B57D867235228C4002DD038 = {
 						CreatedOnToolsVersion = 11.0;
@@ -546,7 +568,9 @@
 				4B5FC54123E94574001A5863 /* Calendar Util.swift in Sources */,
 				4BC5339A235887FB00CD6D54 /* MPMemoView.swift in Sources */,
 				4B9BE498235355AA00C077C4 /* MPCustomTabbarView.swift in Sources */,
+				4B30652D240D2714007B3A66 /* BSBacktraceLogger.m in Sources */,
 				4B5FC54423E991EE001A5863 /* MPTableWithoutExtraLine.swift in Sources */,
+				4BBAC4BE240A967500849847 /* PerformanceObserver.swift in Sources */,
 				4B3CD8B923DECA0900A8D298 /* ScrollStatus.swift in Sources */,
 				4BCD9E0A23E68C640072F260 /* MPCustomCalendarVC.swift in Sources */,
 				4BFFB76B2359CC3D00092290 /* MPCustomSwitchView.swift in Sources */,
@@ -557,6 +581,7 @@
 				4BB2940B235236AC009A2BDE /* MPCalendarView.swift in Sources */,
 				4B6FAAF623545D1F00F2B92B /* MPCustomTabbarController.swift in Sources */,
 				4BC5339E2358A4FB00CD6D54 /* MPRemindVC.swift in Sources */,
+				4B4B8A94240F52C200508E8B /* Cache.swift in Sources */,
 				4BB29411235237BA009A2BDE /* MPDetailView.swift in Sources */,
 				4BC5339C23588C0E00CD6D54 /* MPRemindView.swift in Sources */,
 				4BB2940E235236EC009A2BDE /* MPDateCell.swift in Sources */,
@@ -742,6 +767,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZPZBJ7D8FK;
 				INFOPLIST_FILE = memoPocket/Info.plist;
@@ -751,6 +777,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = UniqueStudio.Macsed.memoPocket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "memoPocket/Common Tools/PerformanceObserver/memoPocket-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -760,6 +788,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZPZBJ7D8FK;
 				INFOPLIST_FILE = memoPocket/Info.plist;
@@ -769,6 +798,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = UniqueStudio.Macsed.memoPocket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "memoPocket/Common Tools/PerformanceObserver/memoPocket-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

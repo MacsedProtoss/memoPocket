@@ -38,7 +38,17 @@ class MPCustomCalendarVC : UIViewController,UITableViewDelegate,UITableViewDataS
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
+//        if MPCustomCalendarCacheBuilder.CalendarCache.data.count != 0{
+//            var height : CGFloat = 0
+//            for i in 0..<12{
+//                height += MPCustomCalendarCacheBuilder.CalendarCache.data[i].height
+//            }
+//            mainView.calendar.contentOffset = CGPoint(x: 0, y: height)
+//        }else{
         mainView.calendar.scrollToRow(at: IndexPath.init(row: 12, section: 0), at: .top, animated: false)
+//        }
+        
     }
     
     func getView(){
@@ -78,19 +88,33 @@ class MPCustomCalendarVC : UIViewController,UITableViewDelegate,UITableViewDataS
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let month = (CalendarUtil.shared.getStartMonth() + indexPath.row)%12==0 ? 12 : (CalendarUtil.shared.getStartMonth() + indexPath.row)%12
+        if MPCustomCalendarCacheBuilder.CalendarCache.data.count != 0{
+            let data = MPCustomCalendarCacheBuilder.CalendarCache.data[indexPath.row]
+            let cell = MPCustomCalendarCell(year: data.year, month: data.month)
+            cell.calendar.delegate = self
+            return cell
+        }else{
+            let month = (CalendarUtil.shared.getStartMonth() + indexPath.row)%12==0 ? 12 : (CalendarUtil.shared.getStartMonth() + indexPath.row)%12
+            
+            let cell = MPCustomCalendarCell(year: CalendarUtil.shared.getStartYear() + (indexPath.row+1)/12, month: month)
+            cell.calendar.delegate = self
+            return cell
+        }
         
-        let cell = MPCustomCalendarCell(year: CalendarUtil.shared.getStartYear() + (indexPath.row+1)/12, month: month)
-        cell.calendar.delegate = self
-        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        let month = (CalendarUtil.shared.getStartMonth() + indexPath.row)%12==0 ? 12 : (CalendarUtil.shared.getStartMonth() + indexPath.row)%12
-        let year = CalendarUtil.shared.getStartYear() + (indexPath.row+1)/12
+        if MPCustomCalendarCacheBuilder.CalendarCache.data.count != 0{
+            let data = MPCustomCalendarCacheBuilder.CalendarCache.data[indexPath.row]
+            return data.height
+        }else{
+            let month = (CalendarUtil.shared.getStartMonth() + indexPath.row)%12==0 ? 12 : (CalendarUtil.shared.getStartMonth() + indexPath.row)%12
+            let year = CalendarUtil.shared.getStartYear() + (indexPath.row+1)/12
+            
+            return getMonthHeight(year: year, month: month)
+        }
         
-        return getMonthHeight(year: year, month: month)
         
     }
     
@@ -102,7 +126,7 @@ class MPCustomCalendarVC : UIViewController,UITableViewDelegate,UITableViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width:(380.0/7).reSized, height: 40.reSized)
+        return CGSize(width:MPCustomCalendarDayCellCache.base, height: MPCustomCalendarDayCellCache.reSized40)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -313,7 +337,6 @@ class MPCustomCalendarVC : UIViewController,UITableViewDelegate,UITableViewDataS
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == mainView.calendar && type == .comble{
-            
             reDraw(force: false)
         }
     }
@@ -341,7 +364,8 @@ class MPCustomCalendarVC : UIViewController,UITableViewDelegate,UITableViewDataS
             
             if newInterval.count != 0{
                 let interval = newInterval[0]
-                
+                print(interval.0.CNtoString)
+                print(interval.1.CNtoString)
                 drawNewMutil(startAt: interval.0, endAt: interval.1)
                 
                 let startMonthCell = mainView.calendar.cellForRow(at: IndexPath(row: CalendarUtil.shared.getMonthCellIndex(date: interval.0), section: 0)) as! MPCustomCalendarCell
