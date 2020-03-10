@@ -82,9 +82,9 @@ class RemindVC: MainDynamicTabVC,UITableViewDataSource,MPCustomCalendarDelegate 
 //        print("count is \(count)")
 //        print("indexPath is \(indexPath.row)")
         if indexPath.row == count-1{
-            return (164)
+            return (164.reSized)
         }
-        return CGFloat(102)
+        return CGFloat(102.reSized)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -92,7 +92,7 @@ class RemindVC: MainDynamicTabVC,UITableViewDataSource,MPCustomCalendarDelegate 
         let count = tableView.numberOfRows(inSection: 0)
         if indexPath.row == count-1{
             cell.content!.snp.updateConstraints{(make) in
-                make.centerY.equalToSuperview().offset(-31)
+                make.centerY.equalToSuperview().offset(-31.reSized)
             }
         }
         return cell

@@ -11,7 +11,5 @@ import SnapKit
 
 class MPCustomInputPureTextCell : MPCustomeInputBaseCell{
     
-    
-    
-    
+   
 }

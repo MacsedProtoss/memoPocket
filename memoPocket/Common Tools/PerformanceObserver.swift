@@ -61,10 +61,6 @@ class PerformanceObserver : Thread{
 
         }
     }
-
-
-    
-
     
 }
 

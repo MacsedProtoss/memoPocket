@@ -73,11 +73,11 @@ class RemindView : UIView,UIGestureRecognizerDelegate {
         scroll.isPagingEnabled = true
         scroll.showsHorizontalScrollIndicator = false
         scroll.showsVerticalScrollIndicator = false
-        scroll.contentSize = CGSize(width: screensize.width * CGFloat(2), height: screensize.height - CGFloat(274))
+        scroll.contentSize = CGSize(width: screensize.width * CGFloat(2), height: screensize.height - CGFloat(274.reSized))
         self.addSubview(scroll)
         scroll.snp.makeConstraints{(make) in
             make.leading.trailing.bottom.equalToSuperview()
-            make.top.equalToSuperview().offset(274)
+            make.top.equalToSuperview().offset(274.reSized)
         }
         
         scroll.addSubview(contentView)
@@ -91,12 +91,12 @@ class RemindView : UIView,UIGestureRecognizerDelegate {
     }
     
     private func getSwither() -> CustomSwitcherView {
-        let view = CustomSwitcherView(num: 2, title: ["待完成","已完成"], offset: 50, maxLenPerSection: 57)
+        let view = CustomSwitcherView(num: 2, title: ["待完成","已完成"], offset: 50.reSized, maxLenPerSection: 57.reSized)
         self.addSubview(view)
         view.snp.makeConstraints{(make) in
             make.leading.trailing.equalToSuperview()
-            make.top.equalToSuperview().offset(224)
-            make.height.equalTo(30)
+            make.top.equalToSuperview().offset(224.reSized)
+            make.height.equalTo(30.reSized)
         }
         return view
     }
@@ -104,13 +104,13 @@ class RemindView : UIView,UIGestureRecognizerDelegate {
     
     private func getCalendarBtn() -> UIButton {
         let btn = UIButton(type: .system)
-        btn.setImage(UIImage.init(named: "changeDateBtn")?.reSetSize(Size: CGSize(width: 80, height: 23)).withRenderingMode(.alwaysOriginal), for: .normal)
+        btn.setImage(UIImage.init(named: "changeDateBtn")?.reSetSize(Size: CGSize(width: 80.reSized, height: 23.reSized)).withRenderingMode(.alwaysOriginal), for: .normal)
         self.addSubview(btn)
         btn.snp.makeConstraints{(make) in
-            make.leading.equalToSuperview().offset(161)
-            make.height.equalTo(17)
-            make.width.equalTo(80)
-            make.top.equalTo(dateLabel.snp.top).offset(2)
+            make.leading.equalToSuperview().offset(161.reSized)
+            make.height.equalTo(17.reSized)
+            make.width.equalTo(80.reSized)
+            make.top.equalTo(dateLabel.snp.top).offset(2.reSized)
         }
         return btn
     }
@@ -124,9 +124,9 @@ class RemindView : UIView,UIGestureRecognizerDelegate {
 //        btn.btn!.addTarget(self, action: #selector(BtnPressed(_:)), for: .touchUpInside)
         self.addSubview(btn)
         btn.snp.makeConstraints{(make) in
-            make.trailing.equalToSuperview().offset(-16)
-            make.height.width.equalTo(60)
-            make.bottom.equalToSuperview().offset(-170)
+            make.trailing.equalToSuperview().offset(-16.reSized)
+            make.height.width.equalTo(60.reSized)
+            make.bottom.equalToSuperview().offset(-170.reSized)
         }
         
         return btn
@@ -153,14 +153,14 @@ class RemindView : UIView,UIGestureRecognizerDelegate {
     private func getTimeLabel() -> UILabel {
         let label = UILabel()
         label.numberOfLines = 0
-        label.font = UIFont(name: "PingFangSC-Semibold", size: 52)
+        label.font = UIFont(name: "PingFangSC-Semibold", size: 52.reSized)
         label.textColor = getColor(hexValue: 0x49506C, alpha: 1.0)
         self.addSubview(label)
         label.snp.makeConstraints{(make) in
-            make.leading.equalToSuperview().offset(32)
-            make.top.equalToSuperview().offset(84)
-            make.height.equalTo(71)
-            make.width.equalTo(140)
+            make.leading.equalToSuperview().offset(32.reSized)
+            make.top.equalToSuperview().offset(84.reSized)
+            make.height.equalTo(71.reSized)
+            make.width.equalTo(140.reSized)
         }
         let date = Date()
         let formatter = DateFormatter()
@@ -172,14 +172,14 @@ class RemindView : UIView,UIGestureRecognizerDelegate {
     private func getDateLabel() -> UILabel {
         let label = UILabel()
         label.numberOfLines = 0
-        label.font = UIFont(name: "PingFangSC-Medium", size: 16)
+        label.font = UIFont(name: "PingFangSC-Medium", size: 16.reSized)
         label.textColor = getColor(hexValue: 0x686E83, alpha: 1.0)
         self.addSubview(label)
         label.snp.makeConstraints{(make) in
-            make.leading.equalToSuperview().offset(34)
-            make.top.equalTo(timeLabel.snp.bottom).offset(2)
-            make.height.equalTo(23)
-            make.width.equalTo(130)
+            make.leading.equalToSuperview().offset(34.reSized)
+            make.top.equalTo(timeLabel.snp.bottom).offset(2.reSized)
+            make.height.equalTo(23.reSized)
+            make.width.equalTo(130.reSized)
         }
         let date = Date()
         let formatter = DateFormatter()
@@ -198,13 +198,13 @@ class RemindView : UIView,UIGestureRecognizerDelegate {
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = gradientColors
         gradientLayer.locations = gradientLocations
-        gradientLayer.frame = CGRect(x: 0, y: 0, width: screensize.width, height: 128)
+        gradientLayer.frame = CGRect(x: 0, y: 0, width: screensize.width, height: 128.reSized)
         view.layer.insertSublayer(gradientLayer, at: 0)
         
         self.addSubview(view)
         view.snp.makeConstraints{(make) in
             make.leading.trailing.bottom.equalToSuperview()
-            make.height.equalTo(128)
+            make.height.equalTo(128.reSized)
         }
         return view
         
@@ -231,7 +231,7 @@ class RemindView : UIView,UIGestureRecognizerDelegate {
         
         let movingPosition = CGPoint(x: sender.view!.center.x + translation.x, y: sender.view!.center.y + translation.y)
         
-        if movingPosition.x > 30 + 16 && movingPosition.x < screensize.width - 30 - 16 && movingPosition.y > 274+30 && movingPosition.y < screensize.height - 30-113 {
+        if movingPosition.x > 30.reSized + 16.reSized && movingPosition.x < screensize.width - 30.reSized - 16.reSized && movingPosition.y > 274.reSized+30.reSized && movingPosition.y < screensize.height - 30.reSized-113.reSized {
             
             sender.view!.center = movingPosition
         }
@@ -251,9 +251,9 @@ class RemindView : UIView,UIGestureRecognizerDelegate {
             
             
             if movingPosition.x > screensize.width/2{
-                animation.toValue = CGPoint(x: screensize.width-30-16, y: sender.view!.center.y)
+                animation.toValue = CGPoint(x: screensize.width-30.reSized-16.reSized, y: sender.view!.center.y)
             }else{
-                animation.toValue = CGPoint(x: 30 + 16, y: sender.view!.center.y)
+                animation.toValue = CGPoint(x: 30.reSized + 16.reSized, y: sender.view!.center.y)
             }
             
             addBtn!.layer.add(animation, forKey: "basic")

@@ -31,7 +31,7 @@ class CustomSwitcherView : UIView {
     
     convenience init(num : Int,title : [String],offset:CGFloat,maxLenPerSection : CGFloat){
         let width : CGFloat = offset * CGFloat(num - 1) + maxLenPerSection*CGFloat((num-1))
-        let rect = CGRect(x: 0, y: 0, width: width > screensize.width ? screensize.width : width, height: 30)
+        let rect = CGRect(x: 0, y: 0, width: width > screensize.width ? screensize.width : width, height: 30.reSized)
         self.init(frame : rect)
         self.backgroundColor = UIColor.clear
         self.offsetPerSection = offset
@@ -63,10 +63,10 @@ class CustomSwitcherView : UIView {
         
         if (index == selectedIndex){
             btn.setTitleColor(getColor(hexValue:0x49506C, alpha: 1.0), for: .normal)
-            btn.titleLabel?.font = UIFont(name: "PingFangSC-Semibold", size: 18)
+            btn.titleLabel?.font = UIFont(name: "PingFangSC-Semibold", size: 18.reSized)
         }else{
             btn.setTitleColor(getColor(hexValue:0x6B7186, alpha: 1.0), for: .normal)
-            btn.titleLabel?.font = UIFont(name: "PingFangSC-Medium", size: 16)
+            btn.titleLabel?.font = UIFont(name: "PingFangSC-Medium", size: 16.reSized)
         }
         
         btn.setTitle(name, for: .normal)
@@ -76,7 +76,7 @@ class CustomSwitcherView : UIView {
             make.top.equalToSuperview().offset(index == selectedIndex ? 0 : 2)
             make.leading.equalToSuperview().offset(Int(offsetPerSection)*index + Int(lenPerSection)*index)
             make.width.equalTo(lenPerSection)
-            make.height.equalTo(index == selectedIndex ? 25:22)
+            make.height.equalTo(index == selectedIndex ? 25.reSized:22.reSized)
             
         }
         
@@ -87,7 +87,7 @@ class CustomSwitcherView : UIView {
         let scroll = UIScrollView()
         scroll.backgroundColor = UIColor.clear
         let width : CGFloat = offsetPerSection * CGFloat(btnNum - 1) + lenPerSection*CGFloat(btnNum)
-        let size = CGSize(width: width, height: 30)
+        let size = CGSize(width: width, height: 30.reSized)
         scroll.contentSize = size
         scroll.isDirectionalLockEnabled = true
         scroll.showsVerticalScrollIndicator = false
@@ -96,8 +96,8 @@ class CustomSwitcherView : UIView {
         self.addSubview(scroll)
         scroll.snp.makeConstraints{(make) in
             make.top.bottom.equalToSuperview()
-            make.leading.equalToSuperview().offset(37)
-            make.trailing.equalToSuperview().offset(-37)
+            make.leading.equalToSuperview().offset(37.reSized)
+            make.trailing.equalToSuperview().offset(-37.reSized)
         }
         
         return scroll
@@ -106,13 +106,13 @@ class CustomSwitcherView : UIView {
     private func getSatusBar() -> UIView {
         let view = UIView()
         view.backgroundColor = getColor(hexValue: 0x8FA1FF, alpha: 1.0)
-        view.layer.cornerRadius = 2
+        view.layer.cornerRadius = 2.reSized
         mainScroll.addSubview(view)
         
         view.snp.makeConstraints{(make) in
             make.centerX.equalTo(sections[selectedIndex].snp.centerX)
-            make.top.equalToSuperview().offset(26)
-            make.height.equalTo(4)
+            make.top.equalToSuperview().offset(26.reSized)
+            make.height.equalTo(4.reSized)
             make.width.equalTo(lenPerSection)
         }
         
@@ -172,7 +172,7 @@ class CustomSwitcherView : UIView {
 //            }
 //        })
 //
-        self.sections[index].titleLabel!.font = UIFont(name: "PingFangSC-Semibold", size: 18)
+        self.sections[index].titleLabel!.font = UIFont(name: "PingFangSC-Semibold", size: 18.reSized)
         self.sections[index].setTitleColor(getColor(hexValue:0x49506C, alpha: 1.0), for: .normal)
         
         
@@ -201,7 +201,7 @@ class CustomSwitcherView : UIView {
 //            }
 //        })
         
-        self.sections[index].titleLabel!.font = UIFont(name: "PingFangSC-Medium", size: 16)
+        self.sections[index].titleLabel!.font = UIFont(name: "PingFangSC-Medium", size: 16.reSized)
         self.sections[index].setTitleColor(getColor(hexValue:0x6B7186, alpha: 1.0), for: .normal)
         
         

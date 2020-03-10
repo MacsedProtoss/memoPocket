@@ -52,13 +52,13 @@ class RemindCell:UITableViewCell{
         view.layer.shadowOffset = CGSize(width: 0, height: 4.01)
         view.layer.shadowOpacity = 1
         view.layer.shadowRadius = 6
-        view.layer.cornerRadius = 18
+        view.layer.cornerRadius = 18.reSized
         self.addSubview(view)
         view.snp.makeConstraints{(make) in
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
-            make.width.equalTo(380)
-            make.height.equalTo(88)
+            make.width.equalTo(380.reSized)
+            make.height.equalTo(88.reSized)
         }
         return view
     }
@@ -73,8 +73,8 @@ class RemindCell:UITableViewCell{
         view.snp.makeConstraints{(make) in
             make.trailing.equalToSuperview()
             make.centerY.equalToSuperview()
-            make.width.equalTo(6)
-            make.height.equalTo(45)
+            make.width.equalTo(6.reSized)
+            make.height.equalTo(45.reSized)
         }
         
         return view
@@ -83,15 +83,15 @@ class RemindCell:UITableViewCell{
     private func getTitle(title : String) -> UILabel {
         let label = UILabel()
         label.textColor = getColor(hexValue: 0x49506C, alpha: 1.0)
-        label.font = UIFont.init(name: "PingFangSC-Medium", size: 18)
+        label.font = UIFont.init(name: "PingFangSC-Medium", size: 18.reSized)
         label.text = title
         
         content!.addSubview(label)
         label.snp.makeConstraints{(make) in
-            make.leading.equalToSuperview().offset(21)
-            make.top.equalToSuperview().offset(15)
-            make.height.equalTo(25)
-            make.trailing.equalToSuperview().offset(50)
+            make.leading.equalToSuperview().offset(21.reSized)
+            make.top.equalToSuperview().offset(15.reSized)
+            make.height.equalTo(25.reSized)
+            make.trailing.equalToSuperview().offset(50.reSized)
         }
         
         return label
@@ -110,7 +110,7 @@ class RemindCell:UITableViewCell{
             let gradientLayer = CAGradientLayer()
             gradientLayer.colors = gradientColors
             gradientLayer.locations = gradientLocations
-            gradientLayer.frame = CGRect(x: 0, y: 0, width: 76, height: 22)
+            gradientLayer.frame = CGRect(x: 0, y: 0, width: 76.reSized, height: 22.reSized)
             view.layer.insertSublayer(gradientLayer, at: 0)
         case .blue:
             let topColor = UIColor(red: 140/255, green: 176/255, blue: 1, alpha: 1)
@@ -120,7 +120,7 @@ class RemindCell:UITableViewCell{
             let gradientLayer = CAGradientLayer()
             gradientLayer.colors = gradientColors
             gradientLayer.locations = gradientLocations
-            gradientLayer.frame = CGRect(x: 0, y: 0, width: 76, height: 22)
+            gradientLayer.frame = CGRect(x: 0, y: 0, width: 76.reSized, height: 22.reSized)
             view.layer.insertSublayer(gradientLayer, at: 0)
         }
         
@@ -128,10 +128,10 @@ class RemindCell:UITableViewCell{
         
         content!.addSubview(view)
         view.snp.makeConstraints{(make) in
-            make.leading.equalToSuperview().offset(21)
-            make.top.equalTo(titleLabel!.snp.bottom).offset(4)
-            make.height.equalTo(22)
-            make.width.equalTo(76)
+            make.leading.equalToSuperview().offset(21.reSized)
+            make.top.equalTo(titleLabel!.snp.bottom).offset(4.reSized)
+            make.height.equalTo(22.reSized)
+            make.width.equalTo(76.reSized)
         }
         
         
@@ -141,14 +141,14 @@ class RemindCell:UITableViewCell{
     private func getFromLabel(from : String) -> UILabel {
         let label = UILabel()
         label.textColor = getColor(hexValue: 0xFFFFFF, alpha: 1.0)
-        label.font = UIFont.init(name: "PingFangSC-Medium", size: 12)
+        label.font = UIFont.init(name: "PingFangSC-Medium", size: 12.reSized)
         label.text = "来自：" + from
         
         fromLayer!.addSubview(label)
         label.snp.makeConstraints{(make) in
             make.center.equalToSuperview()
-            make.height.equalTo(17)
-            make.width.equalTo(64)
+            make.height.equalTo(17.reSized)
+            make.width.equalTo(64.reSized)
         }
         
         return label
@@ -157,15 +157,15 @@ class RemindCell:UITableViewCell{
     private func getTimeLabel(time : String) -> UILabel {
         let label = UILabel()
         label.textColor = getColor(hexValue: 0x686E83, alpha: 1.0)
-        label.font = UIFont.init(name: "PingFangSC-Medium", size: 12)
+        label.font = UIFont.init(name: "PingFangSC-Medium", size: 12.reSized)
         label.text = time
         
         content!.addSubview(label)
         label.snp.makeConstraints{(make) in
             make.centerY.equalTo(fromLabel!.snp.centerY)
-            make.height.equalTo(17)
-            make.leading.equalTo(fromLayer!.snp.trailing).offset(8)
-            make.width.equalTo(190)
+            make.height.equalTo(17.reSized)
+            make.leading.equalTo(fromLayer!.snp.trailing).offset(8.reSized)
+            make.width.equalTo(190.reSized)
         }
         
         return label
