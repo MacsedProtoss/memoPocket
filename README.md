@@ -4,7 +4,7 @@
 
 ---
 
-based on @口子 & @MagicX ‘s version & do the full rebuild work.
+based on @口子 & @MagicX ‘s version（for 2019 CCCC） & do the full rebuild work.
 
 ## What is momoPocket
 an app that links the elders together with their kids.
