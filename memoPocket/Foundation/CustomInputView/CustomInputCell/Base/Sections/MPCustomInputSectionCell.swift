@@ -20,6 +20,7 @@ class MPCustomInputSectionCell : UITableViewCell{
     
     convenience init(with section : String){
         self.init()
+        self.backgroundColor = .clear
         getSection(with: section)
         getCheck()
     }

@@ -44,6 +44,7 @@ class MPCustomInputPureTextCell : MPCustomInputBaseCell,UITextViewDelegate{
             text.font = UIFont.init(name: "PingFangSC-Semibold", size: 20.reSized)
             text.textColor = getColor(hexValue: 0x686E83, alpha: 0.8)
             text.textAlignment = .left
+            text.backgroundColor = .clear
             mainLayer.addSubview(text)
             text.snp.makeConstraints { (make) in
                 make.leading.equalToSuperview().offset(24.reSized)
@@ -54,8 +55,17 @@ class MPCustomInputPureTextCell : MPCustomInputBaseCell,UITextViewDelegate{
             text.showsVerticalScrollIndicator = false
             text.showsHorizontalScrollIndicator = false
             text.textContainerInset = .zero
-//            text.isScrollEnabled = false
             return text
+        }()
+        
+        let _ : UIToolbar = {
+            let bar = UIToolbar()
+            bar.frame = CGRect(x: 0, y: 0, width: screensize.width, height: 40.reSized)
+            let doneBtn = UIBarButtonItem(title: "完成", style: .done, target: self, action: #selector(finishedInput))
+            let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+            bar.items = [space,doneBtn]
+            inputText.inputAccessoryView = bar
+            return bar
         }()
         
     }
@@ -84,6 +94,10 @@ class MPCustomInputPureTextCell : MPCustomInputBaseCell,UITextViewDelegate{
         }
 
         lastSize = size
+    }
+    
+    @objc func finishedInput(){
+        inputText.endEditing(true)
     }
     
 }
