@@ -68,6 +68,8 @@ class RemindVC: MainDynamicTabVC,UITableViewDataSource,MPCustomCalendarDelegate 
         
         mainView.calendarBtn.addTarget(self, action: #selector(handleChangeDate), for: .touchUpInside)
         
+        mainView.addBtn.btn.addTarget(self, action: #selector(handleAdd), for: .touchUpInside)
+        
         return mainView
     }
     
@@ -123,4 +125,9 @@ class RemindVC: MainDynamicTabVC,UITableViewDataSource,MPCustomCalendarDelegate 
         
     }
     
+    @objc func handleAdd(){
+        let vc = MPRemindAddViewController(cellInfos: [MPCustomInputCellInfo(type: MPCustomInputMultiSelectionCell.self, title: "对象", hint: "请选择发送对象", setctions: ["爸爸","妈妈"], highLevelSections: []),MPCustomInputCellInfo(type: MPCustomInputPureTextCell.self, title: "内容", hint: "请输入内容"),MPCustomInputCellInfo(type: MPCustomInputDatePickCell.self, title: "时间", hint: "请选择发送时间"),MPCustomInputCellInfo(type: MPCustomInputMultiSelectionCell.self, title: "重复", hint: "请选择是否重复", setctions: ["永不","每天","周一","周二","周三","周四","周五","周六","周日"], highLevelSections: ["永不","每天"])])
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc,animated: true,completion: nil)
+    }
 }

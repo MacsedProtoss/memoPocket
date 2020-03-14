@@ -48,6 +48,12 @@ extension UIView{
     
 }
 
+extension Double{
+    var reSized : CGFloat {
+        return CGFloat(self/414*Double(screensize.width))
+    }
+}
+
 extension Float{
     var reSized : CGFloat {
         return CGFloat(self/414*Float(screensize.width))
@@ -105,3 +111,32 @@ let keyWindow = UIApplication.shared.connectedScenes
 .compactMap({$0})
 .first?.windows
 .filter({$0.isKeyWindow}).first
+
+extension String{
+    var numberOfChars : Int{
+        var number = 0
+        
+        guard self.count > 0 else {return 0}
+        
+        for i in 0...self.count - 1 {
+            let c: unichar = NSString(string: self).character(at: i)
+            
+            if (c >= 0x4E00) {
+                number += 2
+            }else {
+                number += 1
+            }
+        }
+        return number
+    }
+}
+
+
+extension String{
+    
+    func getDisplayLength(font:UIFont) -> CGFloat{
+        let realwidth = NSString(string: self).boundingRect(with:CGSize(width: CGFloat(MAXFLOAT), height:0), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil).width //+20
+        return realwidth
+    }
+
+}

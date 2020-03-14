@@ -24,6 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene as! UIWindowScene)
         let tabbarviewcontroller = tabbarVC()
         rootTabbarVC = tabbarviewcontroller
+//        window?.rootViewController = vc
         window?.rootViewController = tabbarviewcontroller
         window?.makeKeyAndVisible()
         

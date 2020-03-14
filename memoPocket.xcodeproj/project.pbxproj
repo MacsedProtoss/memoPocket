@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B1713B22417B2CC002CD88E /* MPCustomInputSingleSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1713B12417B2CC002CD88E /* MPCustomInputSingleSelectionCell.swift */; };
+		4B1713B42417B2E6002CD88E /* MPCustomInputMultiSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1713B32417B2E6002CD88E /* MPCustomInputMultiSelectionCell.swift */; };
+		4B1713B62417B304002CD88E /* MPCustomInputDatePickCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1713B52417B304002CD88E /* MPCustomInputDatePickCell.swift */; };
+		4B1713BA2417B850002CD88E /* MPCustomInputTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1713B92417B850002CD88E /* MPCustomInputTableController.swift */; };
+		4B1713BD2417C45E002CD88E /* MPCustomInputCellInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1713BC2417C45E002CD88E /* MPCustomInputCellInfo.swift */; };
 		4B211CAE23522BF3002DF827 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4B211CAD23522BF3002DF827 /* SnapKit */; };
 		4B211CB123522F28002DF827 /* JTAppleCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 4B211CB023522F28002DF827 /* JTAppleCalendar */; };
 		4B211CB723523135002DF827 /* MPMainTabbarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B211CB623523135002DF827 /* MPMainTabbarVC.swift */; };
@@ -26,6 +31,7 @@
 		4B57D878235228C4002DD038 /* memoPocketUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B57D877235228C4002DD038 /* memoPocketUITests.swift */; };
 		4B5FC54123E94574001A5863 /* Calendar Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5FC54023E94574001A5863 /* Calendar Util.swift */; };
 		4B5FC54423E991EE001A5863 /* MPTableWithoutExtraLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5FC54323E991EE001A5863 /* MPTableWithoutExtraLine.swift */; };
+		4B62BBD9241A637300029FD2 /* MPCustomInputSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B62BBD8241A637300029FD2 /* MPCustomInputSectionCell.swift */; };
 		4B6FAAF623545D1F00F2B92B /* MPCustomTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FAAF523545D1F00F2B92B /* MPCustomTabbarController.swift */; };
 		4B793ABB23E860A400F83F44 /* MPCustomCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B793ABA23E860A400F83F44 /* MPCustomCalendarCell.swift */; };
 		4B793ABF23E8669000F83F44 /* MPCustomCalendarDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B793ABE23E8669000F83F44 /* MPCustomCalendarDayCell.swift */; };
@@ -53,6 +59,8 @@
 		4BC5339A235887FB00CD6D54 /* MPMemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC53399235887FB00CD6D54 /* MPMemoView.swift */; };
 		4BC5339C23588C0E00CD6D54 /* MPRemindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC5339B23588C0E00CD6D54 /* MPRemindView.swift */; };
 		4BC5339E2358A4FB00CD6D54 /* MPRemindVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC5339D2358A4FB00CD6D54 /* MPRemindVC.swift */; };
+		4BCB1785241CEF9E001954AA /* MPRemindAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCB1784241CEF9E001954AA /* MPRemindAddViewController.swift */; };
+		4BCB1787241CFE3B001954AA /* PhoneType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCB1786241CFE3B001954AA /* PhoneType.swift */; };
 		4BCD9E0A23E68C640072F260 /* MPCustomCalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCD9E0923E68C640072F260 /* MPCustomCalendarVC.swift */; };
 		4BCD9E0C23E692D10072F260 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCD9E0B23E692D10072F260 /* Protocols.swift */; };
 		4BFFB76B2359CC3D00092290 /* MPCustomSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFFB76A2359CC3D00092290 /* MPCustomSwitchView.swift */; };
@@ -76,6 +84,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4B1713B12417B2CC002CD88E /* MPCustomInputSingleSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCustomInputSingleSelectionCell.swift; sourceTree = "<group>"; };
+		4B1713B32417B2E6002CD88E /* MPCustomInputMultiSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCustomInputMultiSelectionCell.swift; sourceTree = "<group>"; };
+		4B1713B52417B304002CD88E /* MPCustomInputDatePickCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCustomInputDatePickCell.swift; sourceTree = "<group>"; };
+		4B1713B92417B850002CD88E /* MPCustomInputTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCustomInputTableController.swift; sourceTree = "<group>"; };
+		4B1713BC2417C45E002CD88E /* MPCustomInputCellInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCustomInputCellInfo.swift; sourceTree = "<group>"; };
 		4B211CB623523135002DF827 /* MPMainTabbarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPMainTabbarVC.swift; sourceTree = "<group>"; };
 		4B211CB823523173002DF827 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		4B30652B240D2713007B3A66 /* memoPocket-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "memoPocket-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -101,6 +114,7 @@
 		4B57D879235228C4002DD038 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B5FC54023E94574001A5863 /* Calendar Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar Util.swift"; sourceTree = "<group>"; };
 		4B5FC54323E991EE001A5863 /* MPTableWithoutExtraLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPTableWithoutExtraLine.swift; sourceTree = "<group>"; };
+		4B62BBD8241A637300029FD2 /* MPCustomInputSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCustomInputSectionCell.swift; sourceTree = "<group>"; };
 		4B6FAAF523545D1F00F2B92B /* MPCustomTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCustomTabbarController.swift; sourceTree = "<group>"; };
 		4B793ABA23E860A400F83F44 /* MPCustomCalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCustomCalendarCell.swift; sourceTree = "<group>"; };
 		4B793ABE23E8669000F83F44 /* MPCustomCalendarDayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCustomCalendarDayCell.swift; sourceTree = "<group>"; };
@@ -128,6 +142,8 @@
 		4BC53399235887FB00CD6D54 /* MPMemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPMemoView.swift; sourceTree = "<group>"; };
 		4BC5339B23588C0E00CD6D54 /* MPRemindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPRemindView.swift; sourceTree = "<group>"; };
 		4BC5339D2358A4FB00CD6D54 /* MPRemindVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPRemindVC.swift; sourceTree = "<group>"; };
+		4BCB1784241CEF9E001954AA /* MPRemindAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPRemindAddViewController.swift; sourceTree = "<group>"; };
+		4BCB1786241CFE3B001954AA /* PhoneType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneType.swift; sourceTree = "<group>"; };
 		4BCD9E0923E68C640072F260 /* MPCustomCalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCustomCalendarVC.swift; sourceTree = "<group>"; };
 		4BCD9E0B23E692D10072F260 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		4BFFB76A2359CC3D00092290 /* MPCustomSwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCustomSwitchView.swift; sourceTree = "<group>"; };
@@ -160,6 +176,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B1713B72417B828002CD88E /* CustomInputView */ = {
+			isa = PBXGroup;
+			children = (
+				4B1713BB2417C444002CD88E /* CustomCellInfo */,
+				4B1713B82417B83C002CD88E /* CustomInputTable */,
+				4B97EFD8240FCBEF007523E1 /* CustomInputCell */,
+			);
+			path = CustomInputView;
+			sourceTree = "<group>";
+		};
+		4B1713B82417B83C002CD88E /* CustomInputTable */ = {
+			isa = PBXGroup;
+			children = (
+				4B1713B92417B850002CD88E /* MPCustomInputTableController.swift */,
+			);
+			path = CustomInputTable;
+			sourceTree = "<group>";
+		};
+		4B1713BB2417C444002CD88E /* CustomCellInfo */ = {
+			isa = PBXGroup;
+			children = (
+				4B1713BC2417C45E002CD88E /* MPCustomInputCellInfo.swift */,
+			);
+			path = CustomCellInfo;
+			sourceTree = "<group>";
+		};
 		4B211CB223523064002DF827 /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +259,7 @@
 				4B30652A240D26DC007B3A66 /* PerformanceObserver */,
 				4B3CD8B523DEBD3000A8D298 /* UI Util.swift */,
 				4B5FC54023E94574001A5863 /* Calendar Util.swift */,
+				4BCB1786241CFE3B001954AA /* PhoneType.swift */,
 				4BBAC4BD240A967500849847 /* PerformanceObserver.swift */,
 			);
 			path = "Common Tools";
@@ -300,6 +343,22 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		4B62BBD6241A634100029FD2 /* BaseCell */ = {
+			isa = PBXGroup;
+			children = (
+				4B97EFDA240FCC31007523E1 /* MPCustomeInputBaseCell.swift */,
+			);
+			path = BaseCell;
+			sourceTree = "<group>";
+		};
+		4B62BBD7241A635100029FD2 /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				4B62BBD8241A637300029FD2 /* MPCustomInputSectionCell.swift */,
+			);
+			path = Sections;
+			sourceTree = "<group>";
+		};
 		4B793AB923E85F8400F83F44 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -322,6 +381,9 @@
 			children = (
 				4B97EFD9240FCBFE007523E1 /* Base */,
 				4B97EFDC240FE331007523E1 /* MPCustomInputPureTextCell.swift */,
+				4B1713B12417B2CC002CD88E /* MPCustomInputSingleSelectionCell.swift */,
+				4B1713B32417B2E6002CD88E /* MPCustomInputMultiSelectionCell.swift */,
+				4B1713B52417B304002CD88E /* MPCustomInputDatePickCell.swift */,
 			);
 			path = CustomInputCell;
 			sourceTree = "<group>";
@@ -329,7 +391,8 @@
 		4B97EFD9240FCBFE007523E1 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				4B97EFDA240FCC31007523E1 /* MPCustomeInputBaseCell.swift */,
+				4B62BBD7241A635100029FD2 /* Sections */,
+				4B62BBD6241A634100029FD2 /* BaseCell */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -370,10 +433,9 @@
 		4BB2940523523640009A2BDE /* RemindView */ = {
 			isa = PBXGroup;
 			children = (
-				4BB2940623523656009A2BDE /* MPRemindViewControllerBackup.swift */,
-				4BC5339D2358A4FB00CD6D54 /* MPRemindVC.swift */,
-				4BC5339B23588C0E00CD6D54 /* MPRemindView.swift */,
-				4BB2940823523663009A2BDE /* MPRemindCell.swift */,
+				4BCB1783241CEF5A001954AA /* add */,
+				4BCB1782241CEF50001954AA /* Main */,
+				4BCB1781241CEF45001954AA /* backups */,
 			);
 			path = RemindView;
 			sourceTree = "<group>";
@@ -416,10 +478,36 @@
 			path = SegamentView;
 			sourceTree = "<group>";
 		};
+		4BCB1781241CEF45001954AA /* backups */ = {
+			isa = PBXGroup;
+			children = (
+				4BB2940623523656009A2BDE /* MPRemindViewControllerBackup.swift */,
+			);
+			path = backups;
+			sourceTree = "<group>";
+		};
+		4BCB1782241CEF50001954AA /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				4BC5339D2358A4FB00CD6D54 /* MPRemindVC.swift */,
+				4BC5339B23588C0E00CD6D54 /* MPRemindView.swift */,
+				4BB2940823523663009A2BDE /* MPRemindCell.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		4BCB1783241CEF5A001954AA /* add */ = {
+			isa = PBXGroup;
+			children = (
+				4BCB1784241CEF9E001954AA /* MPRemindAddViewController.swift */,
+			);
+			path = add;
+			sourceTree = "<group>";
+		};
 		4BFFB7682359840500092290 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				4B97EFD8240FCBEF007523E1 /* CustomInputCell */,
+				4B1713B72417B828002CD88E /* CustomInputView */,
 				4B9B2A9E23E44F8100007B7C /* CustomCalendar */,
 				4B3CD8B723DEC9BF00A8D298 /* MainDynamicTabVC */,
 				4B79BE3B235DE20C0008F6D2 /* CustomFloatingBtn */,
@@ -579,6 +667,7 @@
 			files = (
 				4B97EFDB240FCC31007523E1 /* MPCustomeInputBaseCell.swift in Sources */,
 				4BB2940923523663009A2BDE /* MPRemindCell.swift in Sources */,
+				4B1713B22417B2CC002CD88E /* MPCustomInputSingleSelectionCell.swift in Sources */,
 				4B793ABB23E860A400F83F44 /* MPCustomCalendarCell.swift in Sources */,
 				4B211CB723523135002DF827 /* MPMainTabbarVC.swift in Sources */,
 				4B7F942F23E6F972007EF0FC /* MPCustomCalendarDelegate.swift in Sources */,
@@ -591,16 +680,20 @@
 				4B5FC54123E94574001A5863 /* Calendar Util.swift in Sources */,
 				4BC5339A235887FB00CD6D54 /* MPMemoView.swift in Sources */,
 				4B9BE498235355AA00C077C4 /* MPCustomTabbarView.swift in Sources */,
+				4B1713B62417B304002CD88E /* MPCustomInputDatePickCell.swift in Sources */,
 				4B30652D240D2714007B3A66 /* BSBacktraceLogger.m in Sources */,
 				4B5FC54423E991EE001A5863 /* MPTableWithoutExtraLine.swift in Sources */,
 				4BBAC4BE240A967500849847 /* PerformanceObserver.swift in Sources */,
 				4B3CD8B923DECA0900A8D298 /* ScrollStatus.swift in Sources */,
+				4BCB1785241CEF9E001954AA /* MPRemindAddViewController.swift in Sources */,
 				4BCD9E0A23E68C640072F260 /* MPCustomCalendarVC.swift in Sources */,
 				4BFFB76B2359CC3D00092290 /* MPCustomSwitchView.swift in Sources */,
+				4B62BBD9241A637300029FD2 /* MPCustomInputSectionCell.swift in Sources */,
 				4BB29400235235A4009A2BDE /* MPMemoViewController.swift in Sources */,
 				4B793ABF23E8669000F83F44 /* MPCustomCalendarDayCell.swift in Sources */,
 				4B79BE3D235DE2270008F6D2 /* CustomFloatingBtnView.swift in Sources */,
 				4BCD9E0C23E692D10072F260 /* Protocols.swift in Sources */,
+				4BCB1787241CFE3B001954AA /* PhoneType.swift in Sources */,
 				4BB2940B235236AC009A2BDE /* MPCalendarView.swift in Sources */,
 				4B6FAAF623545D1F00F2B92B /* MPCustomTabbarController.swift in Sources */,
 				4BC5339E2358A4FB00CD6D54 /* MPRemindVC.swift in Sources */,
@@ -610,13 +703,16 @@
 				4BC5339C23588C0E00CD6D54 /* MPRemindView.swift in Sources */,
 				4BB2940E235236EC009A2BDE /* MPDateCell.swift in Sources */,
 				4B9B2AA223E4552B00007B7C /* MPCustomCalendarView.swift in Sources */,
+				4B1713BA2417B850002CD88E /* MPCustomInputTableController.swift in Sources */,
 				4BB29414235237F0009A2BDE /* MPNewViewController.swift in Sources */,
 				4BB2941D23523870009A2BDE /* MPSegamentViewController.swift in Sources */,
 				4B9B2AA023E44F9A00007B7C /* common values.swift in Sources */,
 				4B57D855235228C0002DD038 /* SceneDelegate.swift in Sources */,
 				4BB2941A23523826009A2BDE /* MPButtonCell.swift in Sources */,
 				4B3CD8B623DEBD3000A8D298 /* UI Util.swift in Sources */,
+				4B1713BD2417C45E002CD88E /* MPCustomInputCellInfo.swift in Sources */,
 				4B57D85D235228C0002DD038 /* memoPocket.xcdatamodeld in Sources */,
+				4B1713B42417B2E6002CD88E /* MPCustomInputMultiSelectionCell.swift in Sources */,
 				4BB2940723523656009A2BDE /* MPRemindViewControllerBackup.swift in Sources */,
 				4BB29402235235B4009A2BDE /* MPMemoCell.swift in Sources */,
 			);

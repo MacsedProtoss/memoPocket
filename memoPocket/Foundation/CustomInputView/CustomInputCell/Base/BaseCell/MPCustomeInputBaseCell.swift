@@ -9,12 +9,18 @@
 import UIKit
 import SnapKit
 
-class MPCustomeInputBaseCell : UITableViewCell {
+protocol MPCustomInputCellDelegate {
+    func updateHeight(withCell cell : MPCustomInputBaseCell, to height:CGFloat)
+}
+
+class MPCustomInputBaseCell : UITableViewCell {
     
     var foldBtn : UIButton!
     var hintLabel : UILabel!
     var mainLayer : UIView!
     var titleLabel : UILabel!
+    
+    var delegate : MPCustomInputCellDelegate?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -29,7 +35,7 @@ class MPCustomeInputBaseCell : UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func getView(withTitle title : String,withHint hint : String,hasFold isFold : Bool){
+    internal func getView(withTitle title : String,withHint hint : String,hasFold isFold : Bool){
         getBasicView(withTitle: title)
         getHint(withHint: hint)
         if isFold{
@@ -37,7 +43,7 @@ class MPCustomeInputBaseCell : UITableViewCell {
         }
     }
     
-    private func getBasicView(withTitle title:String){
+    internal func getBasicView(withTitle title:String){
         self.backgroundColor = .clear
         titleLabel = {
             let label = UILabel()
@@ -50,7 +56,7 @@ class MPCustomeInputBaseCell : UITableViewCell {
             self.addSubview(label)
             label.snp.makeConstraints { (make) in
                 make.leading.equalToSuperview().offset(46.reSized)
-                make.top.equalToSuperview()
+                make.top.equalToSuperview().offset(31.reSized)
                 make.width.equalToSuperview()
                 make.height.equalTo(28.reSized)
             }
@@ -65,12 +71,17 @@ class MPCustomeInputBaseCell : UITableViewCell {
             view.layer.cornerRadius = 13.reSized
             view.layer.masksToBounds = true
             
+            view.layer.shadowColor = getColor(hexValue: 0xD8DEEC, alpha: 0.8).cgColor
+            view.layer.shadowOffset = CGSize(width: 0, height: 4.reSized)
+            view.layer.shadowOpacity = 1
+            view.layer.shadowRadius = 9.reSized
+            
             self.addSubview(view)
             view.snp.makeConstraints { (make) in
                 make.leading.equalToSuperview().offset(22.reSized)
                 make.trailing.equalToSuperview().offset(-22.reSized)
                 make.height.equalTo(57.reSized)
-                make.top.equalToSuperview().offset(38.reSized)
+                make.top.equalToSuperview().offset(69.reSized)
             }
             
             return view
@@ -80,7 +91,7 @@ class MPCustomeInputBaseCell : UITableViewCell {
     }
     
     
-    private func getHint(withHint hint:String){
+    internal func getHint(withHint hint:String){
         hintLabel = {
             let label = UILabel()
             
@@ -91,7 +102,7 @@ class MPCustomeInputBaseCell : UITableViewCell {
             
             mainLayer.addSubview(label)
             label.snp.makeConstraints { (make) in
-                make.centerY.equalToSuperview()
+                make.top.equalToSuperview().offset(15.reSized)
                 make.leading.equalToSuperview().offset(24.reSized)
                 make.height.equalTo(28.reSized)
                 make.trailing.equalToSuperview().offset(-32.reSized)
@@ -101,7 +112,7 @@ class MPCustomeInputBaseCell : UITableViewCell {
         }()
     }
     
-    private func getFold(){
+    internal func getFold(){
         foldBtn = {
             let btn = UIButton(type: .system)
             btn.setImage(UIImage.init(systemName: "chevron.down")?.reSetSize(Size: CGSize(width: 20.reSized, height: 14.reSized)).withTintColor(getColor(hexValue: 0x686E83, alpha: 0.8), renderingMode: .alwaysOriginal), for: .normal)
@@ -109,7 +120,7 @@ class MPCustomeInputBaseCell : UITableViewCell {
             mainLayer.addSubview(btn)
             btn.snp.makeConstraints { (make) in
                 make.trailing.equalToSuperview().offset(-21.reSized)
-                make.centerY.equalToSuperview()
+                make.top.equalToSuperview().offset(23.reSized)
                 make.width.equalTo(20.reSized)
                 make.height.equalTo(14.reSized)
             }
